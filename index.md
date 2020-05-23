@@ -11,8 +11,8 @@ Master of Science in Computer and Information Engineering, National Dong Hwa Uni
 
 ### [Reallusion](www.reallusion.com)
 
-Senior Software Engineer | May 2020-Present  
-Software Engineer | July 2017-May 2020
+Senior Software Engineer \| May 2020-Present  
+Software Engineer \| July 2017-May 2020
 
 * Designed and implemented both backend and frontend of [Smart Gallery](https://www.reallusion.com/smartgallery/) client application
 * Increased rendering speed of [Iray Plugin](https://www.reallusion.com/render/iray/) by 9 times
@@ -23,7 +23,7 @@ Software Engineer | July 2017-May 2020
 ## ACTIVITIES AND AWARDS
 
 **[2018智慧城市展城市創新應用獎](https://www.chinatimes.com/newspapers/20180329000808-260107?chdtv)**  
-Engineer | 2016-2017
+Engineer \| 2016-2017
 
 * Designed and implemented both Android application and background server
 * Implemented drone task system
