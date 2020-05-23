@@ -23,7 +23,7 @@ Software Engineer &#124; July 2017-May 2020
 ## ACTIVITIES AND AWARDS
 
 **[2018智慧城市展城市創新應用獎](https://www.chinatimes.com/newspapers/20180329000808-260107?chdtv)**  
-Engineer \| 2016-2017
+Engineer &#124; 2016-2017
 
 * Designed and implemented both Android application and background server
 * Implemented drone task system
