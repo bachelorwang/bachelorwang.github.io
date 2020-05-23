@@ -11,8 +11,8 @@ Master of Science in Computer and Information Engineering, National Dong Hwa Uni
 
 ### [Reallusion](www.reallusion.com)
 
-Senior Software Engineer \| May 2020-Present  
-Software Engineer \| July 2017-May 2020
+Senior Software Engineer &#124; May 2020-Present  
+Software Engineer &#124; July 2017-May 2020
 
 * Designed and implemented both backend and frontend of [Smart Gallery](https://www.reallusion.com/smartgallery/) client application
 * Increased rendering speed of [Iray Plugin](https://www.reallusion.com/render/iray/) by 9 times
