@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="home">
+  {%- for tag in site.tags -%}
+  <h1 id="{{tag[0]}}">
+      {{ tag[0] }}
+  </h1>
+  <ul class="post-list">
+    {% for post in tag[1] %}
+      <li>
+        <h3>
+          <a href="{{ post.url | relative_url }}">
+            {{ post.title | escape }}
+          </a>
+        </h3>
+      </li>
+    {%- endfor -%}
+  </ul>
+  {%- endfor -%}
+</div>
