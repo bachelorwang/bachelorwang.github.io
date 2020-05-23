@@ -34,5 +34,5 @@ Author of awarded paper: [Construction of 3D Game Streaming Platform](https://hd
 ## SKILLS
 
 Programming Language: C++, Python, Java, Dart, SQL  
-Library: Vulkan, DirectX, OpenGL, Qt, boost, spirit, LLVM
-Tool: Vim, Visual Studio, Visual Code
+Library: Vulkan, DirectX, OpenGL, Qt, boost, spirit, LLVM  
+Tool: Vim, Visual Studio, Visual Code  
