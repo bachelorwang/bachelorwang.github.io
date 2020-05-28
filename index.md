@@ -21,6 +21,8 @@ Software Engineer &#124; July 2017-May 2020
 * Improved the visual quality of iClone
 
 [![Smart Gallery](https://img.youtube.com/vi/_6VPSDy10kU/0.jpg)](http://www.youtube.com/watch?v=_6VPSDy10kU)
+[![Iray Plugin](https://img.youtube.com/vi/pHUN-jjeewM/0.jpg)](http://www.youtube.com/watch?v=pHUN-jjeewM)
+[![Glow Enhancement](https://img.youtube.com/vi/g3DkR94pfSs/0.jpg)](http://www.youtube.com/watch?v=g3DkR94pfSs)
 
 ## ACTIVITIES AND AWARDS
 
