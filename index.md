@@ -20,6 +20,8 @@ Software Engineer &#124; July 2017-May 2020
 * Decreased file loading time by 43% of all products
 * Improved the visual quality of iClone
 
+[![Smart Gallery](https://img.youtube.com/vi/_6VPSDy10kU/0.jpg)](http://www.youtube.com/watch?v=_6VPSDy10kU)
+
 ## ACTIVITIES AND AWARDS
 
 **[2018智慧城市展城市創新應用獎](https://www.chinatimes.com/newspapers/20180329000808-260107?chdtv)**  
