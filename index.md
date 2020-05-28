@@ -27,11 +27,14 @@ Software Engineer &#124; July 2017-May 2020
 
 ## ACTIVITIES AND AWARDS
 
-**[2018智慧城市展城市創新應用獎](https://www.chinatimes.com/newspapers/20180329000808-260107?chdtv)**  
+**[2018智慧城市展城市創新應用獎](https://www.ettoday.net/news/20180328/1139852.htm)**  
 Engineer &#124; 2016-2017
 
 * Designed and implemented both Android application and background server
 * Implemented drone task system
+
+[![獲獎合影](https://cdn2.ettoday.net/images/3194/d3194030.jpg)](https://www.ettoday.net/news/20180328/1139852.htm)
+
 
 **CGW 2017 佳作論文獎**  
 Author of awarded paper: [Construction of 3D Game Streaming Platform](https://hdl.handle.net/11296/vjz778)
