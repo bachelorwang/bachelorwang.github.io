@@ -16,6 +16,7 @@ Software Engineer &#124; July 2017-May 2020
 
 * Designed and implemented both backend and frontend of [Smart Gallery](https://www.reallusion.com/smartgallery/) client application
 * Increased rendering speed of [Iray Plugin](https://www.reallusion.com/render/iray/) by 9 times
+* Increased rendering speed of iClone by 3 times
 * Designed and implemented internal PostgreSQL library
 * Decreased file loading time by 43% of all products
 * Improved the visual quality of iClone
@@ -38,5 +39,5 @@ Author of awarded paper: [Construction of 3D Game Streaming Platform](https://hd
 ## SKILLS
 
 Programming Language: C++, Python, Java, Dart, SQL  
-Library: Vulkan, DirectX, OpenGL, Qt, boost, spirit, LLVM  
+Library: Vulkan, DirectX, OpenGL, Qt, boost, spirit, LLVM, tbb  
 Tool: Vim, Visual Studio, Visual Code  
