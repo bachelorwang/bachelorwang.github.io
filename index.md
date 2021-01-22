@@ -9,7 +9,7 @@ Master of Science in Computer and Information Engineering, National Dong Hwa Uni
 
 ## WORK EXPERIENCE
 
-### [Reallusion](www.reallusion.com)
+### [Reallusion](https://www.reallusion.com)
 
 Senior Software Engineer &#124; May 2020-Present  
 Software Engineer &#124; July 2017-May 2020
