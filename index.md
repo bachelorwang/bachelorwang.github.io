@@ -14,11 +14,12 @@ Master of Science in Computer and Information Engineering, National Dong Hwa Uni
 Senior Software Engineer &#124; May 2020-Present  
 Software Engineer &#124; July 2017-May 2020
 
-* Designed and implemented both backend and frontend of [Smart Gallery](https://www.reallusion.com/smartgallery/) client application in C++ with Qt framework
+* Designed and implemented both backend and frontend of [Smart Gallery](https://www.reallusion.com/smartgallery/) in C++ with Qt framework, a application/plug-in is able to synchronize thousands of 3D contents user created or edited between cloud and local
 * Increased performance of iClone(developed in C++) by 3 times with thread-rendering
-* Designed and implemented internal PostgreSQL library in C++
-* Decreased file loading time by 43% of all products by multithreading
-* Improved the visual quality of iClone
+* Designed and implemented internal-proved PostgreSQL library in C++, it simplifies the development flows of native value type conversion between C++ and SQL and database communication. Incredibly increase the speed of implementing DB communication function for C++ developers or even for who has never learned SQL before.
+* Decreased time of file loading and resource processing by 43% of all products by multithreading
+* Improved glow and bloom effect and also solved color banding issue in iClone7
+* Implement both alembic import and export features
 
 [![Smart Gallery](https://img.youtube.com/vi/_6VPSDy10kU/0.jpg)](http://www.youtube.com/watch?v=_6VPSDy10kU)
 [![Iray Plugin](https://img.youtube.com/vi/pHUN-jjeewM/0.jpg)](http://www.youtube.com/watch?v=pHUN-jjeewM)
