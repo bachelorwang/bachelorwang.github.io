@@ -14,11 +14,10 @@ Master of Science in Computer and Information Engineering, National Dong Hwa Uni
 Senior Software Engineer &#124; May 2020-Present  
 Software Engineer &#124; July 2017-May 2020
 
-* Designed and implemented both backend and frontend of [Smart Gallery](https://www.reallusion.com/smartgallery/) client application
-* Increased rendering speed of [Iray Plugin](https://www.reallusion.com/render/iray/) by 9 times
-* Increased rendering speed of iClone by 3 times
-* Designed and implemented internal PostgreSQL library
-* Decreased file loading time by 43% of all products
+* Designed and implemented both backend and frontend of [Smart Gallery](https://www.reallusion.com/smartgallery/) client application in C++ with Qt framework
+* Increased performance of iClone(developed in C++) by 3 times with thread-rendering
+* Designed and implemented internal PostgreSQL library in C++
+* Decreased file loading time by 43% of all products by multithreading
 * Improved the visual quality of iClone
 
 [![Smart Gallery](https://img.youtube.com/vi/_6VPSDy10kU/0.jpg)](http://www.youtube.com/watch?v=_6VPSDy10kU)
@@ -35,9 +34,8 @@ Engineer &#124; 2016-2017
 
 [![獲獎合影](https://cdn2.ettoday.net/images/3194/d3194030.jpg)](https://www.ettoday.net/news/20180328/1139852.htm)
 
-
 **CGW 2017 佳作論文獎**  
-Author of awarded paper: [Construction of 3D Game Streaming Platform](https://hdl.handle.net/11296/vjz778)
+Author of awarded paper: Construction of 3D Game Streaming Platform
 
 ## SKILLS
 
