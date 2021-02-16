@@ -26,6 +26,8 @@ github_username:  bachelorwang
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 minima:
   date_format: "%Y/%m/%d"
