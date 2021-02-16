@@ -33,6 +33,7 @@ minima:
   date_format: "%Y/%m/%d"
 
 google_analytics: UA-76817392-2
+google_site_verification: 6g-w8FdHk9vI_Af11BQfungKpiZUFK7viacKhVM2BJs
 
 # Exclude from processing.
 # The following items will not be processed, by default.
