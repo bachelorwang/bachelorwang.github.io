@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Dockerizing MSBuild(Visual Studio 2019)
+tags:
+  - docker
+  - c++
 ---
 
 在開始學習Docker後我不禁萌生這樣的想法「是否能將建置環境容器化」。傳統進行開發工程師無庸置疑地會安裝能夠成功建置專案的作業環境，然而隨著專案複雜度、專案數量日益增長，作業環境不免顯得雜亂且複雜，更甚者可能出現衝突或空間浪費。

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Docker基礎指令
+tags:
+  - docker
 ---
 
 容器技術對於分散式系統、CI/CD非常關鍵，利用 namespaces 與 cgroups 形成 container；在 container 內與原生環境的 process、network、ID、mounted file system 被 kernel 隔離開來，可當作直接利用核心的達成虛擬化的手段。這也是為什麼 Windows 使用 Docker 前必須啟用 WSL。

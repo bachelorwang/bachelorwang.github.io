@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Omniverse
+tags:
+  - usd
+  - omniverse
 ---
 
 NVIDIA醞釀已久的 Omniverse 在2020/12/15終於開放 Beta 測試，Omniverse 最為人注目的應該是他的協作(collaboration)與渲染(rendering)能力。然而要踏入 Omniverse 需要不少先備知識，在此──套O'Reilly最常見的標題──「深入淺出」希望能讓讀者盡早融入 Omniverse 龐大的體系。

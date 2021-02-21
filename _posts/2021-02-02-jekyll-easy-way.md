@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Docker + Jekyll = an easy way to create Github Pages blogger
+tags:
+  - docker
 ---
 
 [Github Pages](https://pages.github.com/)省下不少人架設個人伺服器的時間與金錢，然而要做出一個兼具結構與美觀的靜態網站仍需下一番苦工。雖然從頭到撰寫 HTML 與 css 也是一種做法，但不少人會採用 Generator 產生靜態頁面，其中又以 Github 內建支援的 [Jekyll](https://jekyllrb.com/docs/) 成為首選。
