@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 論重構
+title: 論重構 01
 tags:
   - refactoring
 ---
