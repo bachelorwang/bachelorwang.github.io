@@ -14,7 +14,7 @@ Master of Science in Computer and Information Engineering, National Dong Hwa Uni
 
 ## WORK EXPERIENCE
 
-### [Weintek] (https://www.weintek.com)
+### [Weintek](https://www.weintek.com)
 
 Software Engineer &#124; April 2021-Present
 
