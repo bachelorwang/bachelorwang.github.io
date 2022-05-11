@@ -14,9 +14,17 @@ Master of Science in Computer and Information Engineering, National Dong Hwa Uni
 
 ## WORK EXPERIENCE
 
+### [Weintek] (https://www.weintek.com)
+
+Software Engineer &#124; April 2021-Present
+
+* Refactored legacy code
+* Developed an IEC 61850 server driver
+* Developed features
+
 ### [VICI Holdings](https://www.viciholdings.com)
 
-Senior Software Engineer &#124; April 2021-Present
+Senior Software Engineer &#124; April 2021-October 2021
 
 * Designed and implemented a internal message queue library, also provided a native C++ NodeJS addon
 * Refactored a legacy trading system
