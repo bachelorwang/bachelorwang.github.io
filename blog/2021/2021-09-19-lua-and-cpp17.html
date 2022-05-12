@@ -1,0 +1,584 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Lua with C++17 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2021-10-12-absl-layout.html" />
+    
+    
+    <link rel="prev" href="2021-06-20-rust-003.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../about.html">
+            
+                <a href="../../about.html">
+            
+                    
+                    About
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Blog
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2022/">
+            
+                <a href="../2022/">
+            
+                    
+                    2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../2022/2022-01-23-refactoring_01.html">
+            
+                <a href="../2022/2022-01-23-refactoring_01.html">
+            
+                    
+                    論重構 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../2022/2022-02-04-refactoring_02.html">
+            
+                <a href="../2022/2022-02-04-refactoring_02.html">
+            
+                    
+                    論重構 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../2022/2022-02-18-cpp-detection-idiom.html">
+            
+                <a href="../2022/2022-02-18-cpp-detection-idiom.html">
+            
+                    
+                    C++ detection idiom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../2022/2022-05-11-next_permutation.html">
+            
+                <a href="../2022/2022-05-11-next_permutation.html">
+            
+                    
+                    next_permutation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    2021
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="2021-01-13-omniverse.html">
+            
+                <a href="2021-01-13-omniverse.html">
+            
+                    
+                    Omniverse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="2021-02-01-docker-hands-on.html">
+            
+                <a href="2021-02-01-docker-hands-on.html">
+            
+                    
+                    Docker基礎指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="2021-02-02-jekyll-easy-way.html">
+            
+                <a href="2021-02-02-jekyll-easy-way.html">
+            
+                    
+                    Docker + Jekyll = an easy way to create Github Pages blogger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="2021-02-03-create-msbuild-image.html">
+            
+                <a href="2021-02-03-create-msbuild-image.html">
+            
+                    
+                    Dockerizing MSBuild(Visual Studio 2019)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="2021-02-04-first-usd.html">
+            
+                <a href="2021-02-04-first-usd.html">
+            
+                    
+                    建立第一個 USD 場景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="2021-02-20-usdgeommesh.html">
+            
+                <a href="2021-02-20-usdgeommesh.html">
+            
+                    
+                    建立 USD Mesh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="2021-02-21-build-linux-kernel.html">
+            
+                <a href="2021-02-21-build-linux-kernel.html">
+            
+                    
+                    Linux Kernel 開發環境設定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="2021-04-23-typelist.html">
+            
+                <a href="2021-04-23-typelist.html">
+            
+                    
+                    Metaprogramming - TypeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="2021-04-24-perf.html">
+            
+                <a href="2021-04-24-perf.html">
+            
+                    
+                    perf counter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="2021-05-02-rust-001.html">
+            
+                <a href="2021-05-02-rust-001.html">
+            
+                    
+                    Rust 001
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="2021-05-08-rust-002.html">
+            
+                <a href="2021-05-08-rust-002.html">
+            
+                    
+                    Rust 002
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.12" data-path="2021-06-20-rust-003.html">
+            
+                <a href="2021-06-20-rust-003.html">
+            
+                    
+                    Rust 003
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2.13" data-path="2021-09-19-lua-and-cpp17.html">
+            
+                <a href="2021-09-19-lua-and-cpp17.html">
+            
+                    
+                    Lua with C++17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.14" data-path="2021-10-12-absl-layout.html">
+            
+                <a href="2021-10-12-absl-layout.html">
+            
+                    
+                    abseil - layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Lua with C++17</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <p>Template &#x7684;&#x9B45;&#x529B;&#x4E4B;&#x4E00;&#x5728;&#x65BC;&#x81EA;&#x52D5;&#x7522;&#x751F;&#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x5927;&#x5E45;&#x6E1B;&#x5C11;&#x5197;&#x9918;&#x4F5C;&#x696D;&#x3002; C++14&#x7684; <code>integer_sequence</code> &#x8207; 17 &#x7684; fold expression&#xFF0C;&#x662F;&#x5C6C;&#x65BC;&#x5169;&#x500B;&#x7528;&#x6CD5;&#x8F03;&#x4E0D;&#x76F4;&#x89BA;&#x7684;&#x65B0;&#x529F;&#x80FD;&#x3002;&#x6211;&#x60F3;&#x5C31; Lua &#x5728; C++ &#x7684;&#x6574;&#x5408;&#x4F86;&#x4F5C;&#x8AAA;&#x660E;&#x3002;</p>
+<p>&#x4F7F;&#x7528; C &#x6216;&#x904A;&#x6232;&#x696D;&#x7684;&#x4EBA;&#x6216;&#x591A;&#x6216;&#x5C11;&#x90FD;&#x807D;&#x904E; Lua&#xFF0C;&#x751A;&#x81F3;&#x81EA;&#x5DF1;&#x5C31;&#x662F;&#x4F7F;&#x7528;&#x8005;&#x3002;&#x5C0D;&#x4E0D;&#x4E86;&#x89E3; Lua &#x7684;&#x4EBA;&#xFF0C;&#x7C21;&#x55AE;&#x5730;&#x8AAA; Lua &#x662F;&#x4E00;&#x9580;&#x4EE5; C &#x5BE6;&#x4F5C;&#x7684;&#x76F4;&#x8B6F;&#x8A9E;&#x8A00;&#xFF0C;&#x57F7;&#x884C;&#x6642;&#x76F8;&#x7576;&#x65BC;&#x904B;&#x8F49; virtual machine&#x3002;Lua &#x8207; C &#x7684;&#x4E92;&#x52D5;&#xFF0C;&#x4FBF;&#x662F;&#x900F;&#x904E;&#x5C0D; virtual machine &#x7684; stack &#x9032;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x9054;&#x6210; C &#x547C;&#x53EB; Lua function&#x3001;Lua &#x547C;&#x53EB; C function &#x7684;&#x6982;&#x5FF5;&#x3002;</p>
+<p>&#x5982;&#x6B64;&#x9019;&#x500B;&#x5BE6;&#x4F5C;&#x5C31;&#x6709;&#x4E00;&#x500B;&#x986F;&#x800C;&#x6613;&#x898B;&#x7684;&#x96E3;&#x8655;&#xFF1A;</p>
+<pre><code class="lang-cpp"><span class="hljs-comment">// https://www.lua.org/pil/26.1.html</span>
+<span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">l_sin</span> <span class="hljs-params">(lua_State *L)</span> </span>{
+  <span class="hljs-keyword">double</span> d = lua_tonumber(L, <span class="hljs-number">1</span>);
+  lua_pushnumber(L, <span class="hljs-built_in">sin</span>(d));
+  <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+}
+</code></pre>
+<p>&#x5118;&#x7BA1;&#x9019;&#x500B;&#x4F8B;&#x5B50;&#x770B;&#x4F86;&#x55AE;&#x7D14;&#xFF0C;&#x4F46;&#x91DD;&#x5C0D;&#x4E0D;&#x540C;&#x6578;&#x91CF;&#x53C3;&#x6578;&#x3001;&#x4E0D;&#x540C;&#x8FD4;&#x56DE;&#x578B;&#x5225;&#x7684;&#x51FD;&#x6578;&#xFF0C;&#x7A0B;&#x5F0F;&#x8A2D;&#x8A08;&#x5E2B;&#x5C31;&#x5FC5;&#x9808;&#x91CD;&#x65B0;&#x64B0;&#x5BEB;&#x985E;&#x4F3C;&#x7684;&#x7247;&#x6BB5;&#x3002;&#x6211;&#x5011;&#x5982;&#x4F55;&#x5229;&#x7528; C++ &#x7684;&#x6280;&#x5DE7;&#x4F86;&#x89E3;&#x6C7A;&#x9019;&#x500B;&#x554F;&#x984C;&#xFF1F;&#x9996;&#x5148;&#xFF0C;&#x6700;&#x5927;&#x7684;&#x96E3;&#x984C;&#x300C;&#x6211;&#x5011;&#x8981;&#x600E;&#x9EBC;&#x77E5;&#x9053;&#x4E00;&#x500B;&#x51FD;&#x6578;&#x7684;signature&#x300D;&#x90A3;&#x4FBF;&#x662F;&#x5229;&#x7528; template argument deduction &#x7684;&#x6280;&#x5DE7;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> _signature&gt;
+<span class="hljs-keyword">struct</span> function;
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> _ret, <span class="hljs-keyword">typename</span>... _args&gt;
+<span class="hljs-keyword">struct</span> function&lt;_ret(_args...)&gt; {
+  <span class="hljs-keyword">using</span> result_type = _ret;
+  <span class="hljs-keyword">using</span> parameter_types = <span class="hljs-built_in">std</span>::tuple&lt;_args...&gt;;
+  <span class="hljs-keyword">static</span> <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">size_t</span> parameter_count = <span class="hljs-keyword">sizeof</span>...(_args);
+  <span class="hljs-keyword">using</span> type = _ret (*)(_args...);
+};
+</code></pre>
+<p>&#x5728;&#x6B64;&#x4F7F;&#x7528; tuple &#x6709;&#x5169;&#x500B;&#x7528;&#x8655;&#xFF0C;&#x7B2C;&#x4E00;&#x662F;&#x70BA;&#x4E86;&#x5C07;&#x5C55;&#x958B;&#x7684; parameter pack &#x4FDD;&#x5B58;&#x70BA; <code>struct</code> &#x7684;&#x8CC7;&#x8A0A;&#x4E4B;&#x4E00;&#xFF0C;&#x7B2C;&#x4E8C;&#x662F;&#x70BA;&#x4E86;&#x5728; Lua &#x547C;&#x53EB; C function &#x6642;&#x5C07;&#x5F15;&#x6578;&#x50B3;&#x5165; function &#x5167;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> _args, <span class="hljs-keyword">size_t</span>... _indexes&gt;
+<span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">pop_all_args</span><span class="hljs-params">(lua_State* handle,
+                                _args&amp; args,
+                                <span class="hljs-built_in">std</span>::index_sequence&lt;_indexes...&gt;)</span> </span>{
+  (pop_arg(<span class="hljs-built_in">std</span>::get&lt;_indexes&gt;(args), handle, _indexes + <span class="hljs-number">1</span>), ...);
+}
+
+<span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> _function&gt;
+<span class="hljs-keyword">struct</span> lua_bind {
+  <span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">invoke</span><span class="hljs-params">(lua_State* handle)</span> </span>{
+    <span class="hljs-keyword">typename</span> _function::parameter_types args;
+    <span class="hljs-keyword">constexpr</span> <span class="hljs-keyword">auto</span> indexes =
+        <span class="hljs-built_in">std</span>::make_index_sequence&lt;_function::parameter_count&gt;{};
+    pop_all_args(handle, args, indexes);
+    <span class="hljs-comment">// ...</span>
+  }
+};
+</code></pre>
+<p><code>index_sequence</code>(<code>integer_sequence</code>) &#x7684;&#x6280;&#x5DE7;&#x540C;&#x6A23;&#x662F;&#x5229;&#x7528;&#x7DE8;&#x8B6F;&#x5668;&#x63A8;&#x5C0E;&#x6642;&#xFF0C;&#x8B93; <code>_indexes</code> &#x6210;&#x70BA;&#x4E00;&#x4E32;&#x6574;&#x6578;&#x5E8F;&#x5217;&#x3002;fold expression &#x4FBF;&#x80FD;&#x767C;&#x63EE;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x6211;&#x5011;&#x4F86;&#x770B;&#x4E00;&#x500B;&#x7BC4;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-keyword">void</span> <span class="hljs-title">pop_all_args</span><span class="hljs-params">(lua_State* handle,
+                         <span class="hljs-built_in">std</span>::tuple&lt;<span class="hljs-keyword">char</span>, <span class="hljs-keyword">int</span>, <span class="hljs-keyword">float</span>&gt;&amp; args,
+                         <span class="hljs-built_in">std</span>::integer_sequence&lt;<span class="hljs-built_in">std</span>::size_t, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>&gt;)</span> </span>{
+  pop_arg(<span class="hljs-built_in">std</span>::get&lt;<span class="hljs-number">0</span>&gt;(args), handle, <span class="hljs-number">0</span> + <span class="hljs-number">1</span>),
+  pop_arg(<span class="hljs-built_in">std</span>::get&lt;<span class="hljs-number">1</span>&gt;(args), handle, <span class="hljs-number">1</span> + <span class="hljs-number">1</span>),
+  pop_arg(<span class="hljs-built_in">std</span>::get&lt;<span class="hljs-number">2</span>&gt;(args), handle, <span class="hljs-number">2</span> + <span class="hljs-number">1</span>);
+}
+</code></pre>
+<p>&#x7576;&#x6211;&#x5011;&#x5BEB;&#x5230; <code>pop_arg</code> &#x4E8B;&#x60C5;&#x4FBF;&#x7C21;&#x55AE;&#x4E86;&#xFF0C;&#x56E0;&#x70BA; C++ &#x63D0;&#x4F9B;&#x6211;&#x5011; overloading &#x8207; template &#x7684;&#x80FD;&#x529B;&#xFF0C;&#x6211;&#x5011;&#x53EA;&#x8981;&#x9019;&#x9EBC;&#x5BEB;&#x5C31;&#x80FD;&#x8655;&#x7406;&#x591A;&#x7A2E;&#x578B;&#x5225;&#x3002;</p>
+<pre><code class="lang-cpp">template &lt;typename _arg&gt;
+inline auto pop_arg(_arg&amp; arg, lua_State* handle, size_t i)
+    -&gt; std::enable_if_t&lt;std::is_integral_v&lt;_arg&gt;, void&gt; {
+  arg = lua_tointeger(handle, i);
+}
+
+template &lt;typename _arg&gt;
+inline auto pop_arg(_arg&amp; arg, lua_State* handle, size_t i)
+    -&gt; std::enable_if_t&lt;std::is_floating_point_v&lt;_arg&gt;, void&gt; {
+  arg = lua_tonumber(handle, i);
+}
+
+inline auto pop_arg(const char*&amp; arg, lua_State* handle, size_t i) {
+  arg = lua_tostring(handle, i);
+}
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x9019;&#x4E9B;&#x6280;&#x5DE7;&#x8B93;&#x6211;&#x5011;&#x751F;&#x6210;&#x8207; Lua &#x6E9D;&#x901A;&#x51FD;&#x6578;&#x7684;&#x904E;&#x7A0B;&#x5341;&#x5206;&#x7C21;&#x55AE;&#xFF0C;&#x5728;&#x7DE8;&#x8B6F;&#x6642;&#x671F;&#x4E5F;&#x80FD;&#x9054;&#x6210;&#x578B;&#x5225;&#x5B89;&#x5168;&#x3002;&#x6211;&#x900F;&#x904E;&#x9019;&#x6A23;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5B8C;&#x6210;&#x4E86;&#x7C21;&#x55AE;&#x7684; C binding &#x8207; Lua binding&#xFF1B;&#x7531;&#x65BC; Lua &#x80FD;&#x9054;&#x6210;&#x591A;&#x503C;&#x8FD4;&#x56DE;&#xFF0C;&#x9664;&#x6B64;&#x9084;&#x6709;&#x5F88;&#x591A;&#x6A5F;&#x80FD;&#xFF0C;&#x4F46; binding &#x7684;&#x5BE6;&#x73FE;&#x5927;&#x540C;&#x5C0F;&#x7570;&#x3002;&#x9019;&#x908A;&#x7559;&#x4E0B;&#x5E7E;&#x500B;&#x554F;&#x984C;&#x7D66;&#x6709;&#x8208;&#x8DA3;&#x81EA;&#x5DF1;&#x5BE6;&#x4F5C;&#x7684;&#x8B80;&#x8005;&#x4F5C;&#x6311;&#x6230;&#xFF1A;</p>
+<ul>
+<li>&#x6587;&#x7AE0;&#x4E2D;&#x89E3;&#x91CB;&#x4E86;&#x600E;&#x9EBC;&#x5BE6;&#x4F5C; Lua binding&#xFF0C;&#x90A3;&#x9EBC;&#x8981;&#x5982;&#x4F55;&#x5BE6;&#x4F5C; C binding</li>
+<li>&#x5982;&#x4F55;&#x5BE6;&#x4F5C;&#x591A;&#x503C;&#x8FD4;&#x56DE;&#xFF0C;&#x4E26;&#x540C;&#x6642;&#x517C;&#x5BB9; <code>tuple</code>&#x3001;<code>void</code>&#x3001;<code>builtin</code> &#x591A;&#x7A2E; return type &#x7684;&#x5BEB;&#x6CD5;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;<code>void()</code>&#x3001;<code>int(int)</code>&#x3001;<code>tuple&lt;int&gt;(int)</code>&#x3001;<code>tuple&lt;int, int&gt;(int)</code></li>
+</ul>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2021-06-20-rust-003.html" class="navigation navigation-prev " aria-label="Previous page: Rust 003">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2021-10-12-absl-layout.html" class="navigation navigation-next " aria-label="Next page: abseil - layout">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Lua with C++17","level":"1.3.2.13","depth":3,"next":{"title":"abseil - layout","level":"1.3.2.14","depth":3,"path":"blog/2021/2021-10-12-absl-layout.md","ref":"blog/2021/2021-10-12-absl-layout.md","articles":[]},"previous":{"title":"Rust 003","level":"1.3.2.12","depth":3,"path":"blog/2021/2021-06-20-rust-003.md","ref":"blog/2021/2021-06-20-rust-003.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-09-19-lua-and-cpp17.md","mtime":"2022-05-12T14:09:18.559Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-12T15:06:29.060Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

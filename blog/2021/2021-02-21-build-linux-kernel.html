@@ -1,0 +1,558 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Linux Kernel 開發環境設定 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2021-04-23-typelist.html" />
+    
+    
+    <link rel="prev" href="2021-02-20-usdgeommesh.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../about.html">
+            
+                <a href="../../about.html">
+            
+                    
+                    About
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Blog
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2022/">
+            
+                <a href="../2022/">
+            
+                    
+                    2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../2022/2022-01-23-refactoring_01.html">
+            
+                <a href="../2022/2022-01-23-refactoring_01.html">
+            
+                    
+                    論重構 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../2022/2022-02-04-refactoring_02.html">
+            
+                <a href="../2022/2022-02-04-refactoring_02.html">
+            
+                    
+                    論重構 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../2022/2022-02-18-cpp-detection-idiom.html">
+            
+                <a href="../2022/2022-02-18-cpp-detection-idiom.html">
+            
+                    
+                    C++ detection idiom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../2022/2022-05-11-next_permutation.html">
+            
+                <a href="../2022/2022-05-11-next_permutation.html">
+            
+                    
+                    next_permutation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    2021
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="2021-01-13-omniverse.html">
+            
+                <a href="2021-01-13-omniverse.html">
+            
+                    
+                    Omniverse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="2021-02-01-docker-hands-on.html">
+            
+                <a href="2021-02-01-docker-hands-on.html">
+            
+                    
+                    Docker基礎指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="2021-02-02-jekyll-easy-way.html">
+            
+                <a href="2021-02-02-jekyll-easy-way.html">
+            
+                    
+                    Docker + Jekyll = an easy way to create Github Pages blogger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="2021-02-03-create-msbuild-image.html">
+            
+                <a href="2021-02-03-create-msbuild-image.html">
+            
+                    
+                    Dockerizing MSBuild(Visual Studio 2019)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="2021-02-04-first-usd.html">
+            
+                <a href="2021-02-04-first-usd.html">
+            
+                    
+                    建立第一個 USD 場景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="2021-02-20-usdgeommesh.html">
+            
+                <a href="2021-02-20-usdgeommesh.html">
+            
+                    
+                    建立 USD Mesh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2.7" data-path="2021-02-21-build-linux-kernel.html">
+            
+                <a href="2021-02-21-build-linux-kernel.html">
+            
+                    
+                    Linux Kernel 開發環境設定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="2021-04-23-typelist.html">
+            
+                <a href="2021-04-23-typelist.html">
+            
+                    
+                    Metaprogramming - TypeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="2021-04-24-perf.html">
+            
+                <a href="2021-04-24-perf.html">
+            
+                    
+                    perf counter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="2021-05-02-rust-001.html">
+            
+                <a href="2021-05-02-rust-001.html">
+            
+                    
+                    Rust 001
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="2021-05-08-rust-002.html">
+            
+                <a href="2021-05-08-rust-002.html">
+            
+                    
+                    Rust 002
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.12" data-path="2021-06-20-rust-003.html">
+            
+                <a href="2021-06-20-rust-003.html">
+            
+                    
+                    Rust 003
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.13" data-path="2021-09-19-lua-and-cpp17.html">
+            
+                <a href="2021-09-19-lua-and-cpp17.html">
+            
+                    
+                    Lua with C++17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.14" data-path="2021-10-12-absl-layout.html">
+            
+                <a href="2021-10-12-absl-layout.html">
+            
+                    
+                    abseil - layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Linux Kernel 開發環境設定</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <p>&#x6700;&#x8FD1;&#x958B;&#x59CB;&#x5B78;&#x7FD2;&#x5728; linux &#x4E0A;&#x9032;&#x884C;&#x958B;&#x767C;&#xFF0C;&#x9577;&#x671F;&#x4EE5;&#x4F86;&#x4E5F;&#x597D;&#x5947; linux kernel &#x7684;&#x958B;&#x767C;&#x6D41;&#x7A0B;&#x3002;&#x8A2D;&#x7F6E;&#x6E2C;&#x8A66;&#x74B0;&#x5883;&#x7684;&#x6D41;&#x7A0B;&#x4E26;&#x4E0D;&#x8907;&#x96DC;&#xFF0C;&#x4F46;&#x4E5F;&#x6709;&#x4E00;&#x4E9B;&#x7709;&#x89D2;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x6B64;&#x4EE5;&#x7B46;&#x8A18;&#x7D00;&#x9304;&#x3002;&#x9996;&#x8981;&#x662F;&#x5EFA;&#x7F6E; Kernel &#x7684;&#x5FC5;&#x8981;&#x5DE5;&#x5177;&#xFF0C;&#x6BCF;&#x500B;&#x767C;&#x884C;&#x7248;&#x7684; package &#x540D;&#x7A31;&#x90FD;&#x4E0D;&#x76E1;&#x76F8;&#x540C;&#xFF0C;ubuntu &#x6709;&#x63D0;&#x4F9B;&#x73FE;&#x6210;&#x7684;<a href="https://wiki.ubuntu.com/Kernel/BuildYourOwnKernel" target="_blank">&#x5B89;&#x88DD;&#x6307;&#x4EE4;</a></p>
+<pre><code class="lang-bash">sudo apt-get install libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf
+</code></pre>
+<p>kernel&#x7684;&#x539F;&#x59CB;&#x78BC;&#x5247;&#x900F;&#x904E; <code>git clone</code>&#xFF0C;&#x6709;&#x9700;&#x8981;&#x7684;&#x8A71;&#x518D; checkout &#x7279;&#x5B9A;&#x7248;&#x865F;&#x5373;&#x53EF;&#x3002;&#x5728;&#x9032;&#x884C; <code>menuconfig</code> &#x6642;&#xFF0C;&#x8981;&#x8A18;&#x5F97;&#x5C07; <code>CONFIG_DEBUG_INFO</code> &#x958B;&#x555F; <code>CONFIG_DEBUG_INFO_REDUCED</code> &#x95DC;&#x9589;&#x3002;</p>
+<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+<span class="hljs-built_in">cd</span> linux
+make arch=x86_64 menuconfig
+make -j8
+</code></pre>
+<p>kernel image &#x6703;&#x5EFA;&#x7F6E;&#x5728; <code>arch/x86/boot/bzImage</code>&#xFF0C;&#x5728;&#x9032;&#x884C;&#x958B;&#x767C;&#x6E2C;&#x8A66;&#x6642;&#x6211;&#x5011;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#x76F4;&#x63A5;&#x5C07;&#x73FE;&#x6709;&#x7684; kernel &#x66FF;&#x63DB;&#x6210;&#x958B;&#x767C;&#x4E2D;&#x7684; kernel&#xFF0C;&#x4E5F;&#x4E0D;&#x6703;&#x983B;&#x7E41;&#x5730;&#x5728;&#x65B0;&#x6A5F;&#x5668;&#x4E0A;&#x5B89;&#x88DD;&#x7CFB;&#x7D71;&#xFF0C;&#x9019;&#x88E1;&#x5C31;&#x8981;&#x4F7F;&#x7528;&#x5230; QEMU&#x3002;</p>
+<pre><code class="lang-bash">sudo apt-get install qemu qemu-system
+qemu-system-x86_64 -kernel bzImage -append <span class="hljs-string">&quot;console=ttyS0 nokaslr&quot;</span> -m 512M -serial stdio -display none <span class="hljs-_">-s</span>
+</code></pre>
+<p>&#x8D77;&#x52D5; QEMU &#x6E2C;&#x8A66;&#x6838;&#x5FC3;&#x5F8C;&#x6703;&#x767C;&#x73FE; kernel &#x9032;&#x5165; panic&#xFF0C;&#x56E0;&#x70BA;&#x5149;&#x6709;&#x6838;&#x5FC3;&#x6211;&#x5011;&#x9084;&#x7F3A;&#x4E4F;&#x6838;&#x5FC3;&#x639B;&#x8F09;&#x7684;&#x6A94;&#x6848;&#x7CFB;&#x7D71;&#x3002;&#x9019;&#x6642;&#x6211;&#x5011;&#x8981;&#x63A1;&#x7528; 2.6 &#x4EE5;&#x5F8C;&#x5F15;&#x5165;&#x7684; initramfs &#x88FD;&#x4F5C;&#x4E00;&#x584A;&#x6703;&#x5728; ram &#x7A7A;&#x9593;&#x5C55;&#x958B;&#x6620;&#x50CF;&#x6A94;&#x3002;&#x6211;&#x5011;&#x9084;&#x9700;&#x8981;&#x4E00;&#x5957;&#x65B9;&#x4FBF;&#x64CD;&#x4F5C;&#x7CFB;&#x7D71;&#x7684;&#x6307;&#x4EE4;&#x7A0B;&#x5F0F;&#x96C6;&#xFF0C;&#x5728;&#x6B64;&#x9078;&#x7528; busybox&#xFF0C;&#x4E26;&#x5C07;&#x5176;&#x7DE8;&#x8B6F;&#x70BA;monolithic(<code>Build BusyBox as a static binary</code> &#x9078;&#x9805;&#x8981;&#x958B;&#x555F;)&#x3002;</p>
+<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> git://busybox.net/busybox.git
+<span class="hljs-built_in">cd</span> busybox
+make menuconfig <span class="hljs-comment">#[*] Build BusyBox as a static binary</span>
+make
+</code></pre>
+<p>&#x5EFA;&#x7F6E;&#x5B8C;&#x6210;&#x5F8C;&#x6211;&#x5011;&#x6703;&#x53D6;&#x5F97; busybox &#x7684;&#x53EF;&#x57F7;&#x884C;&#x4E8C;&#x9032;&#x4F4D;&#x6A94;&#x3002;&#x63A5;&#x8457;&#x8981;&#x88FD;&#x4F5C; rootfs &#x7684;&#x7A7A;&#x9593;&#x3002;</p>
+<pre><code class="lang-bash">mkdir -p initramfs/{bin,sbin,etc,proc,sys}
+<span class="hljs-built_in">cd</span> initramfs
+cp path/to/busybox bin/
+ln <span class="hljs-_">-s</span> bin/busybox bin/sh
+vim init
+chmod +x init
+find . | cpio -H newc -o &gt; ../initramfs.cpio
+</code></pre>
+<p>init &#x8173;&#x672C;&#x5167;&#x5BB9;&#x70BA;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-bash"><span class="hljs-meta">#!/bin/sh</span>
+/bin/busybox --install <span class="hljs-_">-s</span> /bin
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+
+<span class="hljs-built_in">exec</span> /bin/sh
+</code></pre>
+<p>&#x6211;&#x5011;&#x5728;&#x6B64;&#x53EA;&#x6C42;&#x4E00;&#x500B;&#x53EF;&#x4EE5;&#x66AB;&#x6642;&#x6E2C;&#x8A66; kernel &#x7684;&#x7CFB;&#x7D71;&#x74B0;&#x5883;&#xFF0C;&#x56E0;&#x6B64;&#x8173;&#x672C;&#x505C;&#x7559;&#x5728; kernel &#x521D;&#x59CB;&#x5316;&#x7CFB;&#x7D71;&#x7684;&#x968E;&#x6BB5;&#x3002;&#x63A5;&#x8457;&#x6211;&#x5011;&#x518D;&#x6B21;&#x555F;&#x52D5;&#x6A21;&#x64EC;&#x5668;&#x5C31;&#x80FD;&#x628A;&#x73A9;&#x7CFB;&#x7D71;&#x3002;</p>
+<pre><code class="lang-bash">sudo apt-get install qemu qemu-system
+qemu-system-x86_64 -kernel bzImage -initrd initramfs.cpio -append <span class="hljs-string">&quot;console=ttyS0 nokaslr&quot;</span> -m 512M -serial stdio -display none <span class="hljs-_">-s</span>
+</code></pre>
+<p>&#x6211;&#x5011;&#x9084;&#x9700;&#x8981;&#x5C0D; linux &#x7CFB;&#x7D71;&#x9032;&#x884C;&#x9664;&#x932F;&#xFF0C;&#x7531;&#x65BC; qemu &#x555F;&#x52D5;&#x865B;&#x64EC;&#x6A5F;&#x6642;&#x5DF2;&#x7D93;&#x900F;&#x904E; <code>-s</code> &#x66FF;&#x6211;&#x5011;&#x958B;&#x555F; port 1234 &#x4F5C;&#x70BA;&#x6838;&#x5FC3;&#x7684;&#x9664;&#x932F;&#x57E0;&#xFF0C;&#x6211;&#x5011;&#x5728;&#x555F;&#x7528; gdb &#x524D;&#x53EA;&#x8981;&#x5728; <code>~/.gdbinit</code> &#x52A0;&#x4E0A; <code>add-auto-load-safe-path /path/to/linux</code> &#x5373;&#x53EF;&#x8B93; linux &#x5FC5;&#x8981;&#x7684;&#x9664;&#x932F;&#x8F14;&#x52A9;&#x8173;&#x672C;&#x53CA;&#x5DE5;&#x5177;&#x52A0;&#x5165; gdb&#x3002;</p>
+<pre><code class="lang-bash">gdb vmlinux
+(gdb) target remote :1234
+(gdb) lx-symbols
+</code></pre>
+<p>&#x5982;&#x6B64;&#x4E00;&#x4F86;&#x5C31;&#x53EF;&#x9032;&#x884C;&#x9664;&#x932F;&#x3002;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2021-02-20-usdgeommesh.html" class="navigation navigation-prev " aria-label="Previous page: 建立 USD Mesh">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2021-04-23-typelist.html" class="navigation navigation-next " aria-label="Next page: Metaprogramming - TypeList">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Linux Kernel 開發環境設定","level":"1.3.2.7","depth":3,"next":{"title":"Metaprogramming - TypeList","level":"1.3.2.8","depth":3,"path":"blog/2021/2021-04-23-typelist.md","ref":"blog/2021/2021-04-23-typelist.md","articles":[]},"previous":{"title":"建立 USD Mesh","level":"1.3.2.6","depth":3,"path":"blog/2021/2021-02-20-usdgeommesh.md","ref":"blog/2021/2021-02-20-usdgeommesh.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-02-21-build-linux-kernel.md","mtime":"2022-05-12T14:09:18.592Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-12T15:06:29.060Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

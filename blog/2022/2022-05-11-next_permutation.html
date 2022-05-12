@@ -1,0 +1,597 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>next_permutation · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../2021/" />
+    
+    
+    <link rel="prev" href="2022-02-18-cpp-detection-idiom.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../about.html">
+            
+                <a href="../../about.html">
+            
+                    
+                    About
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Blog
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="2022-01-23-refactoring_01.html">
+            
+                <a href="2022-01-23-refactoring_01.html">
+            
+                    
+                    論重構 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="2022-02-04-refactoring_02.html">
+            
+                <a href="2022-02-04-refactoring_02.html">
+            
+                    
+                    論重構 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="2022-02-18-cpp-detection-idiom.html">
+            
+                <a href="2022-02-18-cpp-detection-idiom.html">
+            
+                    
+                    C++ detection idiom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.1.4" data-path="2022-05-11-next_permutation.html">
+            
+                <a href="2022-05-11-next_permutation.html">
+            
+                    
+                    next_permutation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../2021/">
+            
+                <a href="../2021/">
+            
+                    
+                    2021
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../2021/2021-01-13-omniverse.html">
+            
+                <a href="../2021/2021-01-13-omniverse.html">
+            
+                    
+                    Omniverse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../2021/2021-02-01-docker-hands-on.html">
+            
+                <a href="../2021/2021-02-01-docker-hands-on.html">
+            
+                    
+                    Docker基礎指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../2021/2021-02-02-jekyll-easy-way.html">
+            
+                <a href="../2021/2021-02-02-jekyll-easy-way.html">
+            
+                    
+                    Docker + Jekyll = an easy way to create Github Pages blogger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../2021/2021-02-03-create-msbuild-image.html">
+            
+                <a href="../2021/2021-02-03-create-msbuild-image.html">
+            
+                    
+                    Dockerizing MSBuild(Visual Studio 2019)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../2021/2021-02-04-first-usd.html">
+            
+                <a href="../2021/2021-02-04-first-usd.html">
+            
+                    
+                    建立第一個 USD 場景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="../2021/2021-02-20-usdgeommesh.html">
+            
+                <a href="../2021/2021-02-20-usdgeommesh.html">
+            
+                    
+                    建立 USD Mesh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="../2021/2021-02-21-build-linux-kernel.html">
+            
+                <a href="../2021/2021-02-21-build-linux-kernel.html">
+            
+                    
+                    Linux Kernel 開發環境設定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="../2021/2021-04-23-typelist.html">
+            
+                <a href="../2021/2021-04-23-typelist.html">
+            
+                    
+                    Metaprogramming - TypeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="../2021/2021-04-24-perf.html">
+            
+                <a href="../2021/2021-04-24-perf.html">
+            
+                    
+                    perf counter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="../2021/2021-05-02-rust-001.html">
+            
+                <a href="../2021/2021-05-02-rust-001.html">
+            
+                    
+                    Rust 001
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="../2021/2021-05-08-rust-002.html">
+            
+                <a href="../2021/2021-05-08-rust-002.html">
+            
+                    
+                    Rust 002
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.12" data-path="../2021/2021-06-20-rust-003.html">
+            
+                <a href="../2021/2021-06-20-rust-003.html">
+            
+                    
+                    Rust 003
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.13" data-path="../2021/2021-09-19-lua-and-cpp17.html">
+            
+                <a href="../2021/2021-09-19-lua-and-cpp17.html">
+            
+                    
+                    Lua with C++17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.14" data-path="../2021/2021-10-12-absl-layout.html">
+            
+                <a href="../2021/2021-10-12-absl-layout.html">
+            
+                    
+                    abseil - layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >next_permutation</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <p><code>std::next_permutation</code>&#x662F; STL &#x4E2D;&#x5C07;&#x5BB9;&#x5668;&#x6392;&#x5E8F;&#x70BA;&#x4E0B;&#x4E00;&#x500B;&#x6392;&#x5217;&#x6B21;&#x5E8F;&#x7684;&#x51FD;&#x6578;&#xFF0C;&#x4E0D;&#x904E;&#x7A76;&#x7ADF;&#x4F55;&#x8B02;&#x4E0B;&#x4E00;&#x500B;&#x6392;&#x5217;&#x7A76;&#x7ADF;&#x662F;&#x4F9D;&#x4EC0;&#x9EBC;&#x898F;&#x5247;&#x800C;&#x7522;&#x751F;&#xFF0C;&#x4E0D;&#x7406;&#x89E3;&#x5176;&#x5BE6;&#x4F5C;&#x539F;&#x7406;&#x7684;&#x4EBA;&#x6050;&#x6015;&#x96E3;&#x4EE5;&#x60F3;&#x50CF;&#x3002;<code>next_permutation</code>&#x6709;&#x4E00;&#x500B;&#x96B1;&#x6666;&#x7684;&#x898F;&#x5247;&#xFF0C;&#x6070;&#x597D;&#x80FD;&#x8AAA;&#x660E;&#x5176;&#x5BE6;&#x4F5C;&#x539F;&#x7406;&#xFF0C;&#x90A3;&#x4FBF;&#x662F;&#x5982;&#x679C;&#x4F60;&#x8981;&#x900F;&#x904E;&#x6B64;&#x51FD;&#x6578;&#x5217;&#x8209;&#x6240;&#x6709;&#x5143;&#x7D20;&#x6392;&#x5217;&#x7684;&#x53EF;&#x80FD;&#xFF0C;&#x90A3;&#x9EBC;&#x4E00;&#x958B;&#x59CB;&#x5BB9;&#x5668;&#x5FC5;&#x9808;&#x8981;&#x8655;&#x65BC;<strong>&#x300C;&#x5DF2;&#x7D93;&#x6392;&#x5E8F;&#x300D;</strong>&#x7684;&#x72C0;&#x614B;&#x3002;&#x800C;<code>next_permutation</code>&#x56DE;&#x50B3; <code>false</code> &#x8868;&#x793A;&#x5DF2;&#x7121;&#x6B21;&#x7D44;&#x6392;&#x5217;&#x6B21;&#x5E8F;&#x53EF;&#x5217;&#x8209;&#x3002;&#x5BE6;&#x969B;&#x4E0A;&#xFF0C;&#x9019;&#x500B;<strong>&#x6700;&#x5F8C;&#x4E00;&#x500B;&#x6392;&#x5217;&#x6B21;&#x5E8F;</strong>&#x6B63;&#x662F;<strong>&#x300C;&#x5012;&#x5E8F;&#x300D;</strong>&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code>1 2 3 4 5 6
+</code></pre><p>&#x662F;&#x96C6;&#x5408;<code>{1, 2, 3, 4, 5, 6}</code>&#x7684;&#x7B2C;&#x4E00;&#x500B;&#x6392;&#x5E8F;&#x6B21;&#x5E8F;&#xFF0C;&#x800C;</p>
+<pre><code>6 5 4 3 2 1
+</code></pre><p>&#x5247;&#x662F;&#x6700;&#x5F8C;&#x4E00;&#x500B;&#x6392;&#x5E8F;&#x3002;<code>next_permutation</code>&#x7684;&#x5BE6;&#x4F5C;&#x898F;&#x5247;&#xFF0C;&#x5176;&#x5BE6;&#x662F;&#x5C07;&#x5927;&#x554F;&#x984C;&#x905E;&#x8FF4;&#x5207;&#x5272;&#x70BA;&#x5C0F;&#x554F;&#x984C;&#xFF0C;&#x5927;&#x554F;&#x984C;&#x662F;<strong>&#x7D22;&#x5F15;<code>[a, c]</code>&#x4E14;<code>a &lt; c</code>&#x7684;&#x5143;&#x7D20;&#x662F;&#x5426;&#x5DF2;&#x70BA;&#x5012;&#x5E8F;</strong>&#xFF0C;&#x5C0F;&#x554F;&#x984C;&#x662F;<strong>&#x7D22;&#x5F15;<code>[b, c]</code>&#x4E14;<code>a &lt; b &lt; c</code>&#x7684;&#x5143;&#x7D20;&#x662F;&#x5426;&#x5DF2;&#x70BA;&#x5012;&#x5E8F;</strong>&#x3002;&#x7576;&#x5B50;&#x554F;&#x984C;&#x5DF2;&#x89E3;&#x4EE3;&#x8868;&#x5B50;&#x5E8F;&#x5217;&#x5DF2;&#x70BA;&#x5012;&#x5E8F;&#xFF0C;&#x82E5;&#x7D22;&#x5F15;<code>a</code>&#x7684;&#x5143;&#x7D20;&#x6B21;&#x5E8F;&#x4F4E;&#x65BC;&#x7D22;&#x5F15;<code>b</code>&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5247;&#x5C07;&#x7D22;&#x5F15;<code>a</code>&#x5143;&#x7D20;&#x8207;<code>[b, c]</code>&#x4E2D;&#x53F3;&#x8D77;&#x7B2C;&#x4E00;&#x500B;&#x6B21;&#x5E8F;&#x9AD8;&#x65BC;&#x5176;&#x7684;&#x5143;&#x7D20;&#x4EA4;&#x63DB;&#xFF0C;&#x4E26;&#x53CD;&#x8F49;&#x6392;&#x5217;<code>[b, c]</code>&#x7684;&#x5B50;&#x5E8F;&#x5217;&#x3002;&#x7C21;&#x800C;&#x8A00;&#x4E4B;<code>next_permutation</code>&#x4E0D;&#x505C;&#x5730;&#x5F9E;&#x672A;&#x81F3;&#x9996;&#x6AA2;&#x8996;&#x5E8F;&#x5217;&#x662F;&#x5426;&#x70BA;&#x5012;&#x5E8F;&#xFF0C;&#x82E5;&#x9047;&#x5230;&#x4E0D;&#x6EFF;&#x8DB3;&#x5012;&#x5E8F;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5247;&#x5C07;&#x8A72;&#x5143;&#x7D20;&#x8207;&#x5B50;&#x5E8F;&#x5217;&#x4E2D;&#x7684;&#x4E0A;&#x9650;&#x5143;&#x7D20;&#x4EA4;&#x63DB;&#xFF0C;&#x518D;&#x5C07;&#x53F3;&#x5074;&#x5E8F;&#x5217;&#x53CD;&#x8F49;&#x6392;&#x5217;&#x3002;</p>
+<pre><code>2 3 4 5 3
+</code></pre><p>&#x5247;&#x6703;&#x8B8A;&#x70BA;</p>
+<pre><code>2 3 5 3 4
+</code></pre><p>&#x73FE;&#x5728;&#x6211;&#x5011;&#x4F86;&#x770B;&#x770B;&#x5FAE;&#x8EDF;&#x7684; STL &#x7684;&#x5BE6;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> _BidIt, <span class="hljs-keyword">class</span> _Pr&gt;
+_<span class="hljs-function">CONSTEXPR20 <span class="hljs-keyword">bool</span> <span class="hljs-title">next_permutation</span><span class="hljs-params">(_BidIt _First, _BidIt _Last, _Pr _Pred)</span> </span>{
+    _Adl_verify_range(_First, _Last);
+    <span class="hljs-keyword">auto</span> _UFirst      = _Get_unwrapped(_First);
+    <span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> _ULast = _Get_unwrapped(_Last);
+    <span class="hljs-keyword">auto</span> _UNext       = _ULast;
+    <span class="hljs-keyword">if</span> (_UFirst == _ULast || _UFirst == --_UNext) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+
+    <span class="hljs-keyword">for</span> (;;) {
+        <span class="hljs-keyword">auto</span> _UNext1 = _UNext;
+        <span class="hljs-keyword">if</span> (_DEBUG_LT_PRED(_Pred, *--_UNext, *_UNext1)) {
+            <span class="hljs-keyword">auto</span> _UMid = _ULast;
+            <span class="hljs-keyword">do</span> {
+                --_UMid;
+            } <span class="hljs-keyword">while</span> (!_DEBUG_LT_PRED(_Pred, *_UNext, *_UMid));
+
+            _<span class="hljs-function">STD <span class="hljs-title">iter_swap</span><span class="hljs-params">(_UNext, _UMid)</span></span>;
+            _<span class="hljs-function">STD <span class="hljs-title">reverse</span><span class="hljs-params">(_UNext1, _ULast)</span></span>;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        }
+
+        <span class="hljs-keyword">if</span> (_UNext == _UFirst) {
+            _<span class="hljs-function">STD <span class="hljs-title">reverse</span><span class="hljs-params">(_UFirst, _ULast)</span></span>;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+    }
+}
+</code></pre>
+<p>&#x9996;&#x5148;&#x6703;&#x5148;&#x5C0D;&#x5BB9;&#x5668;&#x7684;&#x5927;&#x5C0F;&#x9032;&#x884C;&#x6AA2;&#x67E5;&#xFF0C;&#x5C0D;&#x65BC;&#x7A7A;&#x5E8F;&#x5217;&#x6216;&#x53EA;&#x6709;&#x55AE;&#x4E00;&#x5143;&#x7D20;&#x7684;&#x5E8F;&#x5217;&#x800C;&#x8A00;&#xFF0C;&#x81EA;&#x7136;&#x5C31;&#x6C92;&#x6709;&#x4E0B;&#x4E00;&#x500B;&#x6392;&#x5E8F;&#x53EF;&#x8A00;&#x3002;</p>
+<pre><code class="lang-cpp">    <span class="hljs-keyword">if</span> (_UFirst == _ULast || _UFirst == --_UNext) {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+</code></pre>
+<p>&#x78BA;&#x8A8D;&#x5BB9;&#x5668;&#x5927;&#x5C0F;&#x4EE5;&#x5F8C;&#xFF0C;&#x4FBF;&#x6703;&#x6B63;&#x5F0F;&#x9032;&#x5165;&#x6F14;&#x7B97;&#x6CD5;&#x7684;&#x4E3B;&#x6D41;&#x7A0B;&#x3002;</p>
+<pre><code class="lang-cpp">    <span class="hljs-keyword">for</span> (;;) {
+        <span class="hljs-keyword">auto</span> _UNext1 = _UNext;
+        <span class="hljs-keyword">if</span> (_DEBUG_LT_PRED(_Pred, *--_UNext, *_UNext1)) {
+            <span class="hljs-comment">//</span>
+        }
+        <span class="hljs-keyword">if</span> (_UNext == _UFirst) {
+            _<span class="hljs-function">STD <span class="hljs-title">reverse</span><span class="hljs-params">(_UFirst, _ULast)</span></span>;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+    }
+</code></pre>
+<p>&#x9019;&#x88E1;&#x53EF;&#x4EE5;&#x770B;&#x51FA; STL &#x5BE6;&#x4F5C;&#x7684;&#x53E6;&#x4E00;&#x500B;&#x7CBE;&#x5999;&#x4E4B;&#x8655;&#x3002;&#x76F4;&#x89BA;&#x5730;&#x5BEB;&#xFF0C;&#x4E00;&#x822C;&#x6211;&#x5011;&#x6703;&#x5148;&#x900F;&#x904E;&#x8FF4;&#x5708;&#x627E;&#x51FA;&#x5012;&#x5E8F;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x8D77;&#x9EDE;&#xFF0C;&#x4F46;STL&#x4E26;&#x4E0D;&#x9019;&#x9EBC;&#x505A;&#xFF0C;&#x800C;&#x662F;&#x900F;&#x904E;&#x4E00;&#x500B;&#x7121;&#x7AAE;&#x8FF4;&#x5708;&#x6BCF;&#x6B21;&#x6AA2;&#x67E5;&#x5DE6;&#x5143;&#x7D20;&#x6B21;&#x5E8F;&#x662F;&#x5426;&#x4F4E;&#x65BC;&#x53F3;&#x5143;&#x7D20;&#xFF0C;&#x4E26;&#x4E14;&#x5F80;&#x5DE6;&#x79FB;&#x52D5;&#xFF0C;&#x5982;&#x679C;&#x79FB;&#x52D5;&#x81F3;&#x5E8F;&#x5217;&#x6700;&#x5DE6;&#x7AEF;&#xFF0C;&#x5247;&#x8868;&#x793A;&#x6574;&#x500B;&#x5E8F;&#x5217;&#x7686;&#x5DF2;&#x70BA;&#x5012;&#x5E8F;&#xFF0C;&#x4E26;&#x5C07;&#x5E8F;&#x5217;&#x9084;&#x539F;&#x70BA;&#x5DF2;&#x6392;&#x5E8F;&#x72C0;&#x614B;&#x4E26;&#x56DE;&#x50B3;&#x5DF2;&#x7121;&#x6392;&#x5217;&#x53EF;&#x518D;&#x5217;&#x8209;&#x3002;</p>
+<pre><code class="lang-cpp">        <span class="hljs-keyword">if</span> (_DEBUG_LT_PRED(_Pred, *--_UNext, *_UNext1)) {
+            <span class="hljs-keyword">auto</span> _UMid = _ULast;
+            <span class="hljs-keyword">do</span> {
+                --_UMid;
+            } <span class="hljs-keyword">while</span> (!_DEBUG_LT_PRED(_Pred, *_UNext, *_UMid));
+
+            _<span class="hljs-function">STD <span class="hljs-title">iter_swap</span><span class="hljs-params">(_UNext, _UMid)</span></span>;
+            _<span class="hljs-function">STD <span class="hljs-title">reverse</span><span class="hljs-params">(_UNext1, _ULast)</span></span>;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        }
+</code></pre>
+<p>&#x7576;&#x5DE6;&#x5143;&#x7D20;&#x4E0D;&#x5C0F;&#x65BC;&#x53F3;&#x5143;&#x7D20;&#x6642;&#xFF0C;&#x518D;&#x5C0B;&#x627E;&#x5B50;&#x5E8F;&#x5217;&#x53F3;&#x8D77;&#x7684;&#x4E0A;&#x9650;&#x5143;&#x7D20;&#x5169;&#x8005;&#x4EA4;&#x63DB;&#xFF0C;&#x518D;&#x5C07;&#x5B50;&#x5E8F;&#x5217;&#x53CD;&#x8F49;&#x3002;</p>
+<p><a href="https://en.cppreference.com/w/cpp/algorithm/next_permutation" target="_blank">cppreference</a>&#x6709;&#x5217;&#x51FA;&#x4E00;&#x500B;&#x66F4;&#x7C21;&#x4FBF;&#x7684;&#x5BEB;&#x6CD5;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x5145;&#x5206;&#x5229;&#x7528; STL &#x7684;&#x51FD;&#x6578;&#x5B8C;&#x6210;&#x4E00;&#x9023;&#x4E32;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> BidirIt&gt;
+<span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">next_permutation</span><span class="hljs-params">(BidirIt first, BidirIt last)</span>
+</span>{
+  <span class="hljs-keyword">auto</span> r_first = <span class="hljs-built_in">std</span>::make_reverse_iterator(last);
+  <span class="hljs-keyword">auto</span> r_last = <span class="hljs-built_in">std</span>::make_reverse_iterator(first);
+  <span class="hljs-keyword">auto</span> left = <span class="hljs-built_in">std</span>::is_sorted_until(r_first, r_last);
+  <span class="hljs-keyword">if</span>(left != r_last){
+    <span class="hljs-keyword">auto</span> right = <span class="hljs-built_in">std</span>::upper_bound(r_first, left, *left);
+    <span class="hljs-built_in">std</span>::iter_swap(left, right);
+  }
+  <span class="hljs-built_in">std</span>::reverse(left.base(), last);
+  <span class="hljs-keyword">return</span> left != r_last;
+}
+</code></pre>
+<p>&#x5148;&#x5C07;&#x5BB9;&#x5668;&#x7684; <code>iterator</code> &#x985B;&#x5012;&#x904E;&#x4F86;&#xFF0C;&#x4EE5;&#x985B;&#x5012;&#x65B9;&#x5411;&#x9032;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x4E26;&#x4E14;&#x627E;&#x51FA;&#x7B2C;&#x4E00;&#x500B;&#x4F7F;&#x5E8F;&#x5217;&#x4E0D;&#x6EFF;&#x8DB3;&#x5012;&#x5E8F;&#x7684;&#x5143;&#x7D20;&#x3002;&#x5927;&#x90E8;&#x5206;&#x6B63;&#x5F0F;&#x7684; STL <code>next_permutation</code> &#x7684;&#x5BE6;&#x4F5C;&#x5176;&#x5BE6;&#x90FD;&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x4F46;&#x4E0D;&#x4F7F;&#x7528;&#x8207; cppreference &#x6240;&#x5BEB;&#x53EF;&#x8B80;&#x6027;&#x8F03;&#x9AD8;&#x7684;&#x5BEB;&#x6CD5;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x8003;&#x91CF;&#x5230;&#x6548;&#x80FD;&#x3002;&#x900F;&#x904E;&#x89E3;&#x8B80;&#x539F;&#x59CB;&#x78BC;&#xFF0C;&#x6211;&#x5011;&#x4E5F;&#x4E86;&#x89E3;&#x4E86; STL &#x662F;&#x5982;&#x4F55;&#x5B8C;&#x6210;&#x5168;&#x6392;&#x5E8F;&#x5217;&#x8209;&#x3002;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2022-02-18-cpp-detection-idiom.html" class="navigation navigation-prev " aria-label="Previous page: C++ detection idiom">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../2021/" class="navigation navigation-next " aria-label="Next page: 2021">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"next_permutation","level":"1.3.1.4","depth":3,"next":{"title":"2021","level":"1.3.2","depth":2,"path":"blog/2021/README.md","ref":"blog/2021/README.md","articles":[{"title":"Omniverse","level":"1.3.2.1","depth":3,"path":"blog/2021/2021-01-13-omniverse.md","ref":"blog/2021/2021-01-13-omniverse.md","articles":[]},{"title":"Docker基礎指令","level":"1.3.2.2","depth":3,"path":"blog/2021/2021-02-01-docker-hands-on.md","ref":"blog/2021/2021-02-01-docker-hands-on.md","articles":[]},{"title":"Docker + Jekyll = an easy way to create Github Pages blogger","level":"1.3.2.3","depth":3,"path":"blog/2021/2021-02-02-jekyll-easy-way.md","ref":"blog/2021/2021-02-02-jekyll-easy-way.md","articles":[]},{"title":"Dockerizing MSBuild(Visual Studio 2019)","level":"1.3.2.4","depth":3,"path":"blog/2021/2021-02-03-create-msbuild-image.md","ref":"blog/2021/2021-02-03-create-msbuild-image.md","articles":[]},{"title":"建立第一個 USD 場景","level":"1.3.2.5","depth":3,"path":"blog/2021/2021-02-04-first-usd.md","ref":"blog/2021/2021-02-04-first-usd.md","articles":[]},{"title":"建立 USD Mesh","level":"1.3.2.6","depth":3,"path":"blog/2021/2021-02-20-usdgeommesh.md","ref":"blog/2021/2021-02-20-usdgeommesh.md","articles":[]},{"title":"Linux Kernel 開發環境設定","level":"1.3.2.7","depth":3,"path":"blog/2021/2021-02-21-build-linux-kernel.md","ref":"blog/2021/2021-02-21-build-linux-kernel.md","articles":[]},{"title":"Metaprogramming - TypeList","level":"1.3.2.8","depth":3,"path":"blog/2021/2021-04-23-typelist.md","ref":"blog/2021/2021-04-23-typelist.md","articles":[]},{"title":"perf counter","level":"1.3.2.9","depth":3,"path":"blog/2021/2021-04-24-perf.md","ref":"blog/2021/2021-04-24-perf.md","articles":[]},{"title":"Rust 001","level":"1.3.2.10","depth":3,"path":"blog/2021/2021-05-02-rust-001.md","ref":"blog/2021/2021-05-02-rust-001.md","articles":[]},{"title":"Rust 002","level":"1.3.2.11","depth":3,"path":"blog/2021/2021-05-08-rust-002.md","ref":"blog/2021/2021-05-08-rust-002.md","articles":[]},{"title":"Rust 003","level":"1.3.2.12","depth":3,"path":"blog/2021/2021-06-20-rust-003.md","ref":"blog/2021/2021-06-20-rust-003.md","articles":[]},{"title":"Lua with C++17","level":"1.3.2.13","depth":3,"path":"blog/2021/2021-09-19-lua-and-cpp17.md","ref":"blog/2021/2021-09-19-lua-and-cpp17.md","articles":[]},{"title":"abseil - layout","level":"1.3.2.14","depth":3,"path":"blog/2021/2021-10-12-absl-layout.md","ref":"blog/2021/2021-10-12-absl-layout.md","articles":[]}]},"previous":{"title":"C++ detection idiom","level":"1.3.1.3","depth":3,"path":"blog/2022/2022-02-18-cpp-detection-idiom.md","ref":"blog/2022/2022-02-18-cpp-detection-idiom.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2022/2022-05-11-next_permutation.md","mtime":"2022-05-12T14:09:18.559Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-12T15:06:29.060Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

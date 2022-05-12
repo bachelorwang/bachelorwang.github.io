@@ -1,0 +1,569 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Rust 003 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2021-09-19-lua-and-cpp17.html" />
+    
+    
+    <link rel="prev" href="2021-05-08-rust-002.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../about.html">
+            
+                <a href="../../about.html">
+            
+                    
+                    About
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Blog
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../2022/">
+            
+                <a href="../2022/">
+            
+                    
+                    2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../2022/2022-01-23-refactoring_01.html">
+            
+                <a href="../2022/2022-01-23-refactoring_01.html">
+            
+                    
+                    論重構 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../2022/2022-02-04-refactoring_02.html">
+            
+                <a href="../2022/2022-02-04-refactoring_02.html">
+            
+                    
+                    論重構 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../2022/2022-02-18-cpp-detection-idiom.html">
+            
+                <a href="../2022/2022-02-18-cpp-detection-idiom.html">
+            
+                    
+                    C++ detection idiom
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.4" data-path="../2022/2022-05-11-next_permutation.html">
+            
+                <a href="../2022/2022-05-11-next_permutation.html">
+            
+                    
+                    next_permutation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    2021
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="2021-01-13-omniverse.html">
+            
+                <a href="2021-01-13-omniverse.html">
+            
+                    
+                    Omniverse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="2021-02-01-docker-hands-on.html">
+            
+                <a href="2021-02-01-docker-hands-on.html">
+            
+                    
+                    Docker基礎指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="2021-02-02-jekyll-easy-way.html">
+            
+                <a href="2021-02-02-jekyll-easy-way.html">
+            
+                    
+                    Docker + Jekyll = an easy way to create Github Pages blogger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="2021-02-03-create-msbuild-image.html">
+            
+                <a href="2021-02-03-create-msbuild-image.html">
+            
+                    
+                    Dockerizing MSBuild(Visual Studio 2019)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="2021-02-04-first-usd.html">
+            
+                <a href="2021-02-04-first-usd.html">
+            
+                    
+                    建立第一個 USD 場景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="2021-02-20-usdgeommesh.html">
+            
+                <a href="2021-02-20-usdgeommesh.html">
+            
+                    
+                    建立 USD Mesh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="2021-02-21-build-linux-kernel.html">
+            
+                <a href="2021-02-21-build-linux-kernel.html">
+            
+                    
+                    Linux Kernel 開發環境設定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="2021-04-23-typelist.html">
+            
+                <a href="2021-04-23-typelist.html">
+            
+                    
+                    Metaprogramming - TypeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="2021-04-24-perf.html">
+            
+                <a href="2021-04-24-perf.html">
+            
+                    
+                    perf counter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="2021-05-02-rust-001.html">
+            
+                <a href="2021-05-02-rust-001.html">
+            
+                    
+                    Rust 001
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="2021-05-08-rust-002.html">
+            
+                <a href="2021-05-08-rust-002.html">
+            
+                    
+                    Rust 002
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2.12" data-path="2021-06-20-rust-003.html">
+            
+                <a href="2021-06-20-rust-003.html">
+            
+                    
+                    Rust 003
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.13" data-path="2021-09-19-lua-and-cpp17.html">
+            
+                <a href="2021-09-19-lua-and-cpp17.html">
+            
+                    
+                    Lua with C++17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.14" data-path="2021-10-12-absl-layout.html">
+            
+                <a href="2021-10-12-absl-layout.html">
+            
+                    
+                    abseil - layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Rust 003</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <p>Rust &#x7684;&#x8A9E;&#x6CD5;&#x76F8;&#x8F03;&#x7368;&#x7279;&#xFF0C;&#x8A31;&#x591A;&#x4EBA;&#x5728;&#x525B;&#x958B;&#x59CB;&#x5B78;&#x7FD2;&#x7406;&#x89E3; Rust &#x7A0B;&#x5F0F;&#x78BC;&#x7684;&#x6642;&#x5019;&#x53EF;&#x80FD;&#x6703;&#x6709;&#x9EDE;&#x7D0D;&#x60B6;&#x3002;</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">formula</span></span>(<span class="hljs-keyword">mut</span> a: <span class="hljs-keyword">f32</span>, b: <span class="hljs-keyword">f32</span>) -&gt; <span class="hljs-keyword">f32</span> {
+    <span class="hljs-keyword">if</span> a &gt; <span class="hljs-number">1.0</span> {
+        <span class="hljs-keyword">return</span> a + b;
+    }
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> b &gt; <span class="hljs-number">1.0</span> {
+        <span class="hljs-keyword">return</span> a - b;
+    }
+    a += <span class="hljs-number">3.0</span>;
+    a * b
+}
+</code></pre>
+<p>&#x5BB9;&#x6613;&#x8B93; C/C++ &#x5DE5;&#x7A0B;&#x5E2B;&#x56F0;&#x60D1;&#x7684;&#x662F; <code>formula</code> function &#x7684;&#x6700;&#x5F8C;&#x4E00;&#x884C;&#xFF0C;&#x70BA;&#x4F55;&#x4E0D;&#x7528;&#x5BEB;&#x70BA; <code>return a * b;</code>&#x3002;&#x90A3;&#x662F;&#x56E0;&#x70BA; rust &#x4E3B;&#x8981;&#x662F;&#x4E00;&#x500B; expression language&#xFF0C;&#x800C; expression &#x6703;&#x7522;&#x751F;&#x503C;&#x3002;</p>
+<p><code>return a * b;</code> &#x8207; <code>a * b</code> &#x90FD;&#x6709;&#x540C;&#x6A23;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x4F46; Rust &#x5DE5;&#x7A0B;&#x5E2B;&#x6703;&#x66F4;&#x50BE;&#x5411;&#x5BEB;&#x70BA;&#x5F8C;&#x8005;&#x3002;&#x90A3;&#x9EBC; statement &#x53C8;&#x662F;&#x4EC0;&#x9EBC;&#xFF1F;&#x6839;&#x64DA; Rust &#x7684;&#x5B9A;&#x7FA9;&#xFF0C;statement &#x6709;&#x5169;&#x7A2E;&#xFF1A;declaration statements &#x8207; expression statements&#x3002;declaration statements &#x4F8B;&#x5982; let &#x8207;&#x5BA3;&#x544A;&#x7269;&#x4EF6;(item)&#xFF0C;expression statements &#x5247;&#x662F;&#x5C0D; expression &#x9032;&#x884C;&#x4F30;&#x503C;(evaluate)&#xFF0C;&#x4F46;&#x5FFD;&#x7565;&#x7D50;&#x679C;&#x3002;</p>
+<p>&#x7576;&#x7136;&#x5728;<a href="2021-05-08-rust-002.html">&#x524D;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;</a>&#x6211;&#x5011;&#x77E5;&#x9053;&#x4E86;&#x5982;&#x4F55;&#x5C07; formula &#x7C21;&#x5316;&#x6210; match&#x3002;</p>
+<p>&#x518D;&#x4F86;&#x662F; <code>unwrap</code> &#x8207; <code>?</code>&#x3002;&#x6211;&#x76F8;&#x4FE1;&#x4E0D;&#x5C11; C/C++ &#x5DE5;&#x7A0B;&#x5E2B;&#x90FD;&#x6703;&#x81EA;&#x5DF1;&#x5B9A;&#x7FA9;&#x4E00;&#x4E9B; macro &#x7528;&#x4F86;&#x8655;&#x7406;&#x4E00;&#x9577;&#x4E32;&#x7684;&#x932F;&#x8AA4;&#x8655;&#x7406;&#x7684;&#x6D41;&#x7A0B;&#x63A7;&#x5236;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-cpp"><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> check(exp, err) {<span class="hljs-meta-keyword">if</span>(FAILED(exp)){assert(err, exp); return false;}}</span>
+</code></pre>
+<p>&#x7576;&#x7136;&#x96A8;&#x8457;&#x5C08;&#x6848;&#x767C;&#x5C55;&#x6211;&#x5011;&#x6703;&#x9047;&#x5230;&#x66F4;&#x591A;&#x66F4;&#x8907;&#x96DC;&#x7684;&#x8B8A;&#x9AD4;&#xFF0C;&#x5F88;&#x96E3;&#x55AE;&#x7D14;&#x7528;&#x55AE;&#x4E00; macro &#x6982;&#x62EC;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x5C11;&#x4EBA;&#x6703;&#x7528;&#x7D71;&#x4E00;&#x7684; error code &#x6216; Error &#x7269;&#x4EF6;&#x4F86;&#x907F;&#x514D;&#x932F;&#x8AA4;&#x8655;&#x7406;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x4E0D;&#x65B7;&#x91CD;&#x8907;&#x5F71;&#x97FF;&#x95B1;&#x8B80;&#x6027;&#x3002;rust &#x660E;&#x986F;&#x6709;&#x4E00;&#x5957;&#x7D71;&#x4E00;&#x7684;&#x8655;&#x7406;&#x6D41;&#x7A0B;&#x3002;</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Result</span></span>&lt;T&gt; = std::result::<span class="hljs-built_in">Result</span>&lt;T, Diagnostic&gt;;
+
+<span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">load_file</span></span>&lt;<span class="hljs-symbol">&apos;a</span>&gt;(filepath: &amp;<span class="hljs-symbol">&apos;a</span> Path) -&gt; <span class="hljs-built_in">Result</span>&lt;SourceFile&gt; {
+    <span class="hljs-keyword">let</span> s = std::fs::read_to_string(filepath).map_err(|_| {
+        <span class="hljs-keyword">let</span> pathstr = filepath.to_str().unwrap();
+        <span class="hljs-keyword">let</span> diag = Diagnostic {
+            message: <span class="hljs-built_in">format!</span>(<span class="hljs-string">&quot;failed to load file {}&quot;</span>, pathstr),
+        };
+        diag
+    })?;
+    <span class="hljs-keyword">let</span> file = SourceFile::new(s);
+    <span class="hljs-literal">Ok</span>(file)
+}
+</code></pre>
+<p>&#x9996;&#x5148;&#x4F86;&#x770B;&#x770B; <code>unwrap</code></p>
+<pre><code class="lang-rust"><span class="hljs-keyword">let</span> pathstr = filepath.to_str().unwrap();
+</code></pre>
+<p><code>to_str</code> &#x662F; <code>Path</code> &#x6703;&#x56DE;&#x50B3; <code>Option&lt;&amp;str&gt;</code> &#x7684;&#x4E00;&#x500B; method&#xFF0C;&#x5C31;&#x50CF;&#x662F;&#x628A;&#x7D50;&#x679C;&#x578B;&#x5225;&#x5305;&#x8986;(wrap)&#x8D77;&#x4F86;&#x4E00;&#x6A23;&#xFF0C;<code>Option</code> &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x500B;&#x4ECB;&#x9762; <code>unwrap</code> &#x4F9B;&#x6211;&#x5011;&#x628A;&#x5177;&#x503C;&#x72C0;&#x6CC1;&#x4E0B;&#x771F;&#x6B63;&#x5BE6;&#x969B;&#x7684;&#x6578;&#x503C;&#x53D6;&#x51FA;&#x4F86;&#x3002;&#x554F;&#x984C;&#x662F;&#xFF1A;&#x5982;&#x679C; <code>filepath.to_str()</code> &#x7684;&#x7D50;&#x679C;&#x771F;&#x7684;&#x6C92;&#x6709;&#x6578;&#x503C;(<code>None</code>)&#xFF0C;&#x90A3;&#x9EBC; <code>unwrap</code> &#x7684;&#x7D50;&#x679C;&#x53C8;&#x6703;&#x5982;&#x4F55;&#xFF1F;<code>unwrap</code> &#x7684;&#x5BE6;&#x4F5C;&#x5176;&#x5BE6;&#x5C31;&#x662F;&#x4E00;&#x500B;&#x518D;&#x7C21;&#x55AE;&#x4E0D;&#x904E;&#x7684;<code>match</code>&#xFF0C;&#x67E5;&#x770B;&#x539F;&#x59CB;&#x78BC;&#x6211;&#x5011;&#x5F97;&#x77E5;&#x7A0B;&#x5F0F;&#x6703;&#x76F4;&#x63A5; panic&#x3002;</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">pub</span> <span class="hljs-keyword">const</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">unwrap</span></span>(<span class="hljs-keyword">self</span>) -&gt; T {
+    <span class="hljs-keyword">match</span> <span class="hljs-keyword">self</span> {
+        <span class="hljs-literal">Some</span>(val) =&gt; val,
+        <span class="hljs-literal">None</span> =&gt; <span class="hljs-built_in">panic!</span>(<span class="hljs-string">&quot;called `Option::unwrap()` on a `None` value&quot;</span>),
+    }
+}
+</code></pre>
+<p>&#x56E0;&#x6B64; <code>unwrap</code> &#x76F8;&#x7576;&#x65BC;&#x6211;&#x5011;&#x4EE5;&#x5F80;&#x5BEB;&#x7A0B;&#x5F0F;&#x300C;&#x5982;&#x679C;&#x771F;&#x7684;&#x6C92;&#x6709;&#x6578;&#x503C;&#xFF0C;&#x90A3;&#x5B83;&#x80AF;&#x5B9A;&#x662F;&#x4E00;&#x500B;exception&#x300D;(&#x800C;&#x975E;error)&#x7684;&#x614B;&#x5EA6;&#x3002;<br>&#x6709;&#x4E86; <code>unwrap</code> &#x7684;&#x57FA;&#x790E;&#x6211;&#x5011;&#x5C31;&#x80FD;&#x63A5;&#x8457;&#x5B78;&#x7FD2; question mark operator&#xFF0C;&#x4E5F;&#x5C31;&#x662F; <code>?</code>&#x3002;</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">let</span> s = std::fs::read_to_string(filepath)?;
+</code></pre>
+<p>&#x7576; <code>std::fs::read_to_string</code> &#x7684;&#x7D50;&#x679C;&#x70BA; Err &#x6642;&#xFF0C;&#x6703;&#x76F4;&#x63A5;&#x56DE;&#x50B3; <code>Err(From::from(e))</code>&#xFF0C;&#x53CD;&#x4E4B;&#x5247; <code>unwrap</code>&#x3002;question mark operator &#x7684;&#x8A2D;&#x8A08;&#x5927;&#x5E45;&#x7C21;&#x5316;&#x50B3;&#x7D71; <code>if(!succeed()) return error;</code>&#x7684;&#x6D41;&#x7A0B;&#xFF0C;&#x4E26;&#x7D71;&#x4E00; Rust &#x7A0B;&#x5F0F;&#x5927;&#x90E8;&#x5206;&#x7684;&#x958B;&#x767C;&#x7FD2;&#x6163;&#x3002;</p>
+<p>&#x56DE;&#x982D;&#x67E5;&#x770B; <code>load_file</code> &#x6211;&#x5011;&#x6703;&#x767C;&#x73FE;&#x56DE;&#x50B3;&#x578B;&#x5225;&#x662F; <code>std::result::Result&lt;T, Diagnostic&gt;</code>&#xFF0C;&#x9019;&#x6642;&#x5C31;&#x8207;&#x6A19;&#x6E96;&#x51FD;&#x5F0F;&#x5EAB;&#x7684; <code>std::io::Result</code> &#x6709;&#x6240;&#x4E0D;&#x540C;&#xFF0C;&#x6211;&#x5011;&#x5FC5;&#x9808;&#x8981;&#x5C07; <code>std::io::Error</code> &#x8F49;&#x63DB;&#x6210; <code>Diagnostic</code>&#x3002;&#x78BA;&#x5BE6;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x5BEB;&#x4E00;&#x500B; match &#x4F86;&#x9032;&#x884C;&#x8F49;&#x63DB;&#xFF0C;&#x4E0D;&#x904E; Rust &#x5167;&#x5EFA;&#x63D0;&#x4F9B;&#x4E00;&#x500B;&#x66F4;&#x7C21;&#x55AE;&#x7684;&#x8FA6;&#x6CD5;&#xFF0C;&#x90A3;&#x5C31;&#x662F; <code>map_err</code>&#xFF0C;&#x9867;&#x540D;&#x601D;&#x7FA9;&#x6703;&#x4EE5;&#x958B;&#x767C;&#x8005;&#x50B3;&#x5165;&#x7684; function &#x5C07;&#x539F;&#x59CB;&#x7684;&#x932F;&#x8AA4;&#x6578;&#x503C;&#x8F49;&#x63DB;&#x6210;&#x5176;&#x4ED6;&#x578B;&#x5225;&#x3002;</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">let</span> s = std::fs::read_to_string(filepath).map_err(|_| {
+    <span class="hljs-keyword">let</span> pathstr = filepath.to_str().unwrap();
+    <span class="hljs-keyword">let</span> diag = Diagnostic {
+        message: <span class="hljs-built_in">format!</span>(<span class="hljs-string">&quot;failed to load file {}&quot;</span>, pathstr),
+    };
+    diag
+})?;
+</code></pre>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2021-05-08-rust-002.html" class="navigation navigation-prev " aria-label="Previous page: Rust 002">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2021-09-19-lua-and-cpp17.html" class="navigation navigation-next " aria-label="Next page: Lua with C++17">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Rust 003","level":"1.3.2.12","depth":3,"next":{"title":"Lua with C++17","level":"1.3.2.13","depth":3,"path":"blog/2021/2021-09-19-lua-and-cpp17.md","ref":"blog/2021/2021-09-19-lua-and-cpp17.md","articles":[]},"previous":{"title":"Rust 002","level":"1.3.2.11","depth":3,"path":"blog/2021/2021-05-08-rust-002.md","ref":"blog/2021/2021-05-08-rust-002.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters"],"pluginsConfig":{"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-06-20-rust-003.md","mtime":"2022-05-12T14:13:40.626Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-12T15:06:29.060Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
