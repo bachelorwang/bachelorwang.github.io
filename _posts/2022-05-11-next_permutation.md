@@ -3,6 +3,7 @@ layout: post
 title: next_permutation
 tags:
   - c++
+  - algorithm
 ---
 
 `std::next_permutation`是 STL 中將容器排序為下一個排列次序的函數，不過究竟何謂下一個排列究竟是依什麼規則而產生，不理解其實作原理的人恐怕難以想像。`next_permutation`有一個隱晦的規則，恰好能說明其實作原理，那便是如果你要透過此函數列舉所有元素排列的可能，那麼一開始容器必須要處於**「已經排序」**的狀態。而`next_permutation`回傳 `false` 表示已無次組排列次序可列舉。實際上，這個**最後一個排列次序**正是**「倒序」**。例如：
