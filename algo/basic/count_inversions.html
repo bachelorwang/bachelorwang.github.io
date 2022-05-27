@@ -1,0 +1,687 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>逆序對 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../problems/" />
+    
+    
+    <link rel="prev" href="next_permutation.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../about.html">
+            
+                <a href="../../about.html">
+            
+                    
+                    About
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../blog/">
+            
+                <a href="../../blog/">
+            
+                    
+                    Blog
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../blog/2022/">
+            
+                <a href="../../blog/2022/">
+            
+                    
+                    2022
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1.1" data-path="../../blog/2022/2022-01-23-refactoring_01.html">
+            
+                <a href="../../blog/2022/2022-01-23-refactoring_01.html">
+            
+                    
+                    論重構 01
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.2" data-path="../../blog/2022/2022-02-04-refactoring_02.html">
+            
+                <a href="../../blog/2022/2022-02-04-refactoring_02.html">
+            
+                    
+                    論重構 02
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.3" data-path="../../blog/2022/2022-02-18-cpp-detection-idiom.html">
+            
+                <a href="../../blog/2022/2022-02-18-cpp-detection-idiom.html">
+            
+                    
+                    C++ detection idiom
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../blog/2021/">
+            
+                <a href="../../blog/2021/">
+            
+                    
+                    2021
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.2.1" data-path="../../blog/2021/2021-01-13-omniverse.html">
+            
+                <a href="../../blog/2021/2021-01-13-omniverse.html">
+            
+                    
+                    Omniverse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.2" data-path="../../blog/2021/2021-02-01-docker-hands-on.html">
+            
+                <a href="../../blog/2021/2021-02-01-docker-hands-on.html">
+            
+                    
+                    Docker基礎指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.3" data-path="../../blog/2021/2021-02-02-jekyll-easy-way.html">
+            
+                <a href="../../blog/2021/2021-02-02-jekyll-easy-way.html">
+            
+                    
+                    Docker + Jekyll = an easy way to create Github Pages blogger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.4" data-path="../../blog/2021/2021-02-03-create-msbuild-image.html">
+            
+                <a href="../../blog/2021/2021-02-03-create-msbuild-image.html">
+            
+                    
+                    Dockerizing MSBuild(Visual Studio 2019)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.5" data-path="../../blog/2021/2021-02-04-first-usd.html">
+            
+                <a href="../../blog/2021/2021-02-04-first-usd.html">
+            
+                    
+                    建立第一個 USD 場景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.6" data-path="../../blog/2021/2021-02-20-usdgeommesh.html">
+            
+                <a href="../../blog/2021/2021-02-20-usdgeommesh.html">
+            
+                    
+                    建立 USD Mesh
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.7" data-path="../../blog/2021/2021-02-21-build-linux-kernel.html">
+            
+                <a href="../../blog/2021/2021-02-21-build-linux-kernel.html">
+            
+                    
+                    Linux Kernel 開發環境設定
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.8" data-path="../../blog/2021/2021-04-23-typelist.html">
+            
+                <a href="../../blog/2021/2021-04-23-typelist.html">
+            
+                    
+                    Metaprogramming - TypeList
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.9" data-path="../../blog/2021/2021-04-24-perf.html">
+            
+                <a href="../../blog/2021/2021-04-24-perf.html">
+            
+                    
+                    perf counter
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.10" data-path="../../blog/2021/2021-05-02-rust-001.html">
+            
+                <a href="../../blog/2021/2021-05-02-rust-001.html">
+            
+                    
+                    Rust 001
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.11" data-path="../../blog/2021/2021-05-08-rust-002.html">
+            
+                <a href="../../blog/2021/2021-05-08-rust-002.html">
+            
+                    
+                    Rust 002
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.12" data-path="../../blog/2021/2021-06-20-rust-003.html">
+            
+                <a href="../../blog/2021/2021-06-20-rust-003.html">
+            
+                    
+                    Rust 003
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.13" data-path="../../blog/2021/2021-09-19-lua-and-cpp17.html">
+            
+                <a href="../../blog/2021/2021-09-19-lua-and-cpp17.html">
+            
+                    
+                    Lua with C++17
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2.14" data-path="../../blog/2021/2021-10-12-absl-layout.html">
+            
+                <a href="../../blog/2021/2021-10-12-absl-layout.html">
+            
+                    
+                    abseil - layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Algorithm Notes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    basic
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1.1" data-path="next_permutation.html">
+            
+                <a href="next_permutation.html">
+            
+                    
+                    next_permutation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.1.2" data-path="count_inversions.html">
+            
+                <a href="count_inversions.html">
+            
+                    
+                    逆序對
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../problems/">
+            
+                <a href="../problems/">
+            
+                    
+                    problems
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../problems/cf1684d.html">
+            
+                <a href="../problems/cf1684d.html">
+            
+                    
+                    CF1684D Traps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >逆序對</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x9006;&#x5E8F;&#x5C0D;">&#x9006;&#x5E8F;&#x5C0D;</h1>
+<p>&#x6392;&#x5E8F;&#x662F;&#x6211;&#x5B78;&#x7FD2;&#x6F14;&#x7B97;&#x6CD5;&#x6642;&#x7121;&#x610F;&#x9593;&#x8F15;&#x5FFD;&#x7684;&#x4E00;&#x500B;&#x554F;&#x984C;&#xFF0C;&#x7576;&#x7136;&#x73FE;&#x5BE6;&#x4E2D;&#x5B58;&#x5728;&#x975E;&#x5E38;&#x591A;&#x8907;&#x96DC;&#x7684;&#x6392;&#x5E8F;&#x61C9;&#x7528;&#x8207;&#x8B70;&#x984C;&#xFF0C;&#x4F46;&#x5728;&#x89E3;&#x984C;&#x4E0A;&#x7E3D;&#x8A8D;&#x70BA;&#x53EA;&#x8981;&#x5BEB;&#x51FA; quick sort &#x5C31;&#x80FD;&#x61C9;&#x4ED8;&#x4E00;&#x4E9B;&#x57FA;&#x672C;&#x7684;&#x6392;&#x5E8F;&#x554F;&#x984C;&#x3002;&#x5BE6;&#x969B;&#x4E0A;&#x6392;&#x5E8F;&#x7684;&#x554F;&#x984C;&#x9084;&#x6709;&#x597D;&#x5E7E;&#x7A2E;&#x8B8A;&#x5F62;&#xFF0C;&#x5176;&#x4E2D;&#x4E00;&#x7A2E;&#x5C31;&#x662F;&#x9006;&#x5E8F;&#x5C0D;&#x3002;</p>
+<h2 id="&#x4F8B;&#x984C;-a">&#x4F8B;&#x984C; A</h2>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mo>&#xD7;</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">2 \times N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mbin">&#xD7;</span><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> &#x540D;&#x7DE8;&#x865F;&#x70BA; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>&#x223C;</mo><mn>2</mn><mi>N</mi></mrow><annotation encoding="application/x-tex">1 \sim 2N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">1</span><span class="mrel">&#x223C;</span><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span> &#x7684;&#x9078;&#x624B;&#x5171;&#x9032;&#x884C; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.00773em;">R</span></span></span></span> &#x8F2A;&#x6BD4;&#x8CFD;&#x3002;&#x6BCF;&#x8F2A;&#x6BD4;&#x8CFD;&#x958B;&#x59CB;&#x524D;&#xFF0C;&#x4EE5;&#x53CA;&#x6240;&#x6709;&#x6BD4;&#x8CFD;&#x7D50;&#x675F;&#x5F8C;&#xFF0C;&#x90FD;&#x6703;&#x6309;&#x7167;&#x7E3D;&#x5206;&#x5F9E;&#x9AD8;&#x5230;&#x4F4E;&#x5C0D;&#x9078;&#x624B;&#x9032;&#x884C;&#x4E00;&#x6B21;&#x6392;&#x540D;&#x3002;&#x9078;&#x624B;&#x7684;&#x7E3D;&#x5206;&#x70BA;&#x7B2C;&#x4E00;&#x8F2A;&#x958B;&#x59CB;&#x524D;&#x7684;&#x521D;&#x59CB;&#x5206;&#x6578;&#x52A0;&#x4E0A;&#x5DF2;&#x53C3;&#x52A0;&#x904E;&#x7684;&#x6240;&#x6709;&#x6BD4;&#x8CFD;&#x7684;&#x5F97;&#x5206;&#x548C;&#x3002;&#x7E3D;&#x5206;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x7D04;&#x5B9A;&#x7DE8;&#x865F;&#x8F03;&#x5C0F;&#x7684;&#x9078;&#x624B;&#x6392;&#x540D;&#x9760;&#x524D;&#x3002;</p>
+<p>&#x6BCF;&#x8F2A;&#x6BD4;&#x8CFD;&#x7684;&#x5C0D;&#x9663;&#x5B89;&#x6392;&#x8207;&#x8A72;&#x8F2A;&#x6BD4;&#x8CFD;&#x958B;&#x59CB;&#x524D;&#x7684;&#x6392;&#x540D;&#x6709;&#x95DC;&#xFF1A;&#x7B2C; 1 &#x540D;&#x548C;&#x7B2C; 2 &#x540D;&#x3001;&#x7B2C; 3 &#x540D;&#x548C;&#x7B2C; 4 &#x540D;&#x3001;......&#x3001;&#x7B2C; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>N</mi><mo>&#x2212;</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2N - 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.10903em;">N</span><span class="mbin">&#x2212;</span><span class="mord mathrm">1</span></span></span></span> &#x8207; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>N</mi></mrow><annotation encoding="application/x-tex">2N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit" style="margin-right:0.10903em;">N</span></span></span></span>&#x540D;&#x5404;&#x9032;&#x884C;&#x4E00;&#x5834;&#x6BD4;&#x8CFD;&#x3002;&#x6BCF;&#x5834;&#x6BD4;&#x8CFD;&#x52DD;&#x8005;&#x5F97; 1 &#x5206;&#xFF0C;&#x8CA0;&#x8005;&#x5F97; 0 &#x5206;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8AAA;&#x9664;&#x4E86;&#x9996;&#x8F2A;&#x4EE5;&#x5916;&#xFF0C;&#x5176;&#x5B83;&#x8F2A;&#x6BD4;&#x8CFD;&#x7684;&#x5B89;&#x6392;&#x5747;&#x4E0D;&#x80FD;&#x4E8B;&#x5148;&#x78BA;&#x5B9A;&#xFF0C;&#x800C;&#x662F;&#x8981;&#x53D6;&#x6C7A;&#x65BC;&#x9078;&#x624B;&#x5728;&#x4E4B;&#x524D;&#x6BD4;&#x8CFD;&#x4E2D;&#x7684;&#x8868;&#x73FE;&#x3002;</p>
+<p>&#x73FE;&#x7D66;&#x5B9A;&#x6BCF;&#x500B;&#x9078;&#x624B;&#x7684;&#x521D;&#x59CB;&#x5206;&#x6578;&#x53CA;&#x5176;&#x5BE6;&#x529B;&#x503C;&#xFF0C;&#x8A66;&#x8A08;&#x7B97;&#x5728; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi></mrow><annotation encoding="application/x-tex">R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.00773em;">R</span></span></span></span> &#x8F2A;&#x6BD4;&#x8CFD;&#x904E;&#x5F8C;&#xFF0C;&#x6392;&#x540D;&#x7B2C; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>Q</mi></mrow><annotation encoding="application/x-tex">Q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">Q</span></span></span></span> &#x7684;&#x9078;&#x624B;&#x7DE8;&#x865F;&#x662F;&#x591A;&#x5C11;&#x3002;&#x6211;&#x5011;&#x5047;&#x8A2D;&#x9078;&#x624B;&#x7684;&#x5BE6;&#x529B;&#x503C;&#x5169;&#x5169;&#x4E0D;&#x540C;&#xFF0C;&#x4E14;&#x6BCF;&#x5834;&#x6BD4;&#x8CFD;&#x4E2D;&#x5BE6;&#x529B;&#x503C;&#x8F03;&#x9AD8;&#x7684;&#x7E3D;&#x80FD;&#x7372;&#x52DD;&#x3002;</p>
+<pre><code>2 4 2       // N, R, Q
+7 6 6 7     // &#x8D77;&#x59CB;&#x5206;&#x6578;
+10 5 20 15  // &#x5BE6;&#x529B;&#x503C;
+</code></pre><h3 id="&#x984C;&#x89E3;">&#x984C;&#x89E3;</h3>
+<p>&#x9019;&#x984C;&#x5176;&#x5BE6;&#x8DDF;&#x9006;&#x5E8F;&#x5C0D;&#x7121;&#x95DC;&#xFF0C;&#x4F46;&#x8DDF;&#x672A;&#x4F86;&#x9006;&#x5E8F;&#x5C0D;&#x89E3;&#x6CD5;&#x6709;&#x95DC;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x9806;&#x4FBF;&#x63D0;&#x3002;&#x9019;&#x984C;&#x76F4;&#x89BA;&#x4E0A;&#x7684;&#x505A;&#x6CD5;&#xFF0C;&#x6703;&#x900F;&#x904E;&#x60F3;&#x900F;&#x904E;&#x6392;&#x5E8F;&#x6F14;&#x7B97;&#x6CD5;&#x4F86;&#x6A21;&#x64EC;&#x8CFD;&#x7A0B;&#x3002;&#x7531;&#x65BC;&#x984C;&#x76EE;&#x4FDD;&#x8B49;&#x6BCF;&#x500B;&#x4EBA;&#x7684;&#x5BE6;&#x529B;&#x90FD;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x4E0D;&#x6703;&#x6709;&#x91CD;&#x8907;&#x503C;&#x4E5F;&#x4E0D;&#x6703;&#x8B8A;&#x5316;&#xFF0C;&#x56E0;&#x6B64;&#x6BD4;&#x8CFD;&#x7684;&#x7D50;&#x679C;&#x662F;&#x5B8C;&#x5168;&#x53EF;&#x9810;&#x671F;&#x7684;&#x3002;&#x6839;&#x64DA;&#x6A21;&#x64EC;&#x7684;&#x4F5C;&#x6CD5;&#xFF0C;&#x9996;&#x5148;&#x6211;&#x5011;&#x5728;&#x6BCF;&#x6B21;&#x6392;&#x5E8F;&#x5F8C;&#xFF0C;&#x5C31;&#x6309;&#x7167;&#x984C;&#x76EE;&#x7684;&#x898F;&#x5247;&#x8B93; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>i</mi></mrow><annotation encoding="application/x-tex">2i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit">i</span></span></span></span> &#x8207; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>i</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">2i+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord mathrm">2</span><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span></span></span></span> &#x7684;&#x9078;&#x624B;&#x9032;&#x884C;&#x5C0D;&#x6230;&#xFF0C;&#x4E26;&#x8B93;&#x52DD;&#x5229;&#x65B9;&#x7684;&#x5206;&#x6578; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.64444em;"></span><span class="strut bottom" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="base textstyle uncramped"><span class="mord">+</span><span class="mord mathrm">1</span></span></span></span>&#xFF0C;&#x518D;&#x4F9D;&#x7167;&#x5206;&#x6578;&#x6392;&#x5E8F;&#x9078;&#x624B;&#x7684;&#x540D;&#x6B21;&#x3002;</p>
+<p>&#x4E0D;&#x904E;&#x9019;&#x500B;&#x505A;&#x6CD5;&#x5176;&#x5BE6;&#x9047;&#x5230;&#x5927;&#x898F;&#x6A21;&#x6E2C;&#x8CC7;&#x662F;&#x6703; TLE &#x7684;&#xFF0C;&#x7531;&#x65BC;&#x5927;&#x90E8;&#x5206;&#x7684;&#x6392;&#x5E8F;&#x6F14;&#x7B97;&#x6CD5;&#x90FD;&#x662F;&#x5FEB;&#x901F;&#x6392;&#x5E8F;(quick sort)&#xFF0C;&#x6B64;&#x6F14;&#x7B97;&#x6CD5;&#x5728;&#x672C;&#x984C;&#x4E0A;&#x6709;&#x4E00;&#x500B;&#x6D6A;&#x8CBB;&#x4E4B;&#x8655;&#xFF0C;&#x90A3;&#x5C31;&#x662F;<strong>&#x5176;&#x5BE6;&#x6211;&#x5011;&#x5728;&#x66FF;&#x9078;&#x624B;&#x8A08;&#x7B97;&#x5206;&#x6578;&#x6642;&#xFF0C;&#x5DF2;&#x7D93;&#x5B8C;&#x6210;&#x4E86;&#x5206;&#x7D44;</strong>&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; n; ++i) {
+  <span class="hljs-keyword">int</span> l = players[i * <span class="hljs-number">2</span>];
+  <span class="hljs-keyword">int</span> r = players[i * <span class="hljs-number">2</span> + <span class="hljs-number">1</span>];
+  <span class="hljs-keyword">int</span> w = powers[l] &gt; powers[r] ? l : r;
+  <span class="hljs-keyword">int</span> c = w == l ? r : l;
+  winners[i] = w;
+  losers[i] = c;
+  ++scores[w];
+}
+<span class="hljs-keyword">int</span> curr = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>, j = <span class="hljs-number">0</span>;
+<span class="hljs-keyword">while</span> (i &lt; n &amp;&amp; j &lt; n) {
+  <span class="hljs-keyword">auto</span> l = winners[i];
+  <span class="hljs-keyword">auto</span> r = losers[j];
+  <span class="hljs-keyword">if</span> (scores[l] &gt; scores[r] || (scores[l] == scores[r] &amp;&amp; l &lt; r)) {
+    players[curr++] = l;
+    ++i;
+  }
+  <span class="hljs-keyword">else</span> {
+    players[curr++] = r;
+    ++j;
+  }
+}
+<span class="hljs-keyword">while</span> (i &lt; n) {
+  <span class="hljs-keyword">auto</span> l = winners[i++];
+  players[curr++] = l;
+}
+<span class="hljs-keyword">while</span> (j &lt; n) {
+  <span class="hljs-keyword">auto</span> r = losers[j++];
+  players[curr++] = r;
+}
+</code></pre>
+<p>&#x9019;&#x88E1;&#x7684;&#x5206;&#x7D44;(divide)&#x5176;&#x5BE6;&#x5728;&#x6211;&#x5011;&#x63D0;&#x5347;&#x52DD;&#x7D44;&#x7684;&#x5206;&#x6578;&#x6642;&#xFF0C;&#x5C31;&#x5DF2;&#x7D93;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x3002;&#x5FEB;&#x901F;&#x6392;&#x5E8F;&#x96D6;&#x7136;&#x53EF;&#x4EE5;&#x7528;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x6BD4;&#x8CFD;&#x524D;&#xFF0C;&#x4F46;&#x4E4B;&#x5F8C;&#x7684;&#x6BD4;&#x8CFD;&#x518D;&#x7528;&#x5FEB;&#x901F;&#x6392;&#x5E8F;&#xFF0C;&#x5176;&#x5BE6;&#x662F;&#x6D6A;&#x8CBB;&#x4E86;&#x5206;&#x6578;&#x8A08;&#x7B97;&#x6642;&#x5C31;&#x5DF2;&#x80FD;&#x5B8C;&#x6210;&#x7684;&#x5206;&#x6CBB;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x6B64;&#x984C;&#x4E2D;&#x4F7F;&#x7528; merge sort &#x662F;&#x8F03;&#x70BA;&#x5FEB;&#x901F;&#x7684;&#x4E00;&#x500B;&#x9078;&#x64C7;&#xFF0C;&#x540D;&#x6B21;&#x9AD8;&#x7684;&#x52DD;&#x7D44;&#x5206;&#x6578;&#x5FC5;&#x5B9A;&#x9AD8;&#x65BC;&#x540D;&#x6B21;&#x4F4E;&#x7684;&#x52DD;&#x7D44;&#x3001;&#x540D;&#x6B21;&#x9AD8;&#x7684;&#x6557;&#x7D44;&#x5206;&#x6578;&#x5FC5;&#x5B9A;&#x9AD8;&#x65BC;&#x540D;&#x6B21;&#x4F4E;&#x7684;&#x6557;&#x7D44;&#x3002;&#x56E0;&#x6B64;&#x5FEB;&#x901F;&#x6392;&#x5E8F;&#x4E26;&#x4E0D;&#x662F;&#x9280;&#x5F48;&#x3002;</p>
+<h2 id="&#x4F8B;&#x984C;b">&#x4F8B;&#x984C;B</h2>
+<p>&#x5728;&#x4E00;&#x500B;&#x820A;&#x5F0F;&#x7684;&#x706B;&#x8ECA;&#x7AD9;&#x65C1;&#x908A;&#x6709;&#x4E00;&#x5EA7;&#x6A4B;&#xFF0C;&#x5176;&#x6A4B;&#x9762;&#x53EF;&#x4EE5;&#x7E5E;&#x6CB3;&#x4E2D;&#x5FC3;&#x7684;&#x6A4B;&#x58A9;&#x6C34;&#x5E73;&#x65CB;&#x8F49;&#x3002;&#x4E00;&#x500B;&#x8ECA;&#x7AD9;&#x7684;&#x8077;&#x5DE5;&#x767C;&#x73FE;&#x6A4B;&#x7684;&#x9577;&#x5EA6;&#x6700;&#x591A;&#x80FD;&#x5BB9;&#x7D0D;&#x5169;&#x7BC0;&#x8ECA;&#x5EC2;&#xFF0C;&#x5982;&#x679C;&#x5C07;&#x6A4B;&#x65CB;&#x8F49;180&#x5EA6;&#xFF0C;&#x5247;&#x53EF;&#x4EE5;&#x628A;&#x76F8;&#x9130;&#x5169;&#x7BC0;&#x8ECA;&#x5EC2;&#x7684;&#x4F4D;&#x7F6E;&#x4EA4;&#x63DB;&#xFF0C;&#x7528;&#x9019;&#x7A2E;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x91CD;&#x65B0;&#x6392;&#x5217;&#x8ECA;&#x5EC2;&#x7684;&#x9806;&#x5E8F;&#x3002;&#x65BC;&#x662F;&#x4ED6;&#x5C31;&#x8CA0;&#x8CAC;&#x7528;&#x9019;&#x5EA7;&#x6A4B;&#x5C07;&#x9032;&#x7AD9;&#x7684;&#x8ECA;&#x5EC2;&#x6309;&#x8ECA;&#x5EC2;&#x865F;&#x5F9E;&#x5C0F;&#x5230;&#x5927;&#x6392;&#x5217;&#x3002;&#x4ED6;&#x9000;&#x4F11;&#x5F8C;&#xFF0C;&#x706B;&#x8ECA;&#x7AD9;&#x6C7A;&#x5B9A;&#x5C07;&#x9019;&#x4E00;&#x5DE5;&#x4F5C;&#x81EA;&#x52D5;&#x5316;&#xFF0C;&#x5176;&#x4E2D;&#x4E00;&#x9805;&#x91CD;&#x8981;&#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x7DE8;&#x4E00;&#x500B;&#x7A0B;&#x5E8F;&#xFF0C;&#x8F38;&#x5165;&#x521D;&#x59CB;&#x7684;&#x8ECA;&#x5EC2;&#x9806;&#x5E8F;&#xFF0C;&#x8A08;&#x7B97;&#x6700;&#x5C11;&#x7528;&#x591A;&#x5C11;&#x6B65;&#x5C31;&#x80FD;&#x5C07;&#x8ECA;&#x5EC2;&#x6392;&#x5E8F;&#x3002;</p>
+<pre><code>4        // &#x8ECA;&#x5EC2;&#x6578;&#x91CF;
+4 3 2 1  // &#x8ECA;&#x5EC2;&#x865F;&#x78BC;
+</code></pre><h3 id="&#x984C;&#x89E3;">&#x984C;&#x89E3;</h3>
+<p>&#x9019;&#x984C;&#x6B78;&#x985E;&#x70BA;&#x5165;&#x9580;&#x984C;&#xFF0C;&#x5C0D;&#x6C92;&#x5B78;&#x904E;&#x6F14;&#x7B97;&#x6CD5;&#x7684;&#x4EBA;&#x4F86;&#x8AAA;&#xFF0C;&#x6700;&#x5FEB;&#x80FD;&#x60F3;&#x5230;&#x7684; bubble sort&#x3002;&#x53EA;&#x8981;&#x6BCF;&#x6B21;&#x4EA4;&#x63DB;&#x5C31;&#x9032;&#x884C;&#x8A18;&#x9304;&#x5C31;&#x6C92;&#x554F;&#x984C;&#x3002;&#x4E0D;&#x904E;&#x5176;&#x5BE6;&#x9019;&#x500B;&#x554F;&#x984C;&#x6709;&#x53E6;&#x4E00;&#x500B;&#x5BEB;&#x6CD5;&#x8207;&#x53E6;&#x4E00;&#x7A2E;&#x898F;&#x6A21;&#x7684;&#x6E2C;&#x8CC7;&#x3002;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x770B;&#x770B;&#x4F8B;&#x984C;C&#x3002;</p>
+<h2 id="&#x4F8B;&#x984C;c">&#x4F8B;&#x984C;C</h2>
+<p>&#x7D66;&#x5B9A;&#x4E00;&#x500B;&#x6B63;&#x6574;&#x6578;&#x6578;&#x5217;&#xFF0C;&#x8ACB;&#x8A08;&#x7B97;&#x6578;&#x5217;&#x7576;&#x4E2D;&#x7684;&#x9006;&#x5E8F;&#x5C0D;&#x7E3D;&#x91CF;&#x3002;&#x6240;&#x8B02;&#x9006;&#x5E8F;&#x5C0D;&#x5373; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub><mo>&gt;</mo><msub><mi>a</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex"> a_i &gt; a_j </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.5391em;"></span><span class="strut bottom" style="height:0.8252079999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">&gt;</span><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x4E14; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>&lt;</mo><mi>j</mi></mrow><annotation encoding="application/x-tex"> i &lt; j </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span>&#x3002;</p>
+<pre><code>6
+5 4 2 6 3 1
+</code></pre><p>&#x6E2C;&#x8CC7;&#x7B54;&#x6848;&#x70BA; 11&#x3002;</p>
+<p>&#x9019;&#x984C;&#x7684;&#x89E3;&#x6CD5;&#x4E4B;&#x4E00;&#x5C31;&#x662F; bubble sort&#xFF0C;&#x4F46;&#x4EE5;&#x6B64;&#x984C;&#x7684;&#x6E2C;&#x8CC7;&#x898F;&#x6A21;&#x662F;&#x7D55;&#x5C0D;&#x884C;&#x4E0D;&#x901A;&#x3002;&#x4F46;&#x5176;&#x5BE6;&#x4ED6;&#x6709;&#x4E00;&#x500B;&#x6EFF;&#x6709;&#x8DA3;&#x7684;&#x89E3;&#x6CD5;&#xFF0C;&#x540C;&#x6A23;&#x4E5F;&#x662F;&#x5229;&#x7528; merge sort&#x3002;</p>
+<pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">merge_sort</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; v, <span class="hljs-keyword">int</span> lp, <span class="hljs-keyword">int</span> rp, uint64_t&amp; ans)</span> </span>{
+  <span class="hljs-keyword">if</span> (rp - lp &lt;= <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">return</span>;
+  <span class="hljs-keyword">int</span> mp = lp + (rp - lp) / <span class="hljs-number">2</span>;
+  merge_sort(v, lp, mp, ans);
+  merge_sort(v, mp, rp, ans);
+  <span class="hljs-keyword">int</span> i = lp;
+  <span class="hljs-keyword">int</span> j = mp;
+  <span class="hljs-keyword">int</span> k = lp;
+  <span class="hljs-keyword">while</span> (i &lt; mp &amp;&amp; j &lt; rp) {
+    <span class="hljs-keyword">if</span> (v[i] &lt;= v[j]) {
+      tmp[k++] = v[i++];
+    }
+    <span class="hljs-keyword">else</span> {
+      tmp[k++] = v[j++];
+      ans += mp - i;
+    }
+  }
+  <span class="hljs-keyword">while</span>(i &lt; mp)
+    tmp[k++] = v[i++];
+  <span class="hljs-keyword">while</span> (j &lt; rp)
+    tmp[k++] = v[j++];
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = lp; i &lt; rp; ++i) {
+    v[i] = tmp[i];
+  }
+}
+</code></pre>
+<p>&#x6B64;&#x984C;&#x7684;&#x95DC;&#x9375;&#x5176;&#x5BE6;&#x662F;&#x5728; <code>ans += mp - i</code>&#xFF0C;&#x9019;&#x4E5F;&#x662F;&#x9019;&#x500B;&#x89E3;&#x6CD5;&#x6700;&#x8CBB;&#x89E3;&#x7684;&#x5730;&#x65B9;&#x3002;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x601D;&#x8003;&#x4E00;&#x4E0B;&#x9019;&#x7A2E;&#x72C0;&#x6CC1;&#xFF1A;</p>
+<pre><code>   p
+3 4 1 2
+</code></pre><p>&#x5728; merge sort &#x4E2D;&#xFF0C;&#x4EE5; <code>p</code> &#x70BA;&#x5206;&#x754C;&#x7684;&#x5DE6;&#x53F3;&#x5169;&#x7AEF;&#x5B50;&#x5E8F;&#x5217;&#x662F;&#x5DF2;&#x6392;&#x5E8F;&#x904E;&#x7684;&#x3002;&#x5728; <strong>merge</strong> &#x7684;&#x968E;&#x6BB5;&#xFF0C;&#x6211;&#x5011;&#x6703;&#x5206;&#x5225;&#x5F9E; <code>3 4</code> &#x8207; <code>1 2</code> &#x5404;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x8D77;&#x9EDE;&#x958B;&#x59CB;&#x6BD4;&#x8F03;&#xFF0C;&#x518D;&#x5C07;&#x5143;&#x7D20;&#x653E;&#x5165;&#x66AB;&#x5B58;&#x5E8F;&#x5217;&#x4E2D;&#x3002;&#x7576;&#x6211;&#x5011; <code>3</code> &#x4EE5; <code>1</code> &#x70BA;&#x5C0D;&#x8C61;&#x6BD4;&#x8F03;&#x6642;&#xFF0C;&#x6EFF;&#x8DB3;&#x9006;&#x5E8F;&#x5C0D;&#x7684;&#x5B9A;&#x7FA9; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>&lt;</mo><mi>j</mi><mo separator="true">,</mo><msub><mi>a</mi><mi>i</mi></msub><mo>&gt;</mo><msub><mi>a</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">i &lt; j, a_i &gt; a_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.9456279999999999em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span><span class="mrel">&lt;</span><span class="mord mathit" style="margin-right:0.05724em;">j</span><span class="mpunct">,</span><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">&gt;</span><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#xFF0C;&#x6839;&#x64DA; merge sort &#x7684;&#x5206;&#x6CBB;&#x898F;&#x5247;&#xFF0C;&#x6211;&#x5011;&#x77E5;&#x9053;&#x6B64;&#x6642;&#x5DE6;&#x5B50;&#x5E8F;&#x5217;&#x5FC5;&#x70BA;&#x5DF2;&#x6392;&#x5E8F;&#x7684;&#x72C0;&#x614B;&#xFF0C;&#x66F4;&#x76F4;&#x767D;&#x5730;&#x8AAA;&#xFF1A;<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo separator="true">,</mo><mi>m</mi><mi>p</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">[i + 1, mp)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit">i</span><span class="mbin">+</span><span class="mord mathrm">1</span><span class="mpunct">,</span><span class="mord mathit">m</span><span class="mord mathit">p</span><span class="mclose">)</span></span></span></span> &#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x5747;&#x4E0D;&#x5C0F;&#x65BC; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>&#xFF0C;&#x56E0;&#x6B64;&#x610F;&#x5473;&#x8457; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>i</mi><mo separator="true">,</mo><mi>m</mi><mi>p</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">[i, mp)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mopen">[</span><span class="mord mathit">i</span><span class="mpunct">,</span><span class="mord mathit">m</span><span class="mord mathit">p</span><span class="mclose">)</span></span></span></span> &#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x8207; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">a_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.716668em;vertical-align:-0.286108em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">a</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x4E4B;&#x7D44;&#x5408;&#x90FD;&#x5FC5;&#x70BA;&#x9006;&#x5E8F;&#x5C0D;&#xFF0C;&#x9019;&#x5C31;&#x662F; <code>ans += mp - i</code> &#x7684;&#x4F86;&#x7531;&#x3002;</p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="next_permutation.html" class="navigation navigation-prev " aria-label="Previous page: next_permutation">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../problems/" class="navigation navigation-next " aria-label="Next page: problems">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"逆序對","level":"1.4.1.2","depth":3,"next":{"title":"problems","level":"1.4.2","depth":2,"path":"algo/problems/README.md","ref":"algo/problems/README.md","articles":[{"title":"CF1684D Traps","level":"1.4.2.1","depth":3,"path":"algo/problems/cf1684d.md","ref":"algo/problems/cf1684d.md","articles":[]}]},"previous":{"title":"next_permutation","level":"1.4.1.1","depth":3,"path":"algo/basic/next_permutation.md","ref":"algo/basic/next_permutation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","katex"],"pluginsConfig":{"expandable-chapters":{},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algo/basic/count_inversions.md","mtime":"2022-05-27T17:21:03.226Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-05-27T17:21:15.338Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
