@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url> <loc>https://bachelorwang.github.io/./</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/about.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2022/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2022/2022-01-23-refactoring_01.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2022/2022-02-04-refactoring_02.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2022/2022-02-18-cpp-detection-idiom.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-01-13-omniverse.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-02-01-docker-hands-on.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-02-02-jekyll-easy-way.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-02-03-create-msbuild-image.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-02-04-first-usd.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-02-20-usdgeommesh.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-02-21-build-linux-kernel.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-04-23-typelist.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-04-24-perf.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-05-02-rust-001.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-05-08-rust-002.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-06-20-rust-003.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-09-19-lua-and-cpp17.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/blog/2021/2021-10-12-absl-layout.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/algo/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/algo/basic/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/algo/basic/next_permutation.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/algo/basic/count_inversions.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/algo/problems/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/algo/problems/cf1684d.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+</urlset>
