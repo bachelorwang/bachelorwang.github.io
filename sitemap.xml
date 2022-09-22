@@ -25,6 +25,7 @@
 <url> <loc>https://bachelorwang.github.io/algo/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://bachelorwang.github.io/algo/basic/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://bachelorwang.github.io/algo/basic/next_permutation.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/algo/basic/kmp.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://bachelorwang.github.io/algo/basic/count_inversions.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://bachelorwang.github.io/algo/problems/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://bachelorwang.github.io/algo/problems/cf1684d.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
