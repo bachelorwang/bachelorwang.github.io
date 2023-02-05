@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-<url> <loc>https://bachelorwang.github.io/./</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://bachelorwang.github.io/about.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://bachelorwang.github.io/blog/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://bachelorwang.github.io/blog/2022/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
@@ -26,7 +26,7 @@
 <url> <loc>https://bachelorwang.github.io/algo/basic/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://bachelorwang.github.io/algo/basic/next_permutation.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://bachelorwang.github.io/algo/basic/kmp.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://bachelorwang.github.io/algo/basic/count_inversions.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://bachelorwang.github.io/algo/problems/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://bachelorwang.github.io/algo/problems/cf1684d.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://bachelorwang.github.io/algo/basic/count_inversions.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 </urlset>

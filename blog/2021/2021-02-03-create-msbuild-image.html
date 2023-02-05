@@ -7,7 +7,7 @@
         <title>Dockerizing MSBuild(Visual Studio 2019) · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="GitBook 4.0.4">
         
         
         
@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-katex/katex.min.css">
                 
             
                 
@@ -542,50 +538,50 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x5728;&#x958B;&#x59CB;&#x5B78;&#x7FD2;Docker&#x5F8C;&#x6211;&#x4E0D;&#x7981;&#x840C;&#x751F;&#x9019;&#x6A23;&#x7684;&#x60F3;&#x6CD5;&#x300C;&#x662F;&#x5426;&#x80FD;&#x5C07;&#x5EFA;&#x7F6E;&#x74B0;&#x5883;&#x5BB9;&#x5668;&#x5316;&#x300D;&#x3002;&#x50B3;&#x7D71;&#x9032;&#x884C;&#x958B;&#x767C;&#x5DE5;&#x7A0B;&#x5E2B;&#x7121;&#x5EB8;&#x7F6E;&#x7591;&#x5730;&#x6703;&#x5B89;&#x88DD;&#x80FD;&#x5920;&#x6210;&#x529F;&#x5EFA;&#x7F6E;&#x5C08;&#x6848;&#x7684;&#x4F5C;&#x696D;&#x74B0;&#x5883;&#xFF0C;&#x7136;&#x800C;&#x96A8;&#x8457;&#x5C08;&#x6848;&#x8907;&#x96DC;&#x5EA6;&#x3001;&#x5C08;&#x6848;&#x6578;&#x91CF;&#x65E5;&#x76CA;&#x589E;&#x9577;&#xFF0C;&#x4F5C;&#x696D;&#x74B0;&#x5883;&#x4E0D;&#x514D;&#x986F;&#x5F97;&#x96DC;&#x4E82;&#x4E14;&#x8907;&#x96DC;&#xFF0C;&#x66F4;&#x751A;&#x8005;&#x53EF;&#x80FD;&#x51FA;&#x73FE;&#x885D;&#x7A81;&#x6216;&#x7A7A;&#x9593;&#x6D6A;&#x8CBB;&#x3002;</p>
-<p>&#x53E6;&#x4E00;&#x500B;&#x88AB;&#x96B1;&#x85CF;&#x7684;&#x6210;&#x672C;&#x662F;&#xFF0C;&#x9032;&#x884C;CI/CD&#x7684;&#x5EFA;&#x7F6E;&#x4F3A;&#x670D;&#x5668;&#x74B0;&#x5883;&#x4E5F;&#x5FC5;&#x9808;&#x90E8;&#x5C6C;&#x76F8;&#x540C;&#x7684;&#x74B0;&#x5883;&#xFF0C;&#x5982;&#x6B64;&#x4E00;&#x4F86;&#x7DAD;&#x8B77;&#x6210;&#x672C;&#x9664;&#x4E86;&#x5DE5;&#x7A0B;&#x5E2B;&#x5404;&#x81EA;&#x7684;&#x4E3B;&#x6A5F;&#x9084;&#x5F97;&#x52A0;&#x4E0A;&#x7D44;&#x7E54;&#x5EFA;&#x7F6E;&#x4F3A;&#x670D;&#x5668;&#x7684;&#x7DAD;&#x8B77;&#x6210;&#x672C;&#xFF0C;&#x50B3;&#x7D71;&#x4EBA;&#x5DE5;&#x8A2D;&#x5B9A;&#x6216;&#x5C07;&#x6574;&#x500B;&#x7CFB;&#x7D71;&#x4EE5;&#x6620;&#x50CF;&#x6A94;&#x5B89;&#x88DD;&#x7684;&#x5F62;&#x5F0F;&#x96E3;&#x4EE5;&#x9054;&#x5230;&#x5FEB;&#x901F;&#x3001;&#x81EA;&#x52D5;&#x7684;&#x7BA1;&#x7406;&#xFF0C;&#x4E5F;&#x7121;&#x6CD5;&#x904B;&#x7528;&#x65E2;&#x6709;&#x7684;CVS&#x9AD4;&#x5236;&#x3002;</p>
-<p>&#x5C07;&#x5EFA;&#x7F6E;&#x74B0;&#x5883;&#x8996;&#x70BA;&#x670D;&#x52D9;&#x672C;&#x9AD4;&#x4E26;&#x5C07;&#x5176;&#x5BB9;&#x5668;&#x5316;&#x884C;&#x4E4B;&#x6709;&#x5E74;&#xFF0C;&#x4E0D;&#x5C11;&#x5927;&#x578B;&#x4F01;&#x696D;&#x4E5F;&#x540C;&#x6A23;&#x9019;&#x9EBC;&#x505A;&#x3002;&#x300C;&#x8B6C;&#x5982;&#x5E73;&#x5730;&#xFF0C;&#x96D6;&#x8986;&#x4E00;&#x7C23;&#xFF0C;&#x9032;&#x300D;&#x6211;&#x5C07;&#x76EE;&#x6A19;&#x653E;&#x5728;&#x5982;&#x4F55;&#x5C07; Visual Studio 2019 &#x7684;&#x5EFA;&#x7F6E;&#x74B0;&#x5883;&#x5BB9;&#x5668;&#x5316;&#x3002;&#x4EE5;&#x4E0B;&#x9019;&#x500B; Dockerfile &#x662F;&#x7531; Microsoft 2020&#x5E74;&#x521D;&#x91DD;&#x5C0D; Azure &#x5EFA;&#x7F6E;&#x74B0;&#x5883;&#x865B;&#x64EC;&#x5316;&#x7684;<a href="https://docs.microsoft.com/zh-tw/visualstudio/install/build-tools-container?view=vs-2019" target="_blank">&#x6587;&#x7AE0;</a>&#x53C3;&#x8003;&#x4FEE;&#x6539;&#x800C;&#x6210;&#x3002;</p>
+                                <p>在開始學習Docker後我不禁萌生這樣的想法「是否能將建置環境容器化」。傳統進行開發工程師無庸置疑地會安裝能夠成功建置專案的作業環境，然而隨著專案複雜度、專案數量日益增長，作業環境不免顯得雜亂且複雜，更甚者可能出現衝突或空間浪費。</p>
+<p>另一個被隱藏的成本是，進行CI/CD的建置伺服器環境也必須部屬相同的環境，如此一來維護成本除了工程師各自的主機還得加上組織建置伺服器的維護成本，傳統人工設定或將整個系統以映像檔安裝的形式難以達到快速、自動的管理，也無法運用既有的CVS體制。</p>
+<p>將建置環境視為服務本體並將其容器化行之有年，不少大型企業也同樣這麼做。「譬如平地，雖覆一簣，進」我將目標放在如何將 Visual Studio 2019 的建置環境容器化。以下這個 Dockerfile 是由 Microsoft 2020年初針對 Azure 建置環境虛擬化的<a href="https://docs.microsoft.com/zh-tw/visualstudio/install/build-tools-container?view=vs-2019" target="_blank">文章</a>參考修改而成。</p>
 <pre><code class="lang-docker"><span class="hljs-comment"># escape=`</span>
 
 <span class="hljs-comment"># Use the latest Windows Server Core image with .NET Framework 4.8.</span>
-<span class="hljs-keyword">FROM</span> mcr.microsoft.com/dotnet/framework/sdk:<span class="hljs-number">4.8</span>-windowsservercore-ltsc201<span class="hljs-number">9
+<span class="hljs-built_in">FROM</span> mcr.microsoft.com/dotnet/framework/sdk:<span class="hljs-number">4.8</span>-windowsservercore-ltsc201<span class="hljs-number">9
 </span>
 <span class="hljs-comment"># Restore the default Windows shell for correct batch processing.</span>
 SHELL [<span class="hljs-string">&quot;cmd&quot;</span>, <span class="hljs-string">&quot;/S&quot;</span>, <span class="hljs-string">&quot;/C&quot;</span>]
 
 <span class="hljs-comment"># Download the Build Tools bootstrapper.</span>
-<span class="hljs-keyword">ADD</span> <span class="bash">https://aka.ms/vs/16/release/vs_buildtools.exe C:\TEMP\vs_buildtools.exe
+<span class="hljs-built_in">ADD</span> <span class="bash">https://aka.ms/vs/<span class="hljs-number">16</span>/release/vs_buildtools.exe C:\TEMP\vs_buildtools.exe
 </span>
-<span class="hljs-keyword">RUN</span> <span class="bash">C:\TEMP\vs_buildtools.exe --quiet --wait --norestart --nocache `
+<span class="hljs-built_in">RUN</span> <span class="bash">C:\TEMP\vs_buildtools.exe --quiet --wait --norestart --nocache `
 </span>    --installPath C:\BuildTools `
-    --<span class="hljs-keyword">add</span> Microsoft.VisualStudio.Workload.VCTools `
-    --<span class="hljs-keyword">add</span> Microsoft.VisualStudio.Component.VC.Tools.x86.x64 `
-    --<span class="hljs-keyword">add</span> Microsoft.VisualStudio.Component.VC.CMake.Project `
-    --<span class="hljs-keyword">add</span> Microsoft.VisualStudio.Component.VC.ATLMFC `
-    --<span class="hljs-keyword">add</span> Microsoft.VisualStudio.Component.Windows10SDK.18362 `
+    --<span class="hljs-built_ins">add</span> Microsoft.VisualStudio.Workload.VCTools `
+    --<span class="hljs-built_ins">add</span> Microsoft.VisualStudio.Component.VC.Tools.x86.x64 `
+    --<span class="hljs-built_ins">add</span> Microsoft.VisualStudio.Component.VC.CMake.Project `
+    --<span class="hljs-built_ins">add</span> Microsoft.VisualStudio.Component.VC.ATLMFC `
+    --<span class="hljs-built_ins">add</span> Microsoft.VisualStudio.Component.Windows10SDK.18362 `
  || IF &quot;%ERRORLEVEL%&quot;==&quot;3010&quot; EXIT 0
 
 <span class="hljs-comment"># Define the entry point for the docker container.</span>
 <span class="hljs-comment"># This entry point starts the developer command prompt and launches the PowerShell shell.</span>
-<span class="hljs-keyword">ENTRYPOINT</span> <span class="bash">[<span class="hljs-string">&quot;C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat&quot;</span>, <span class="hljs-string">&quot;&amp;&amp;&quot;</span>, <span class="hljs-string">&quot;powershell.exe&quot;</span>, <span class="hljs-string">&quot;-NoLogo&quot;</span>, <span class="hljs-string">&quot;-ExecutionPolicy&quot;</span>, <span class="hljs-string">&quot;Bypass&quot;</span>]
+<span class="hljs-built_in">ENTRYPOINT</span> <span class="bash">[<span class="hljs-string">&quot;C:\\BuildTools\\Common7\\Tools\\VsDevCmd.bat&quot;</span>, <span class="hljs-string">&quot;&amp;&amp;&quot;</span>, <span class="hljs-string">&quot;powershell.exe&quot;</span>, <span class="hljs-string">&quot;-NoLogo&quot;</span>, <span class="hljs-string">&quot;-ExecutionPolicy&quot;</span>, <span class="hljs-string">&quot;Bypass&quot;</span>]
 </span></code></pre>
-<p>&#x4E3B;&#x8981;&#x7684;&#x5DEE;&#x7570;&#x5728;&#x65BC;&#x5C0D; Visual Studio Installer &#x6240;&#x4E0B;&#x7684;&#x53C3;&#x6578;&#x5C07;&#x6C7A;&#x5B9A;&#x8981;&#x5728;&#x74B0;&#x5883;&#x4E2D;&#x5B89;&#x88DD;&#x54EA;&#x4E9B; Component&#xFF0C;&#x6709;&#x8208;&#x8DA3;&#x91DD;&#x5C0D;&#x81EA;&#x5DF1;&#x5EFA;&#x7F6E;&#x74B0;&#x5883;&#x8ABF;&#x6574; Component &#x7684;&#x4EBA;&#x53EA;&#x8981;&#x53C3;&#x8003;<a href="https://docs.microsoft.com/zh-tw/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2019" target="_blank">&#x5B98;&#x65B9;&#x6E05;&#x55AE;</a>&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x6311;&#x9078;&#x7684;&#x65B9;&#x5F0F;&#x5EFA;&#x8B70;&#x4EE5; Workload &#x70BA;&#x4E3B;&#xFF0C;&#x7531;&#x65BC; Workload &#x6703;&#x76F4;&#x63A5;&#x5C07;&#x6A19;&#x793A;&#x70BA; Required &#x7684; Component &#x52A0;&#x5165;&#x5B89;&#x88DD;&#x5217;&#x8868;&#xFF0C;&#x53EA;&#x8981;&#x518D;&#x6839;&#x64DA;&#x81EA;&#x5DF1;&#x7684;&#x5C08;&#x6848;&#x6027;&#x8CEA;&#x88DC;&#x8DB3;&#x9700;&#x8981;&#x7684;&#x5DE5;&#x5177;&#x5C31;&#x597D;&#x3002;</p>
-<p>&#x5FAE;&#x8EDF;&#x4E5F;&#x7279;&#x5225;&#x63D0;&#x9192;&#x5EFA;&#x7ACB; image &#x6642;&#x5EFA;&#x8B70;&#x4F7F;&#x7528; 2GB &#x7684;&#x8A18;&#x61B6;&#x9AD4;&#x5BB9;&#x91CF;&#xFF0C;&#x907F;&#x514D;&#x67D0;&#x4E9B; Workload &#x7684;&#x5B89;&#x88DD;&#x6D41;&#x7A0B;&#x4F7F;&#x7528;&#x592A;&#x591A;&#x8A18;&#x61B6;&#x9AD4;&#x3002;</p>
-<pre><code class="lang-shell">docker build -t &lt;TAG&gt; -m 2GB .
-</code></pre>
-<p>&#x800C;&#x53E6;&#x4E00;&#x500B;&#x5BB9;&#x6613;&#x5FFD;&#x7565;&#x4E14;&#x5FC5;&#x8981;&#x7684;&#x6B65;&#x9A5F;&#x662F;&#xFF1A;<strong>&#x78BA;&#x8A8D;&#x4F60;&#x7684; Docker &#x662F;&#x63A1;&#x7528; Windows containers</strong>&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x7684;&#x8A71;&#xFF0C;&#x5149;&#x662F;&#x5728; <code>FROM mcr.microsoft.com/dotnet/framework/sdk</code> &#x9019;&#x500B; layer &#x5C31;&#x6703;&#x51FA;&#x932F;&#x3002;&#x5177;&#x9AD4;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x900F;&#x904E; tray &#x5C0D; Docker &#x53F3;&#x9375;&#x9078;&#x55AE;&#x9078;&#x64C7; <code>Switch to Windows containers...</code> &#x6216;&#x8005;&#x662F;&#x900F;&#x904E; CLI &#x5728; Linux container &#x8207; Windows container &#x9593;&#x5207;&#x63DB;&#xFF1A;</p>
+<p>主要的差異在於對 Visual Studio Installer 所下的參數將決定要在環境中安裝哪些 Component，有興趣針對自己建置環境調整 Component 的人只要參考<a href="https://docs.microsoft.com/zh-tw/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2019" target="_blank">官方清單</a>就可以，挑選的方式建議以 Workload 為主，由於 Workload 會直接將標示為 Required 的 Component 加入安裝列表，只要再根據自己的專案性質補足需要的工具就好。</p>
+<p>微軟也特別提醒建立 image 時建議使用 2GB 的記憶體容量，避免某些 Workload 的安裝流程使用太多記憶體。</p>
+<pre><code class="lang-shell">docker build -t <tag> -m 2GB .
+</tag></code></pre>
+<p>而另一個容易忽略且必要的步驟是：<strong>確認你的 Docker 是採用 Windows containers</strong>，如果不是的話，光是在 <code>FROM mcr.microsoft.com/dotnet/framework/sdk</code> 這個 layer 就會出錯。具體的做法是透過 tray 對 Docker 右鍵選單選擇 <code>Switch to Windows containers...</code> 或者是透過 CLI 在 Linux container 與 Windows container 間切換：</p>
 <pre><code class="lang-shell">&amp; $Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchDaemon .
 </code></pre>
-<p>&#x4E00;&#x65E6;&#x6211;&#x5011;&#x5B8C;&#x6210; Image &#x7684;&#x5EFA;&#x7F6E;&#x5F8C;&#x5C31;&#x6703;&#x7372;&#x5F97;&#x4E00;&#x500B;&#x8D85;&#x5927;&#x5BB9;&#x91CF;&#x7684; image&#x3002;&#x555F;&#x52D5;&#x5BB9;&#x5668;&#x6642;&#x518D;&#x5C07;&#x5C08;&#x6848;&#x6240;&#x5728;&#x8DEF;&#x5F91; <code>&lt;PATH&gt;</code> &#x639B;&#x8F09;&#x5230; Container &#x4E2D; C &#x69FD;&#x7684;&#x76EE;&#x9304; <code>&lt;FOLDER&gt;</code>&#xFF0C;&#x7531;&#x65BC; image &#x8A2D;&#x5B9A;&#x7684; <code>ENTRYPOINT</code> &#x80FD;&#x8B93;&#x6211;&#x5011;&#x76F4;&#x63A5;&#x9032;&#x5165; Developer Command Prompt&#xFF0C;&#x6B64;&#x6642;&#x5DF2;&#x7D93;&#x900F;&#x904E; <code>VsDevCmd.bat</code> &#x8A2D;&#x5B9A;&#x5B8C;&#x76F8;&#x61C9;&#x7684;&#x74B0;&#x5883;&#x8B8A;&#x6578;&#x4E86;&#x3002;</p>
-<pre><code class="lang-shell">docker run -v &quot;&lt;PATH&gt;:C:\&lt;FOLDER&gt;&quot; -it &lt;TAG&gt;
-</code></pre>
+<p>一旦我們完成 Image 的建置後就會獲得一個超大容量的 image。啟動容器時再將專案所在路徑 <code>&lt;PATH&gt;</code> 掛載到 Container 中 C 槽的目錄 <code>&lt;FOLDER&gt;</code>，由於 image 設定的 <code>ENTRYPOINT</code> 能讓我們直接進入 Developer Command Prompt，此時已經透過 <code>VsDevCmd.bat</code> 設定完相應的環境變數了。</p>
+<pre><code class="lang-shell">docker run -v &quot;<path>:C:\<folder>&quot; -it <tag>
+</tag></folder></path></code></pre>
 <blockquote>
-<p>&#x7531;&#x65BC; Windows &#x7684;&#x6A94;&#x6848;&#x7CFB;&#x7D71;&#x908F;&#x8F2F;&#x8207; Linux &#x4E0D;&#x540C;&#xFF0C;&#x53EA;&#x80FD;&#x639B;&#x8F09;&#x5728; container &#x4E2D;&#x5DF2;&#x7D93;&#x5B58;&#x5728;&#x7684; drive&#xFF1B;&#x5728;&#x9019;&#x500B;&#x6848;&#x4F8B;&#x4E2D;&#x6B64; image &#x5DF2;&#x7D93;&#x5B58;&#x5728;&#x7684;&#x662F; C drive&#x3002;</p>
+<p>由於 Windows 的檔案系統邏輯與 Linux 不同，只能掛載在 container 中已經存在的 drive；在這個案例中此 image 已經存在的是 C drive。</p>
 </blockquote>
-<p>&#x63A5;&#x8457;&#x5C31;&#x80FD;&#x9806;&#x5229;&#x57F7;&#x884C; MSBuild&#xFF1A;</p>
-<pre><code class="lang-shell">MSBuild &lt;PROJECT&gt; -t:Build -p:Configuration=Release
-</code></pre>
-<p>&#x5EFA;&#x7F6E;&#x5B8C;&#x6210;&#x5F8C;&#x61C9;&#x8A72;&#x5C31;&#x80FD;&#x5728;&#x5C08;&#x6848;&#x6307;&#x5B9A;&#x7684;&#x8F38;&#x51FA;&#x76EE;&#x9304;&#x5F97;&#x5230;&#x57F7;&#x884C;&#x6A94;&#x3002;</p>
+<p>接著就能順利執行 MSBuild：</p>
+<pre><code class="lang-shell">MSBuild <project> -t:Build -p:Configuration=Release
+</project></code></pre>
+<p>建置完成後應該就能在專案指定的輸出目錄得到執行檔。</p>
 
                                 
                                 </section>
@@ -613,7 +609,7 @@ SHELL [<span class="hljs-string">&quot;cmd&quot;</span>, <span class="hljs-strin
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Dockerizing MSBuild(Visual Studio 2019)","level":"1.3.2.4","depth":3,"next":{"title":"建立第一個 USD 場景","level":"1.3.2.5","depth":3,"path":"blog/2021/2021-02-04-first-usd.md","ref":"blog/2021/2021-02-04-first-usd.md","articles":[]},"previous":{"title":"Docker + Jekyll = an easy way to create Github Pages blogger","level":"1.3.2.3","depth":3,"path":"blog/2021/2021-02-02-jekyll-easy-way.md","ref":"blog/2021/2021-02-02-jekyll-easy-way.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","sitemap","katex"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://bachelorwang.github.io/"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-02-03-create-msbuild-image.md","mtime":"2022-05-12T14:09:18.614Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-22T13:05:53.024Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Dockerizing MSBuild(Visual Studio 2019)","level":"1.3.2.4","depth":3,"next":{"title":"建立第一個 USD 場景","level":"1.3.2.5","depth":3,"path":"blog/2021/2021-02-04-first-usd.md","ref":"blog/2021/2021-02-04-first-usd.md","articles":[]},"previous":{"title":"Docker + Jekyll = an easy way to create Github Pages blogger","level":"1.3.2.3","depth":3,"path":"blog/2021/2021-02-02-jekyll-easy-way.md","ref":"blog/2021/2021-02-02-jekyll-easy-way.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["honkit-plugin-sitemap","honkit-plugin-katex"],"pluginsConfig":{"sitemap":{"url":"https://bachelorwang.github.io/"},"honkit-plugin-sitemap":{},"honkit-plugin-katex":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-02-03-create-msbuild-image.md","mtime":"2022-05-12T14:09:18.614Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-05T02:08:53.441Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -623,11 +619,7 @@ SHELL [<span class="hljs-string">&quot;cmd&quot;</span>, <span class="hljs-strin
     <script src="../../gitbook/theme.js"></script>
     
         
-        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
         
     
         
@@ -643,11 +635,7 @@ SHELL [<span class="hljs-string">&quot;cmd&quot;</span>, <span class="hljs-strin
         
     
         
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
 

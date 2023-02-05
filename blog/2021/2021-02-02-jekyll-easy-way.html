@@ -7,7 +7,7 @@
         <title>Docker + Jekyll = an easy way to create Github Pages blogger · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="GitBook 4.0.4">
         
         
         
@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-katex/katex.min.css">
                 
             
                 
@@ -542,28 +538,28 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <p><a href="https://pages.github.com/" target="_blank">Github Pages</a>&#x7701;&#x4E0B;&#x4E0D;&#x5C11;&#x4EBA;&#x67B6;&#x8A2D;&#x500B;&#x4EBA;&#x4F3A;&#x670D;&#x5668;&#x7684;&#x6642;&#x9593;&#x8207;&#x91D1;&#x9322;&#xFF0C;&#x7136;&#x800C;&#x8981;&#x505A;&#x51FA;&#x4E00;&#x500B;&#x517C;&#x5177;&#x7D50;&#x69CB;&#x8207;&#x7F8E;&#x89C0;&#x7684;&#x975C;&#x614B;&#x7DB2;&#x7AD9;&#x4ECD;&#x9700;&#x4E0B;&#x4E00;&#x756A;&#x82E6;&#x5DE5;&#x3002;&#x96D6;&#x7136;&#x5F9E;&#x982D;&#x5230;&#x64B0;&#x5BEB; HTML &#x8207; css &#x4E5F;&#x662F;&#x4E00;&#x7A2E;&#x505A;&#x6CD5;&#xFF0C;&#x4F46;&#x4E0D;&#x5C11;&#x4EBA;&#x6703;&#x63A1;&#x7528; Generator &#x7522;&#x751F;&#x975C;&#x614B;&#x9801;&#x9762;&#xFF0C;&#x5176;&#x4E2D;&#x53C8;&#x4EE5; Github &#x5167;&#x5EFA;&#x652F;&#x63F4;&#x7684; <a href="https://jekyllrb.com/docs/" target="_blank">Jekyll</a> &#x6210;&#x70BA;&#x9996;&#x9078;&#x3002;</p>
-<p>&#x4F46;&#x6050;&#x6015;&#x4E0D;&#x5C11;&#x4EBA;&#x6703;&#x88AB; Jekyll &#x7E41;&#x7463;&#x7684;&#x6B65;&#x9A5F;&#x7D66;&#x52F8;&#x9000;&#xFF0C;&#x800C;&#x6211;&#x5C31;&#x662F;&#x5176;&#x4E2D;&#x4E4B;&#x4E00;(&#x7562;&#x7ADF;&#x6211;&#x5BE6;&#x5728;&#x4E0D;&#x60F3;&#x5728;&#x5DE5;&#x4F5C;&#x74B0;&#x5883;&#x88E1;&#x5B89;&#x88DD;Ruby)&#x3002;&#x6211;&#x60F3;&#x9019;&#x6642;&#x5019;&#x5C31;&#x8F2A;&#x5230; Docker &#x51FA;&#x5834;&#x4E86;&#x3002;</p>
-<pre><code class="lang-shell">docker run --volume=&quot;${PWD}:/srv/jekyll&quot; --rm jekyll/jekyll jekyll new &lt;RELATIVE_PATH&gt;
-</code></pre>
-<p><code>--volume=&quot;${PWD}:/srv/jekyll&quot;</code> &#x6703;&#x5C07;&#x6211;&#x5011;&#x7576;&#x524D;&#x7684;&#x5DE5;&#x4F5C;&#x8DEF;&#x5F91;&#x639B;&#x8F09;&#x5230; container &#x4E2D;&#x7684; <code>/srv/jekyll</code>&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6839;&#x64DA;&#x81EA;&#x5DF1;&#x7684;&#x8A08;&#x756B;&#x8ABF;&#x6574;&#x76F8;&#x95DC;&#x5F15;&#x6578;&#x3002;&#x900F;&#x904E;&#x9019;&#x9053;&#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x99AC;&#x4E0A;&#x5EFA;&#x7ACB;&#x4E00;&#x500B; Jekyll &#x7DB2;&#x7AD9;&#x6240;&#x9700;&#x8981;&#x7684;&#x539F;&#x59CB;&#x78BC;&#xFF0C;&#x81F3;&#x65BC;&#x600E;&#x9EBC;&#x5728; Github &#x5EFA;&#x7ACB; Pages &#x6240;&#x9700;&#x8981;&#x7684; Repositry &#x53EF;&#x4EE5;&#x53C3;&#x8003;<a href="https://docs.github.com/en/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll#creating-a-repository-for-your-site" target="_blank">&#x5B98;&#x65B9;&#x6559;&#x5B78;</a>&#x3002;</p>
-<p>&#x7576;&#x4F60;&#x7522;&#x751F;Jekyll&#x5C08;&#x6848;&#x76EE;&#x9304;&#x5F8C;&#xFF0C;&#x9084;&#x5FC5;&#x9808;&#x8A3B;&#x89E3;&#x6389; Gemfile &#x4E2D;&#x7684; <code>gem &quot;github-pages&quot;, group: :jekyll_plugins</code>&#xFF0C;&#x4E26;&#x628A;&#x53C3;&#x8003;<a href="https://pages.github.com/versions/" target="_blank">&#x5B98;&#x65B9;&#x6E05;&#x55AE;</a>&#x5C07; <code>gem &quot;jekyll&quot;, &quot;~&gt; &lt;VERSION&gt;&quot;</code> &#x6216;&#x5176;&#x4ED6;&#x7684; Dependency &#x4FEE;&#x6539;&#x70BA;&#x9069;&#x7576;&#x7248;&#x865F;&#x3002;</p>
-<p>&#x6BCF;&#x7576;&#x6211;&#x5011;&#x8981;&#x958B;&#x59CB;&#x64B0;&#x5BEB;&#x7DB2;&#x7AD9;&#x6642;&#xFF0C;&#x53EA;&#x8981;&#x57F7;&#x884C;&#xFF1A;</p>
+                                <p><a href="https://pages.github.com/" target="_blank">Github Pages</a>省下不少人架設個人伺服器的時間與金錢，然而要做出一個兼具結構與美觀的靜態網站仍需下一番苦工。雖然從頭到撰寫 HTML 與 css 也是一種做法，但不少人會採用 Generator 產生靜態頁面，其中又以 Github 內建支援的 <a href="https://jekyllrb.com/docs/" target="_blank">Jekyll</a> 成為首選。</p>
+<p>但恐怕不少人會被 Jekyll 繁瑣的步驟給勸退，而我就是其中之一(畢竟我實在不想在工作環境裡安裝Ruby)。我想這時候就輪到 Docker 出場了。</p>
+<pre><code class="lang-shell">docker run --volume=&quot;{% math_inline %}{PWD}:/srv/jekyll&quot; --rm jekyll/jekyll jekyll new <relative_path>
+</relative_path></code></pre>
+<p><code>--volume=&quot;{% endmath_inline %}{PWD}:/srv/jekyll&quot;</code> 會將我們當前的工作路徑掛載到 container 中的 <code>/srv/jekyll</code>，你可以根據自己的計畫調整相關引數。透過這道指令可以馬上建立一個 Jekyll 網站所需要的原始碼，至於怎麼在 Github 建立 Pages 所需要的 Repositry 可以參考<a href="https://docs.github.com/en/github/working-with-github-pages/creating-a-github-pages-site-with-jekyll#creating-a-repository-for-your-site" target="_blank">官方教學</a>。</p>
+<p>當你產生Jekyll專案目錄後，還必須註解掉 Gemfile 中的 <code>gem &quot;github-pages&quot;, group: :jekyll_plugins</code>，並把參考<a href="https://pages.github.com/versions/" target="_blank">官方清單</a>將 <code>gem &quot;jekyll&quot;, &quot;~&gt; &lt;VERSION&gt;&quot;</code> 或其他的 Dependency 修改為適當版號。</p>
+<p>每當我們要開始撰寫網站時，只要執行：</p>
 <pre><code class="lang-shell">docker run \
   --rm -d --volume=&quot;${PWD}:/srv/jekyll&quot; \
   -p 80:4000 jekyll/jekyll \
   jekyll serve --force_polling
 </code></pre>
-<p>&#x5C31;&#x80FD;&#x5728; local &#x76F4;&#x63A5;&#x89C0;&#x5BDF;&#x7DE8;&#x8F2F;&#x7D50;&#x679C;&#x3002;</p>
-<p>&#x4F46;&#xFF0C;&#x9019;&#x6A23;&#x9084;&#x662F;&#x6709;&#x500B;&#x5927;&#x554F;&#x984C;&#xFF0C;&#x90A3;&#x5C31;&#x662F;<strong>&#x592A;&#x6162;&#x4E86;&#xFF01;</strong><br>&#x6BCF;&#x6B21;&#x6211;&#x5011;&#x555F;&#x52D5;&#x9019;&#x500B; container &#x5C31;&#x6703;&#x9032;&#x884C;&#x4E00;&#x6B21; Gem &#x7684;&#x5B89;&#x88DD;&#xFF0C;&#x6709;&#x4EC0;&#x9EBC;&#x8FA6;&#x6CD5;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x9019;&#x6A23;&#x7684;&#x72C0;&#x6CC1;&#x5462;&#xFF1F;&#x5176;&#x5BE6;&#x6211;&#x5011;&#x53EA;&#x8981;&#x5EFA;&#x7ACB;&#x81EA;&#x5DF1;&#x7684; Jekyll image &#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;</p>
-<pre><code class="lang-docker"><span class="hljs-keyword">FROM</span> jekyll/jekyll
+<p>就能在 local 直接觀察編輯結果。</p>
+<p>但，這樣還是有個大問題，那就是<strong>太慢了！</strong><br>每次我們啟動這個 container 就會進行一次 Gem 的安裝，有什麼辦法可以避免這樣的狀況呢？其實我們只要建立自己的 Jekyll image 就可以了。</p>
+<pre><code class="lang-docker"><span class="hljs-built_in">FROM</span> jekyll/jekyll
 
-<span class="hljs-keyword">COPY</span> <span class="bash">Gemfile Gemfile.lock /srv/jekyll/
-</span><span class="hljs-keyword">RUN</span> <span class="bash">bundle install
+<span class="hljs-built_in">COPY</span> <span class="bash">Gemfile Gemfile.lock /srv/jekyll/
+</span><span class="hljs-built_in">RUN</span> <span class="bash">bundle install
 </span></code></pre>
-<p>&#x4EE5;&#x6B64; Dockerfile &#x5EFA;&#x7ACB; image &#x6211;&#x5011;&#x5C31;&#x5F97;&#x5230;&#x4E00;&#x500B;&#x5DF2;&#x7D93;&#x5B89;&#x88DD;&#x76F8;&#x61C9; Gemfile &#x5957;&#x4EF6;&#x7684;&#x6620;&#x8C61;&#x6A94;&#xFF0C;&#x4E5F;&#x8B93;&#x672A;&#x4F86;&#x7684;&#x57F7;&#x884C;&#x66F4;&#x52A0;&#x611C;&#x610F;&#x3002;</p>
+<p>以此 Dockerfile 建立 image 我們就得到一個已經安裝相應 Gemfile 套件的映象檔，也讓未來的執行更加愜意。</p>
 <blockquote>
-<p>&#x5982;&#x679C;&#x4F60;&#x5F88;&#x78BA;&#x5B9A;&#x4E0D;&#x6703;&#x518D;&#x66F4;&#x6539; Jekyll &#x7684; port &#x4E5F;&#x80FD;&#x76F4;&#x63A5;&#x52A0;&#x4E0A; <code>EXPOSE 4000</code></p>
+<p>如果你很確定不會再更改 Jekyll 的 port 也能直接加上 <code>EXPOSE 4000</code></p>
 </blockquote>
 
                                 
@@ -592,7 +588,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Docker + Jekyll = an easy way to create Github Pages blogger","level":"1.3.2.3","depth":3,"next":{"title":"Dockerizing MSBuild(Visual Studio 2019)","level":"1.3.2.4","depth":3,"path":"blog/2021/2021-02-03-create-msbuild-image.md","ref":"blog/2021/2021-02-03-create-msbuild-image.md","articles":[]},"previous":{"title":"Docker基礎指令","level":"1.3.2.2","depth":3,"path":"blog/2021/2021-02-01-docker-hands-on.md","ref":"blog/2021/2021-02-01-docker-hands-on.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","sitemap","katex"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://bachelorwang.github.io/"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-02-02-jekyll-easy-way.md","mtime":"2022-05-12T14:09:18.614Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-22T13:05:53.024Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Docker + Jekyll = an easy way to create Github Pages blogger","level":"1.3.2.3","depth":3,"next":{"title":"Dockerizing MSBuild(Visual Studio 2019)","level":"1.3.2.4","depth":3,"path":"blog/2021/2021-02-03-create-msbuild-image.md","ref":"blog/2021/2021-02-03-create-msbuild-image.md","articles":[]},"previous":{"title":"Docker基礎指令","level":"1.3.2.2","depth":3,"path":"blog/2021/2021-02-01-docker-hands-on.md","ref":"blog/2021/2021-02-01-docker-hands-on.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["honkit-plugin-sitemap","honkit-plugin-katex"],"pluginsConfig":{"sitemap":{"url":"https://bachelorwang.github.io/"},"honkit-plugin-sitemap":{},"honkit-plugin-katex":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-02-02-jekyll-easy-way.md","mtime":"2022-05-12T14:09:18.614Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-05T02:08:53.441Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -602,11 +598,7 @@
     <script src="../../gitbook/theme.js"></script>
     
         
-        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
         
     
         
@@ -622,11 +614,7 @@
         
     
         
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
 

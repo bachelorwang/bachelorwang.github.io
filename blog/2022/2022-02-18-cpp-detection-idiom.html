@@ -7,7 +7,7 @@
         <title>C++ detection idiom · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="GitBook 4.0.4">
         
         
         
@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-katex/katex.min.css">
                 
             
                 
@@ -542,8 +538,8 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x4E0D;&#x5C11;&#x4EBA;&#x61C9;&#x8A72;&#x90FD;&#x807D;&#x904E; SFINAE &#x2500; &quot;Substitution Failure Is Not An Error&quot;&#xFF0C;&#x4E2D;&#x6587;&#x76F4;&#x7FFB;&#x5C31;&#x662F;&#x300C;&#x66FF;&#x63DB;&#x5931;&#x6557;&#x4E0D;&#x662F;&#x4E00;&#x500B;&#x7DE8;&#x8B6F;&#x932F;&#x8AA4;&#x300D;&#x3002;&#x9019;&#x500B;&#x7DE8;&#x8B6F;&#x5668;&#x898F;&#x5247;&#xFF0C;&#x9032;&#x800C;&#x7522;&#x751F;&#x4E86;&#x8A31;&#x591A;&#x6709;&#x7528; metaprogramming &#x6709;&#x7528;&#x7684;&#x6280;&#x5DE7;&#x3002;</p>
-<p>&#x8209;&#x4F8B;&#x4F86;&#x8AAA;&#xFF1A;</p>
+                                <p>不少人應該都聽過 SFINAE ─ &quot;Substitution Failure Is Not An Error&quot;，中文直翻就是「替換失敗不是一個編譯錯誤」。這個編譯器規則，進而產生了許多有用 metaprogramming 有用的技巧。</p>
+<p>舉例來說：</p>
 <pre><code class="lang-cpp">template&lt;typename T&gt;
 auto foo(T a) -&gt; decltype(a.f()) {
     a.f();
@@ -572,8 +568,8 @@ int main()
     return 0;
 }
 </code></pre>
-<p>&#x7DE8;&#x8B6F;&#x5668;&#x5BE6;&#x969B;&#x4E0A;&#x6703;&#x5C0D;&#x6240;&#x6709;&#x540D;&#x70BA; <code>foo</code> &#x7684; template function &#x9032;&#x884C;&#x4E00;&#x6B21; substitution&#xFF0C;&#x4E5F;&#x5C31;&#x662F; template &#x53C3;&#x6578;&#x7684;&#x5E36;&#x5165;&#x3002;&#x5C0D;&#x7DE8;&#x8B6F;&#x5668;&#x4F86;&#x8AAA;&#xFF0C;<code>struct B</code> &#x5E36;&#x5165;&#x7B2C;&#x4E00;&#x500B; signature &#x5931;&#x6557;&#x6642;&#xFF0C;&#x4E0D;&#x61C9;&#x99AC;&#x4E0A;&#x7522;&#x751F;&#x7DE8;&#x8B6F;&#x932F;&#x8AA4;&#xFF0C;&#x800C;&#x662F;&#x61C9;&#x8A72;&#x8981;&#x7E7C;&#x7E8C;&#x5617;&#x8A66;&#x4E0B;&#x4E00;&#x500B;&#x3002;&#x7576;&#x6240;&#x6709;&#x7684; signature &#x90FD;&#x5931;&#x6557;&#x6642;&#xFF0C;&#x624D;&#x662F;&#x771F;&#x6B63;&#x7684;&#x7DE8;&#x8B6F;&#x932F;&#x8AA4;&#x3002;&#x4E3B;&#x6D41;&#x7DE8;&#x8B6F;&#x5668;&#x901A;&#x5E38;&#x6703;&#x660E;&#x78BA;&#x5217;&#x8209;&#x4ED6;&#x5728;&#x5E36;&#x5165;&#x6642;&#x662F;&#x54EA;&#x4E9B;&#x689D;&#x4EF6;&#x4F7F;&#x5F97;&#x66FF;&#x63DB;&#x7121;&#x6CD5;&#x6210;&#x529F;&#xFF0C;&#x4EE5;&#x4FBF;&#x958B;&#x767C;&#x8005;&#x9032;&#x884C;&#x4FEE;&#x6B63;&#x3002;</p>
-<p>&#x7136;&#x800C;&#x77E5;&#x9053;&#x9019;&#x500B;&#x6280;&#x5DE7;&#xFF0C;&#x4E26;&#x4E0D;&#x80FD;&#x8AAA;&#x660E;&#x8981;&#x600E;&#x9EBC;&#x5229;&#x7528;&#x4ED6;&#x3002;&#x5982;&#x679C;&#x4E00;&#x500B;&#x7A0B;&#x5F0F;&#x6280;&#x5DE7;&#x4E0D;&#x5E38;&#x4F7F;&#x7528;&#xFF0C;&#x4E45;&#x800C;&#x4E45;&#x4E4B;&#x5C31;&#x6703;&#x751F;&#x758F;&#x3002; C++11 &#x5F15;&#x5165;&#x4E86; enable_if&#xFF0C;&#x4F7F;&#x5F97;&#x5F88;&#x591A;&#x521D;&#x5B78;&#x8005;&#x770B;&#x4E86;&#x4ECD;&#x4E0D;&#x660E;&#x767D;&#x9019;&#x500B; trait &#x7684;&#x7528;&#x9014;&#x3002;&#x9019;&#x500B;&#x56F0;&#x64FE;&#xFF0C;&#x6211;&#x6709;&#x4E00;&#x500B;&#x7C21;&#x55AE;&#x7684;&#x4F8B;&#x5B50;&#x53EF;&#x4EE5;&#x8AAA;&#x660E;&#x3002;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x60F3;&#x50CF;&#x4E00;&#x500B;&#x60C5;&#x5883;&#xFF0C;&#x5047;&#x8A2D;&#x6709;&#x4E00;&#x500B; generic container &#x9700;&#x8981;&#x5C0D;&#x6240;&#x6709;&#x5143;&#x7D20;&#x9032;&#x884C;&#x91CB;&#x653E;&#xFF0C;&#x9019;&#x6642;&#x6211;&#x5011;&#x6703;&#x600E;&#x9EBC;&#x5BEB;&#xFF1F;</p>
+<p>編譯器實際上會對所有名為 <code>foo</code> 的 template function 進行一次 substitution，也就是 template 參數的帶入。對編譯器來說，<code>struct B</code> 帶入第一個 signature 失敗時，不應馬上產生編譯錯誤，而是應該要繼續嘗試下一個。當所有的 signature 都失敗時，才是真正的編譯錯誤。主流編譯器通常會明確列舉他在帶入時是哪些條件使得替換無法成功，以便開發者進行修正。</p>
+<p>然而知道這個技巧，並不能說明要怎麼利用他。如果一個程式技巧不常使用，久而久之就會生疏。 C++11 引入了 enable_if，使得很多初學者看了仍不明白這個 trait 的用途。這個困擾，我有一個簡單的例子可以說明。我們可以想像一個情境，假設有一個 generic container 需要對所有元素進行釋放，這時我們會怎麼寫？</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
 <span class="hljs-keyword">struct</span> List
 {
@@ -591,29 +587,29 @@ int main()
     }
 };
 </code></pre>
-<p><code>free</code> &#x6709;&#x4E00;&#x500B;&#x56B4;&#x91CD;&#x7684;&#x932F;&#x8AA4;&#xFF0C;&#x4E0D;&#x77E5;&#x9053;&#x4F60;&#x6CE8;&#x610F;&#x5230;&#x4E86;&#x6C92;&#xFF1F; <code>free</code> &#x7684;&#x932F;&#x8AA4;&#x5728;&#x65BC;&#x4ED6;&#x53EA;&#x5C0D;&#x8A18;&#x61B6;&#x9AD4;&#x9032;&#x884C;&#x4E86;&#x91CB;&#x653E;&#xFF0C;&#x9019;&#x53EA;&#x6709;&#x5728; <code>T</code> &#x662F; POD &#x7684;&#x72C0;&#x6CC1;&#x4E0B;&#x624D;&#x662F;&#x6B63;&#x78BA;&#x7684;&#x3002;&#x90A3;&#x9EBC;&#x8981;&#x600E;&#x9EBC;&#x6A23;&#x8655;&#x7406;&#x9019;&#x500B;&#x554F;&#x984C;&#x5462;&#xFF1F;&#x6211;&#x5011;&#x662F;&#x5426;&#x61C9;&#x8A72;&#x518D;&#x5BEB;&#x4E00;&#x500B;&#x65B0;&#x7684; method &#x4F8B;&#x5982; <code>free_non_pod_elements</code> &#x5462;&#xFF1F;&#x9019;&#x9EBC;&#x4E00;&#x4F86;&#xFF0C;&#x5C0D;&#x4F7F;&#x7528;&#x8005;&#x4F86;&#x8AAA;&#x7121;&#x7591;&#x589E;&#x6DFB;&#x4E86;&#x7591;&#x60D1;&#x8207;&#x56F0;&#x64FE;&#x3002;&#x66F4;&#x597D;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x900F;&#x904E; SFINAE &#x6280;&#x5DE7;&#x3002;</p>
+<p><code>free</code> 有一個嚴重的錯誤，不知道你注意到了沒？ <code>free</code> 的錯誤在於他只對記憶體進行了釋放，這只有在 <code>T</code> 是 POD 的狀況下才是正確的。那麼要怎麼樣處理這個問題呢？我們是否應該再寫一個新的 method 例如 <code>free_non_pod_elements</code> 呢？這麼一來，對使用者來說無疑增添了疑惑與困擾。更好的方法是透過 SFINAE 技巧。</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T, <span class="hljs-keyword">typename</span> = <span class="hljs-built_in">std</span>::<span class="hljs-keyword">enable_if_t</span>&lt;<span class="hljs-built_in">std</span>::is_trivially_destructible_v&lt;T&gt;&gt;&gt;
 <span class="hljs-keyword">struct</span> List {
   <span class="hljs-comment">// ...</span>
 };
 </code></pre>
-<p><code>enable_if_t</code> &#x5C31;&#x662F; SFINAE &#x6280;&#x5DE7;&#x7684;&#x904B;&#x7528;&#x6CD5;&#x4E4B;&#x4E00;&#xFF0C;</p>
+<p><code>enable_if_t</code> 就是 SFINAE 技巧的運用法之一，</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">bool</span> B, <span class="hljs-keyword">class</span> T = <span class="hljs-keyword">void</span>&gt;
 <span class="hljs-keyword">struct</span> enable_if {};
 
 <span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T&gt;
 <span class="hljs-keyword">struct</span> enable_if&lt;<span class="hljs-literal">true</span>, T&gt; { <span class="hljs-keyword">typedef</span> T type; };
 </code></pre>
-<p>&#x53EA;&#x6709;&#x689D;&#x4EF6;&#x70BA; <code>true</code> &#x7684;&#x6642;&#x5019;&#xFF0C;<code>enable_if</code> &#x624D;&#x6703;&#x6709; <code>type</code> &#x9019;&#x500B; member&#x3002;&#x5957;&#x7528; SFINAE &#x7684;&#x908F;&#x8F2F;&#xFF0C;&#x4EFB;&#x4F55;&#x5E36;&#x5165; <code>List</code> &#x7684; <code>T</code> &#x90FD;&#x5FC5;&#x9808;&#x6EFF;&#x8DB3; <code>is_trivially_destructible_v</code> &#x7684;&#x689D;&#x4EF6;&#x3002;&#x9019;&#x7A2E;&#x5BEB;&#x6CD5;&#xFF0C;&#x8B93;&#x6211;&#x5011;&#x5F37;&#x5236;&#x4E86; List &#x5C0D;&#x578B;&#x5225;&#x7684;&#x7D04;&#x675F;&#x53EA;&#x80FD;&#x662F; trivially destructible &#x7684;&#x578B;&#x5225;&#x3002;&#x90A3;&#x9EBC;&#x5982;&#x679C;&#x6211;&#x5011;&#x8981;&#x540C;&#x6642;&#x6EFF;&#x8DB3; non-trivial &#x7684;&#x578B;&#x5225;&#x5462;&#xFF1F;&#x9019;&#x6642;&#x53CD;&#x800C;&#x6BD4;&#x8F03;&#x7C21;&#x55AE;&#xFF0C;&#x5C31;&#x662F;&#x900F;&#x904E; specialization&#xFF0C;&#x9019;&#x53CD;&#x800C;&#x662F; template &#x4E2D;&#x4E00;&#x500B;&#x6BD4;&#x8F03;&#x57FA;&#x672C;&#x7684;&#x6280;&#x5DE7;&#xFF0C;&#x5728;&#x6B64;&#x5C31;&#x4E0D;&#x591A;&#x505A;&#x4ECB;&#x7D39;&#x3002; metaprogramming &#x7684;&#x57FA;&#x790E;&#xFF0C;&#x5C31;&#x662F;&#x5728;&#x65BC;&#x4E0D;&#x65B7;&#x5B9A;&#x7FA9; trait &#x7D44;&#x5408;&#x51FA;&#x7A0B;&#x5F0F;&#x78BC;&#x3002;</p>
-<p>&#x9019;&#x5728; C++20 &#x505A;&#x8D77;&#x4F86;&#x5F88;&#x7C21;&#x55AE;&#xFF0C;&#x4E0D;&#x5E78;&#x7684;&#x662F;&#xFF0C;&#x4E26;&#x4E0D;&#x662F;&#x6BCF;&#x9593;&#x516C;&#x53F8;&#x90FD;&#x80FD;&#x7528;&#x4E0A; C++14&#x3001;17 &#x4EE5;&#x4E0A;&#x7684;&#x7248;&#x672C;&#x3002;&#x751A;&#x81F3;&#x6211;&#x76EE;&#x524D;&#x7684;&#x5DE5;&#x4F5C;&#x74B0;&#x5883;&#xFF0C;&#x5C31;&#x7121;&#x6CD5;&#x4F7F;&#x7528;&#x5B8C;&#x6574;&#x7684; C++11&#x3002;&#x91DD;&#x5C0D;&#x90A3;&#x4E9B;&#x975E; stl <code>type_traits</code> &#x5B9A;&#x7FA9;&#x7684; trait &#x6216;&#x60F3;&#x8981;&#x9054;&#x6210;&#x985E;&#x4F3C; C++20 concept &#x7684;&#x4EBA;&#x4F86;&#x8AAA;&#xFF0C;&#x5C31;&#x8981;&#x7E5E;&#x4E00;&#x4E9B;&#x9060;&#x8DEF;&#x3002;&#x4ECA;&#x5929;&#x6700;&#x4E3B;&#x8981;&#x8981;&#x4ECB;&#x7D39;&#x7684;&#xFF0C;&#x5176;&#x5BE6;&#x662F; C++ &#x7684; detection idiom&#x3002;</p>
-<p>detection idiom &#x7684;&#x7528;&#x9014;&#x662F;&#xFF1A;&#x6211;&#x5011;&#x662F;&#x5426;&#x80FD;&#x5920;&#x81EA;&#x884C;&#x5B9A;&#x7FA9; trait &#x5224;&#x65B7;&#x8A72;&#x578B;&#x5225;&#x662F;&#x5426;&#x7B26;&#x5408;&#x6211;&#x5011;&#x9700;&#x8981;&#x7684;&#x689D;&#x4EF6;&#x3002;&#x4F8B;&#x5982;&#x6211;&#x5011;&#x60F3;&#x8981;&#x5224;&#x65B7;&#x4E00;&#x500B;&#x578B;&#x5225;&#x662F;&#x5426;&#x5177;&#x5099;&#x540D;&#x70BA; <code>free</code> &#x7684; method&#xFF0C;&#x65B9;&#x6CD5;&#x5F88;&#x7C21;&#x55AE;&#xFF0C;&#x6211;&#x5011;&#x8981;&#x5148;&#x5B9A;&#x7FA9;&#x4E00;&#x500B; trait class&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>只有條件為 <code>true</code> 的時候，<code>enable_if</code> 才會有 <code>type</code> 這個 member。套用 SFINAE 的邏輯，任何帶入 <code>List</code> 的 <code>T</code> 都必須滿足 <code>is_trivially_destructible_v</code> 的條件。這種寫法，讓我們強制了 List 對型別的約束只能是 trivially destructible 的型別。那麼如果我們要同時滿足 non-trivial 的型別呢？這時反而比較簡單，就是透過 specialization，這反而是 template 中一個比較基本的技巧，在此就不多做介紹。 metaprogramming 的基礎，就是在於不斷定義 trait 組合出程式碼。</p>
+<p>這在 C++20 做起來很簡單，不幸的是，並不是每間公司都能用上 C++14、17 以上的版本。甚至我目前的工作環境，就無法使用完整的 C++11。針對那些非 stl <code>type_traits</code> 定義的 trait 或想要達成類似 C++20 concept 的人來說，就要繞一些遠路。今天最主要要介紹的，其實是 C++ 的 detection idiom。</p>
+<p>detection idiom 的用途是：我們是否能夠自行定義 trait 判斷該型別是否符合我們需要的條件。例如我們想要判斷一個型別是否具備名為 <code>free</code> 的 method，方法很簡單，我們要先定義一個 trait class，如下：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
 <span class="hljs-keyword">struct</span> is_custom_free
 {
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">bool</span> value = <span class="hljs-keyword">decltype</span>(has_free&lt;T&gt;(<span class="hljs-literal">NULL</span>))::value;
 };
 </code></pre>
-<p>&#x9019;&#x6642;&#x7DE8;&#x8B6F;&#x7576;&#x7136;&#x4E0D;&#x6703;&#x904E;&#xFF0C;&#x4F46;&#x6211;&#x5011;&#x53EA;&#x8981;&#x5B8C;&#x6210; <code>has_free</code> &#x9019;&#x500B; function &#x5373;&#x53EF;&#x3002;&#x9996;&#x5148;&#x5C0D;&#x65BC;&#x90A3;&#x4E9B;&#x4E0D;&#x7B26;&#x5408;&#x689D;&#x4EF6;&#x7684;&#x578B;&#x5225;&#xFF0C;&#x6211;&#x5011;&#x53EA;&#x8981;&#x5B9A;&#x7FA9;&#x5B83;&#x7684; return type &#x662F; std::false_type &#x5C31;&#x53EF;&#x4EE5;&#x3002;&#x5C0D;&#x65BC;&#x7DE8;&#x8B6F;&#x5668;&#x4F86;&#x8AAA;&#xFF0C;&#x4E0D;&#x7B26;&#x5408;&#x689D;&#x4EF6;&#x7684;&#x578B;&#x5225;&#x5C31;&#x6703;&#x81EA;&#x52D5;&#x5957;&#x7528;&#x9019;&#x500B; overload &#x7684;&#x7D50;&#x679C;&#x3002;</p>
+<p>這時編譯當然不會過，但我們只要完成 <code>has_free</code> 這個 function 即可。首先對於那些不符合條件的型別，我們只要定義它的 return type 是 std::false_type 就可以。對於編譯器來說，不符合條件的型別就會自動套用這個 overload 的結果。</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> T&gt;
 <span class="hljs-keyword">struct</span> is_custom_free
 {
@@ -626,7 +622,7 @@ int main()
     <span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">bool</span> value = <span class="hljs-keyword">decltype</span>(has_free&lt;T&gt;(<span class="hljs-literal">NULL</span>))::value;
 };
 </code></pre>
-<p>&#x7B26;&#x5408;&#x7684;&#x72C0;&#x6CC1;&#xFF0C;&#x4E5F;&#x5C31;&#x662F; std::true_type &#x5247;&#x7565;&#x986F;&#x8907;&#x96DC;&#xFF1A;</p>
+<p>符合的狀況，也就是 std::true_type 則略顯複雜：</p>
 <pre><code class="lang-cpp">template &lt;typename T&gt;
 struct is_custom_free
 {
@@ -645,8 +641,8 @@ struct is_custom_free
     static const bool value = decltype(has_free&lt;T&gt;(NULL))::value;
 };
 </code></pre>
-<p>&#x9019;&#x908A;&#x5176;&#x5BE6;&#x4E5F;&#x662F;&#x7528;&#x4E86; <code>sizeof</code> &#x4E00;&#x500B;&#x6A19;&#x6E96;&#x7684;&#x5C0F;&#x6280;&#x5DE7; <code>sizeof(std::declval&lt;U&gt;().free(), 0)</code>&#xFF0C;&#x5C0D;&#x65BC; sizeof &#x62EC;&#x865F;&#x5167;&#x9017;&#x9EDE;&#x524D;&#x7684; expression &#x7DE8;&#x8B6F;&#x5668;&#x6703;&#x5617;&#x8A66;&#x4F30;&#x503C;&#xFF0C;&#x4F46;&#x6703;&#x5C07;&#x5176;&#x7D50;&#x679C;&#x6368;&#x68C4;&#x3002;&#x5982;&#x679C;&#x4F30;&#x503C;&#x5931;&#x6557;&#x4E86;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x9019;&#x500B; expression &#x4E26;&#x4E0D;&#x6210;&#x7ACB;&#xFF0C;&#x90A3;&#x7DE8;&#x8B6F;&#x5668;&#x5C31;&#x6703;&#x5617;&#x8A66;&#x5176;&#x4ED6;&#x7684; signature&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x512A;&#x5148;&#x5EA6;&#x6700;&#x4F4E;&#x7684; ellipsis parameter &#x7248;&#x672C;&#x3002;&#x800C;&#x4E14;&#x900F;&#x904E; overloading &#x7684;&#x6A5F;&#x5236;&#xFF0C;&#x4E5F;&#x80FD;&#x505A;&#x5230;&#x4E0D;&#x5149;&#x662F; true or false &#x7684;&#x5224;&#x65B7;&#x6A5F;&#x5236;&#x3002;</p>
-<p>&#x4E0D;&#x904E;&#x9664;&#x975E;&#x5DE5;&#x4F5C;&#x74B0;&#x5883;&#x9700;&#x8981;&#xFF0C;&#x9084;&#x662F;&#x4F7F;&#x7528;&#x65B0;&#x7684;&#x6A19;&#x6E96;&#x4F86;&#x9032;&#x884C;&#x958B;&#x767C;&#x6703;&#x66F4;&#x6709;&#x6548;&#x7387;&#x3002;</p>
+<p>這邊其實也是用了 <code>sizeof</code> 一個標準的小技巧 <code>sizeof(std::declval&lt;U&gt;().free(), 0)</code>，對於 sizeof 括號內逗點前的 expression 編譯器會嘗試估值，但會將其結果捨棄。如果估值失敗了，也就是這個 expression 並不成立，那編譯器就會嘗試其他的 signature，也就是優先度最低的 ellipsis parameter 版本。而且透過 overloading 的機制，也能做到不光是 true or false 的判斷機制。</p>
+<p>不過除非工作環境需要，還是使用新的標準來進行開發會更有效率。</p>
 
                                 
                                 </section>
@@ -674,7 +670,7 @@ struct is_custom_free
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"C++ detection idiom","level":"1.3.1.3","depth":3,"next":{"title":"2021","level":"1.3.2","depth":2,"path":"blog/2021/README.md","ref":"blog/2021/README.md","articles":[{"title":"Omniverse","level":"1.3.2.1","depth":3,"path":"blog/2021/2021-01-13-omniverse.md","ref":"blog/2021/2021-01-13-omniverse.md","articles":[]},{"title":"Docker基礎指令","level":"1.3.2.2","depth":3,"path":"blog/2021/2021-02-01-docker-hands-on.md","ref":"blog/2021/2021-02-01-docker-hands-on.md","articles":[]},{"title":"Docker + Jekyll = an easy way to create Github Pages blogger","level":"1.3.2.3","depth":3,"path":"blog/2021/2021-02-02-jekyll-easy-way.md","ref":"blog/2021/2021-02-02-jekyll-easy-way.md","articles":[]},{"title":"Dockerizing MSBuild(Visual Studio 2019)","level":"1.3.2.4","depth":3,"path":"blog/2021/2021-02-03-create-msbuild-image.md","ref":"blog/2021/2021-02-03-create-msbuild-image.md","articles":[]},{"title":"建立第一個 USD 場景","level":"1.3.2.5","depth":3,"path":"blog/2021/2021-02-04-first-usd.md","ref":"blog/2021/2021-02-04-first-usd.md","articles":[]},{"title":"建立 USD Mesh","level":"1.3.2.6","depth":3,"path":"blog/2021/2021-02-20-usdgeommesh.md","ref":"blog/2021/2021-02-20-usdgeommesh.md","articles":[]},{"title":"Linux Kernel 開發環境設定","level":"1.3.2.7","depth":3,"path":"blog/2021/2021-02-21-build-linux-kernel.md","ref":"blog/2021/2021-02-21-build-linux-kernel.md","articles":[]},{"title":"Metaprogramming - TypeList","level":"1.3.2.8","depth":3,"path":"blog/2021/2021-04-23-typelist.md","ref":"blog/2021/2021-04-23-typelist.md","articles":[]},{"title":"perf counter","level":"1.3.2.9","depth":3,"path":"blog/2021/2021-04-24-perf.md","ref":"blog/2021/2021-04-24-perf.md","articles":[]},{"title":"Rust 001","level":"1.3.2.10","depth":3,"path":"blog/2021/2021-05-02-rust-001.md","ref":"blog/2021/2021-05-02-rust-001.md","articles":[]},{"title":"Rust 002","level":"1.3.2.11","depth":3,"path":"blog/2021/2021-05-08-rust-002.md","ref":"blog/2021/2021-05-08-rust-002.md","articles":[]},{"title":"Rust 003","level":"1.3.2.12","depth":3,"path":"blog/2021/2021-06-20-rust-003.md","ref":"blog/2021/2021-06-20-rust-003.md","articles":[]},{"title":"Lua with C++17","level":"1.3.2.13","depth":3,"path":"blog/2021/2021-09-19-lua-and-cpp17.md","ref":"blog/2021/2021-09-19-lua-and-cpp17.md","articles":[]},{"title":"abseil - layout","level":"1.3.2.14","depth":3,"path":"blog/2021/2021-10-12-absl-layout.md","ref":"blog/2021/2021-10-12-absl-layout.md","articles":[]}]},"previous":{"title":"論重構 02","level":"1.3.1.2","depth":3,"path":"blog/2022/2022-02-04-refactoring_02.md","ref":"blog/2022/2022-02-04-refactoring_02.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","sitemap","katex"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://bachelorwang.github.io/"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2022/2022-02-18-cpp-detection-idiom.md","mtime":"2022-05-12T14:09:18.559Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-22T13:05:53.024Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"C++ detection idiom","level":"1.3.1.3","depth":3,"next":{"title":"2021","level":"1.3.2","depth":2,"path":"blog/2021/README.md","ref":"blog/2021/README.md","articles":[{"title":"Omniverse","level":"1.3.2.1","depth":3,"path":"blog/2021/2021-01-13-omniverse.md","ref":"blog/2021/2021-01-13-omniverse.md","articles":[]},{"title":"Docker基礎指令","level":"1.3.2.2","depth":3,"path":"blog/2021/2021-02-01-docker-hands-on.md","ref":"blog/2021/2021-02-01-docker-hands-on.md","articles":[]},{"title":"Docker + Jekyll = an easy way to create Github Pages blogger","level":"1.3.2.3","depth":3,"path":"blog/2021/2021-02-02-jekyll-easy-way.md","ref":"blog/2021/2021-02-02-jekyll-easy-way.md","articles":[]},{"title":"Dockerizing MSBuild(Visual Studio 2019)","level":"1.3.2.4","depth":3,"path":"blog/2021/2021-02-03-create-msbuild-image.md","ref":"blog/2021/2021-02-03-create-msbuild-image.md","articles":[]},{"title":"建立第一個 USD 場景","level":"1.3.2.5","depth":3,"path":"blog/2021/2021-02-04-first-usd.md","ref":"blog/2021/2021-02-04-first-usd.md","articles":[]},{"title":"建立 USD Mesh","level":"1.3.2.6","depth":3,"path":"blog/2021/2021-02-20-usdgeommesh.md","ref":"blog/2021/2021-02-20-usdgeommesh.md","articles":[]},{"title":"Linux Kernel 開發環境設定","level":"1.3.2.7","depth":3,"path":"blog/2021/2021-02-21-build-linux-kernel.md","ref":"blog/2021/2021-02-21-build-linux-kernel.md","articles":[]},{"title":"Metaprogramming - TypeList","level":"1.3.2.8","depth":3,"path":"blog/2021/2021-04-23-typelist.md","ref":"blog/2021/2021-04-23-typelist.md","articles":[]},{"title":"perf counter","level":"1.3.2.9","depth":3,"path":"blog/2021/2021-04-24-perf.md","ref":"blog/2021/2021-04-24-perf.md","articles":[]},{"title":"Rust 001","level":"1.3.2.10","depth":3,"path":"blog/2021/2021-05-02-rust-001.md","ref":"blog/2021/2021-05-02-rust-001.md","articles":[]},{"title":"Rust 002","level":"1.3.2.11","depth":3,"path":"blog/2021/2021-05-08-rust-002.md","ref":"blog/2021/2021-05-08-rust-002.md","articles":[]},{"title":"Rust 003","level":"1.3.2.12","depth":3,"path":"blog/2021/2021-06-20-rust-003.md","ref":"blog/2021/2021-06-20-rust-003.md","articles":[]},{"title":"Lua with C++17","level":"1.3.2.13","depth":3,"path":"blog/2021/2021-09-19-lua-and-cpp17.md","ref":"blog/2021/2021-09-19-lua-and-cpp17.md","articles":[]},{"title":"abseil - layout","level":"1.3.2.14","depth":3,"path":"blog/2021/2021-10-12-absl-layout.md","ref":"blog/2021/2021-10-12-absl-layout.md","articles":[]}]},"previous":{"title":"論重構 02","level":"1.3.1.2","depth":3,"path":"blog/2022/2022-02-04-refactoring_02.md","ref":"blog/2022/2022-02-04-refactoring_02.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["honkit-plugin-sitemap","honkit-plugin-katex"],"pluginsConfig":{"sitemap":{"url":"https://bachelorwang.github.io/"},"honkit-plugin-sitemap":{},"honkit-plugin-katex":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2022/2022-02-18-cpp-detection-idiom.md","mtime":"2022-05-12T14:09:18.559Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-05T02:08:53.441Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -684,11 +680,7 @@ struct is_custom_free
     <script src="../../gitbook/theme.js"></script>
     
         
-        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
         
     
         
@@ -704,11 +696,7 @@ struct is_custom_free
         
     
         
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
 

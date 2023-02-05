@@ -7,7 +7,7 @@
         <title>perf counter · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="GitBook 4.0.4">
         
         
         
@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-katex/katex.min.css">
                 
             
                 
@@ -542,7 +538,7 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <p>perf &#x662F; linux &#x7CFB;&#x7D71;&#x4E2D;&#x76F8;&#x7576;&#x91CD;&#x8981;&#x7684;&#x4E00;&#x500B;&#x958B;&#x767C;&#x5DE5;&#x5177;&#xFF0C;&#x7531;&#x65BC;&#x662F;&#x7531;&#x6838;&#x5FC3;&#x652F;&#x63F4;&#x5C0D;&#x7A0B;&#x5F0F;&#x8A2D;&#x8A08;&#x5E2B;&#x80FD;&#x89C0;&#x6E2C;&#x5230;&#x66F4;&#x591A;&#x6838;&#x5FC3;&#x5C64;&#x7D1A;&#x7684;&#x8CC7;&#x8A0A;&#x3002;&#x900F;&#x904E;&#x5E7E;&#x500B;&#x5E38;&#x898B;&#x7684; perf &#x6307;&#x4EE4;&#x4F8B;&#x5982;&#xFF1A;<code>perf stat</code>&#x3001;<code>perf record</code>&#x5C31;&#x80FD;&#x9032;&#x884C;&#x5927;&#x7565;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x4E26;&#x4E14;&#x900F;&#x904E; annotate &#x5F9E;&#x7D44;&#x5408;&#x8A9E;&#x8A00;&#x7684;&#x89D2;&#x5EA6;&#x89C0;&#x5BDF;&#x5C0D;&#x6307;&#x4EE4;&#x5C0D; CPU &#x7684;&#x5F71;&#x97FF;&#x3002;&#x7136;&#x800C;&#x5728;&#x5BE6;&#x52D9;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x6703;&#x671F;&#x671B;&#x5C0D;&#x7A0B;&#x5F0F;&#x66F4;&#x7279;&#x5B9A;&#x7684;&#x5340;&#x6BB5;&#x9032;&#x884C;&#x89C0;&#x5BDF;&#xFF0C;&#x6211;&#x5011;&#x4F86;&#x770B;&#x770B;&#x4E0B;&#x9762;&#x9019;&#x500B;&#x4F8B;&#x5B50;&#x3002;</p>
+                                <p>perf 是 linux 系統中相當重要的一個開發工具，由於是由核心支援對程式設計師能觀測到更多核心層級的資訊。透過幾個常見的 perf 指令例如：<code>perf stat</code>、<code>perf record</code>就能進行大略的分析，並且透過 annotate 從組合語言的角度觀察對指令對 CPU 的影響。然而在實務中，我們會期望對程式更特定的區段進行觀察，我們來看看下面這個例子。</p>
 <pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
   boost::random_device dev;
   boost::<span class="hljs-function">mt19937 <span class="hljs-title">rng</span><span class="hljs-params">(dev)</span></span>;
@@ -550,9 +546,9 @@
   <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-built_in">vector</span>(<span class="hljs-number">256</span>);
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;i : <span class="hljs-built_in">vector</span>)
     i = random(rng);
-<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> USE_SORT</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">ifdef</span> USE_SORT</span>
   <span class="hljs-built_in">std</span>::sort(<span class="hljs-built_in">vector</span>.begin(), <span class="hljs-built_in">vector</span>.end());
-<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">endif</span></span>
   <span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;i : <span class="hljs-built_in">vector</span>) {
     <span class="hljs-keyword">if</span> (i &gt; <span class="hljs-number">5</span>)
@@ -561,21 +557,21 @@
   <span class="hljs-keyword">return</span> sum;
 }
 </code></pre>
-<p>&#x9019;&#x6BB5;&#x7A0B;&#x5F0F;&#x78BC;&#x6240;&#x6E2C;&#x8A66;&#x7684;&#x662F; branch misses&#xFF0C;&#x7531;&#x65BC; branch &#x5C0D; CPU &#x6548;&#x80FD;&#x662F;&#x6709;&#x5F71;&#x97FF;&#x7684;&#xFF0C;&#x73FE;&#x4EE3;&#x7684; CPU &#x6703;&#x900F;&#x904E;&#x4E0D;&#x540C;&#x7684; branch predictor &#x4F86;&#x731C;&#x6E2C;&#x4E0B;&#x4E00;&#x6B65;&#x5230;&#x5E95;&#x8A72;&#x600E;&#x8D70;&#x3002;&#x8A66;&#x60F3;&#x50CF;&#x4F60;&#x662F;&#x751F;&#x7522;&#x7DDA;&#x4E0A;&#x7684;&#x5DE5;&#x4EBA;&#xFF0C;&#x4F46;&#x4E0D;&#x5E78;&#x7684;&#x662F;&#x9019;&#x9593;&#x5DE5;&#x5EE0;&#x628A;&#x9396;&#x87BA;&#x7D72;&#x9084;&#x6709;&#x91D8;&#x91D8;&#x5B50;&#x7684;&#x5DE5;&#x4F5C;&#x5168;&#x90E8;&#x653E;&#x5728;&#x540C;&#x4E00;&#x689D;&#x7522;&#x7DDA;&#x3002;&#x4F60;&#x6700;&#x7406;&#x60F3;&#x7684;&#x72C0;&#x6CC1;&#x61C9;&#x8A72;&#x662F;&#x9023;&#x7E8C;&#x6578;&#x500B;&#x5DE5;&#x4F5C;&#x90FD;&#x80FD;&#x7528;&#x5230;&#x540C;&#x4E00;&#x7A2E;&#x5DE5;&#x5177;&#xFF0C;&#x6E1B;&#x5C11;&#x5207;&#x63DB;&#x5DE5;&#x5177;&#x7684;&#x6642;&#x9593;&#x3002;</p>
-<p>&#x5728;&#x4E0A;&#x9762;&#x9019;&#x500B;&#x7247;&#x6BB5;&#x4E2D;&#xFF0C;&#x7A0B;&#x5F0F;&#x7522;&#x751F;&#x4E86; 256 &#x500B; 1 &#x81F3; 10 &#x7684;&#x96A8;&#x6A5F;&#x6578;&#xFF0C;&#x5982;&#x679C;<code>USE_SORT</code>&#x88AB;&#x5B9A;&#x7FA9;&#x7684;&#x8A71;&#xFF0C;&#x9019;&#x4E9B;&#x96A8;&#x6A5F;&#x6578;&#x5C31;&#x6703;&#x88AB;&#x6392;&#x5E8F;&#x3002;&#x6700;&#x5F8C;&#x51FD;&#x5F0F;&#x6703;&#x56DE;&#x50B3;&#x6240;&#x6709;&#x6578;&#x9AD8;&#x65BC; 5 &#x7684;&#x7E3D;&#x548C;(&#x5C0D;CPU&#x4F86;&#x8AAA;&#xFF0C;5 &#x4EE5;&#x4E0A;&#x4EE5;&#x4E0B;&#x7684;&#x6578;&#x503C;&#x5C31;&#x50CF;&#x662F;&#x87BA;&#x7D72;&#x8207;&#x91D8;&#x5B50;&#x4E00;&#x6A23;)&#x3002;&#x5982;&#x679C;&#x8AAA;&#xFF0C;&#x4F60;&#x76F4;&#x63A5;&#x4F7F;&#x7528; perf &#x5C0D;&#x9019;&#x6BB5;&#x7A0B;&#x5F0F;&#x9032;&#x884C;<code>-e branch-misses</code>&#x6E2C;&#x91CF;&#xFF0C;&#x6700;&#x5F8C;&#x5F97;&#x51FA;&#x7684;&#x7D50;&#x679C;&#x6703;&#x767C;&#x73FE;&#x5169;&#x8005;&#x5E7E;&#x4E4E;&#x7121;&#x7570;&#xFF0C;&#x5373;&#x4FBF;&#x662F;&#x4F60;&#x6307;&#x5B9A;&#x4E86;&#x57F7;&#x884C;&#x7E8C;&#x9084;&#x6709;&#x5404;&#x7A2E;&#x53C3;&#x6578;&#xFF0C;&#x56E0;&#x70BA;&#x6700;&#x6839;&#x672C;&#x7684;&#x554F;&#x984C;&#x662F; 256 &#x500B;&#x96A8;&#x6A5F;&#x6578;&#x5BE6;&#x5728;&#x662F;&#x592A;&#x5C11;&#x4E86;&#x3002;</p>
-<p>&#x78BA;&#x5BE6;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5C07; 256 &#x500B;&#x96A8;&#x6A5F;&#x6578;&#x589E;&#x5230;&#x4E00;&#x842C;&#x500D;&#xFF0C;&#x78BA;&#x5BE6;&#x6703;&#x6709;&#x6240;&#x5E6B;&#x52A9;&#xFF0C;&#x4F46;&#x9019;&#x4E26;&#x4E0D;&#x662F;&#x4E00;&#x500B;&#x5F88;&#x6709;&#x6548;&#x7684;&#x8FA6;&#x6CD5;&#x3002;&#x6211;&#x5011;&#x4E5F;&#x53EF;&#x4EE5;&#x6E2C;&#x91CF;&#x5F9E;&#x52A0;&#x7E3D;&#x8FF4;&#x5708;&#x958B;&#x59CB;&#x5230;&#x7D50;&#x675F;&#x7684;&#x6642;&#x9593;&#x5DEE;&#xFF0C;&#x4F46;&#x537B;&#x7121;&#x6CD5;&#x5F97;&#x77E5;<code>branch-misses</code>&#x5230;&#x5E95;&#x4F54;&#x4E86;&#x591A;&#x5C11;&#x6BD4;&#x91CD;&#x3002;&#x5982;&#x679C;&#x8AAA;&#x4ECA;&#x5929;&#x5206;&#x652F;&#x89F8;&#x767C;&#x7684;&#x53EF;&#x80FD;&#x662F;&#x4E00;&#x500B;&#x76F8;&#x8F03;&#x8907;&#x96DC;&#x6216;&#x6210;&#x672C;&#x91CD;&#x7684;&#x51FD;&#x5F0F;&#xFF0C;&#x589E;&#x52A0;&#x57F7;&#x884C;&#x6B21;&#x6578;&#x6703;&#x5C0E;&#x81F4;&#x57F7;&#x884C;&#x6642;&#x9593;&#x8B8A;&#x5F97;&#x66F4;&#x9577;&#x3001;&#x8A08;&#x7B97;&#x6642;&#x9593;&#x5DEE;&#x7121;&#x6CD5;&#x5F97;&#x77E5;&#x6BD4;&#x91CD;&#x3002;</p>
-<p>&#x5176;&#x5BE6;&#x554F;&#x984C;&#x7684;&#x6839;&#x672C;&#x662F;&#xFF0C;&#x6211;&#x5011;&#x5E0C;&#x671B;&#x80FD;&#x5920;&#x5C0D;&#x7279;&#x5B9A;&#x7A0B;&#x5F0F;&#x5340;&#x6BB5;&#x9032;&#x884C;&#x6E2C;&#x91CF;&#xFF0C;&#x6211;&#x5011;&#x53EA;&#x8981;&#x81EA;&#x5DF1;&#x958B;&#x767C;&#x4E00;&#x500B; perf counter &#x5C31;&#x884C;&#x3002;&#x53EF;&#x60DC;&#x7684;&#x662F; perf &#x4E26;&#x6C92;&#x6709;&#x76F4;&#x63A5;&#x63D0;&#x4F9B; wrapper &#x63A5;&#x53E3;&#xFF0C;&#x6211;&#x5011;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x5BEB;&#x4E00;&#x500B;&#xFF1A;</p>
+<p>這段程式碼所測試的是 branch misses，由於 branch 對 CPU 效能是有影響的，現代的 CPU 會透過不同的 branch predictor 來猜測下一步到底該怎走。試想像你是生產線上的工人，但不幸的是這間工廠把鎖螺絲還有釘釘子的工作全部放在同一條產線。你最理想的狀況應該是連續數個工作都能用到同一種工具，減少切換工具的時間。</p>
+<p>在上面這個片段中，程式產生了 256 個 1 至 10 的隨機數，如果<code>USE_SORT</code>被定義的話，這些隨機數就會被排序。最後函式會回傳所有數高於 5 的總和(對CPU來說，5 以上以下的數值就像是螺絲與釘子一樣)。如果說，你直接使用 perf 對這段程式進行<code>-e branch-misses</code>測量，最後得出的結果會發現兩者幾乎無異，即便是你指定了執行續還有各種參數，因為最根本的問題是 256 個隨機數實在是太少了。</p>
+<p>確實，你可以將 256 個隨機數增到一萬倍，確實會有所幫助，但這並不是一個很有效的辦法。我們也可以測量從加總迴圈開始到結束的時間差，但卻無法得知<code>branch-misses</code>到底佔了多少比重。如果說今天分支觸發的可能是一個相較複雜或成本重的函式，增加執行次數會導致執行時間變得更長、計算時間差無法得知比重。</p>
+<p>其實問題的根本是，我們希望能夠對特定程式區段進行測量，我們只要自己開發一個 perf counter 就行。可惜的是 perf 並沒有直接提供 wrapper 接口，我們需要自己寫一個：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">int32_t</span> perf_event_open(perf_event_attr *attr, <span class="hljs-keyword">pid_t</span> pid, <span class="hljs-keyword">int32_t</span> cpu,
                         <span class="hljs-keyword">int32_t</span> group_fd, <span class="hljs-keyword">uint32_t</span> flags) {
   <span class="hljs-keyword">return</span> syscall(__NR_perf_event_open, attr, pid, cpu, group_fd, flags);
 }
 </code></pre>
-<p>&#x5C31;&#x50CF;&#x5BE6;&#x969B;&#x64CD;&#x4F5C; perf &#x901A;&#x5E38;&#x4E0D;&#x6703;&#x53EA;&#x89C0;&#x6E2C;&#x4E00;&#x7A2E;&#x4E8B;&#x4EF6;&#xFF0C;&#x6211;&#x5011;&#x80FD;&#x5C07;&#x591A;&#x7A2E;&#x4E8B;&#x4EF6;&#x7D44;&#x5408;&#x8D77;&#x4F86;&#x5EFA;&#x7ACB;&#x70BA;&#x4E00;&#x500B; group&#xFF0C;&#x53EA;&#x8981;&#x64CD;&#x4F5C; group &#x7684; leader &#x5C31;&#x80FD;&#x9032;&#x884C;&#x6E2C;&#x91CF;&#xFF1A;</p>
+<p>就像實際操作 perf 通常不會只觀測一種事件，我們能將多種事件組合起來建立為一個 group，只要操作 group 的 leader 就能進行測量：</p>
 <pre><code class="lang-cpp"><span class="hljs-comment">// attr_&lt;leader|member&gt;.read_format = PERF_FORMAT_GROUP | PERF_FORMAT_ID;</span>
-<span class="hljs-keyword">auto</span> fd_leader = perf_event_open(&amp;attr_leader, getpid(), <span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>);
+<span class="hljs-keyword">auto</span> fd_leader = perf_event_open(&amp;attr_leader, getpid(), -<span class="hljs-number">1</span>, -<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);
 ioctl(fd_leader, PERF_EVENT_IOC_ID, &amp;leader_id);
 
-<span class="hljs-keyword">auto</span> fd_member = perf_event_open(&amp;attr_member, getpid(), <span class="hljs-number">-1</span>, leader, <span class="hljs-number">0</span>);
+<span class="hljs-keyword">auto</span> fd_member = perf_event_open(&amp;attr_member, getpid(), -<span class="hljs-number">1</span>, leader, <span class="hljs-number">0</span>);
 ioctl(fd_member, PERF_EVENT_IOC_ID, &amp;member_id);
 
 ioctl(fd_leader, PERF_EVENT_IOC_RESET, PERF_IOC_FLAG_GROUP);
@@ -594,7 +590,7 @@ read(fd_leader, buff, <span class="hljs-keyword">sizeof</span>(buff));
     member_count = result.value;
 }
 </code></pre>
-<p>&#x77E5;&#x9053;&#x63A5;&#x53E3;&#x7684;&#x64CD;&#x4F5C;&#x65B9;&#x5F0F;&#x4EE5;&#x5F8C;&#x6211;&#x5011;&#x5C31;&#x80FD;&#x4EE5; C++ &#x9032;&#x884C;&#x5305;&#x88DD;&#xFF0C;&#x9032;&#x884C;&#x66F4;&#x8F15;&#x9B06;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>知道接口的操作方式以後我們就能以 C++ 進行包裝，進行更輕鬆的操作。</p>
 <pre><code class="lang-cpp"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>{
   HC::Perf::Counter counter;
   <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;HC::Perf::Event&gt; events{
@@ -609,9 +605,9 @@ read(fd_leader, buff, <span class="hljs-keyword">sizeof</span>(buff));
   <span class="hljs-built_in">std</span>::<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; <span class="hljs-built_in">vector</span>(<span class="hljs-number">256</span>);
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;i : <span class="hljs-built_in">vector</span>)
     i = random(rng);
-<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> USE_SORT</span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">ifdef</span> USE_SORT</span>
   <span class="hljs-built_in">std</span>::sort(<span class="hljs-built_in">vector</span>.begin(), <span class="hljs-built_in">vector</span>.end());
-<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+<span class="hljs-preprocessor">#<span class="hljs-keyword">endif</span></span>
 
   counter.start();
 
@@ -626,13 +622,13 @@ read(fd_leader, buff, <span class="hljs-keyword">sizeof</span>(buff));
   <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> &amp;e : events) {
     <span class="hljs-keyword">uint64_t</span> count = <span class="hljs-number">0</span>;
     counter.get(e, count);
-    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; e.type &lt;&lt; <span class="hljs-string">&apos;,&apos;</span> &lt;&lt; e.config &lt;&lt; <span class="hljs-string">&quot;: &quot;</span> &lt;&lt; count &lt;&lt; <span class="hljs-built_in">std</span>::<span class="hljs-built_in">endl</span>;
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">cout</span> &lt;&lt; e.type &lt;&lt; <span class="hljs-string">&apos;,&apos;</span> &lt;&lt; e.config &lt;&lt; <span class="hljs-string">&quot;: &quot;</span> &lt;&lt; count &lt;&lt; <span class="hljs-built_in">std</span>::endl;
   }
 
   <span class="hljs-keyword">return</span> sum;
 }
 </code></pre>
-<p>&#x5982;&#x6B64;&#x4E00;&#x4F86;&#xFF0C;&#x6211;&#x5011;&#x5C31;&#x80FD;&#x66F4;&#x5C08;&#x6CE8;&#x5728;&#x76EE;&#x6A19;&#x91CF;&#x6E2C;&#x5340;&#x57DF;&#x4E0A;&#x3002;</p>
+<p>如此一來，我們就能更專注在目標量測區域上。</p>
 
                                 
                                 </section>
@@ -660,7 +656,7 @@ read(fd_leader, buff, <span class="hljs-keyword">sizeof</span>(buff));
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"perf counter","level":"1.3.2.9","depth":3,"next":{"title":"Rust 001","level":"1.3.2.10","depth":3,"path":"blog/2021/2021-05-02-rust-001.md","ref":"blog/2021/2021-05-02-rust-001.md","articles":[]},"previous":{"title":"Metaprogramming - TypeList","level":"1.3.2.8","depth":3,"path":"blog/2021/2021-04-23-typelist.md","ref":"blog/2021/2021-04-23-typelist.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","sitemap","katex"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://bachelorwang.github.io/"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-04-24-perf.md","mtime":"2022-05-12T14:09:18.592Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-22T13:05:53.024Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"perf counter","level":"1.3.2.9","depth":3,"next":{"title":"Rust 001","level":"1.3.2.10","depth":3,"path":"blog/2021/2021-05-02-rust-001.md","ref":"blog/2021/2021-05-02-rust-001.md","articles":[]},"previous":{"title":"Metaprogramming - TypeList","level":"1.3.2.8","depth":3,"path":"blog/2021/2021-04-23-typelist.md","ref":"blog/2021/2021-04-23-typelist.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["honkit-plugin-sitemap","honkit-plugin-katex"],"pluginsConfig":{"sitemap":{"url":"https://bachelorwang.github.io/"},"honkit-plugin-sitemap":{},"honkit-plugin-katex":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-04-24-perf.md","mtime":"2022-05-12T14:09:18.592Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-05T02:08:53.441Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -670,11 +666,7 @@ read(fd_leader, buff, <span class="hljs-keyword">sizeof</span>(buff));
     <script src="../../gitbook/theme.js"></script>
     
         
-        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
         
     
         
@@ -690,11 +682,7 @@ read(fd_leader, buff, <span class="hljs-keyword">sizeof</span>(buff));
         
     
         
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
 

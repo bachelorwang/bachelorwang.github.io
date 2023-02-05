@@ -7,7 +7,7 @@
         <title>next_permutation · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="GitBook 4.0.4">
         
         
         
@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-katex/katex.min.css">
                 
             
                 
@@ -542,15 +538,15 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <p><code>std::next_permutation</code>&#x662F; STL &#x4E2D;&#x5C07;&#x5BB9;&#x5668;&#x6392;&#x5E8F;&#x70BA;&#x4E0B;&#x4E00;&#x500B;&#x6392;&#x5217;&#x6B21;&#x5E8F;&#x7684;&#x51FD;&#x6578;&#xFF0C;&#x4E0D;&#x904E;&#x7A76;&#x7ADF;&#x4F55;&#x8B02;&#x4E0B;&#x4E00;&#x500B;&#x6392;&#x5217;&#x7A76;&#x7ADF;&#x662F;&#x4F9D;&#x4EC0;&#x9EBC;&#x898F;&#x5247;&#x800C;&#x7522;&#x751F;&#xFF0C;&#x4E0D;&#x7406;&#x89E3;&#x5176;&#x5BE6;&#x4F5C;&#x539F;&#x7406;&#x7684;&#x4EBA;&#x6050;&#x6015;&#x96E3;&#x4EE5;&#x60F3;&#x50CF;&#x3002;<code>next_permutation</code>&#x6709;&#x4E00;&#x500B;&#x96B1;&#x6666;&#x7684;&#x898F;&#x5247;&#xFF0C;&#x6070;&#x597D;&#x80FD;&#x8AAA;&#x660E;&#x5176;&#x5BE6;&#x4F5C;&#x539F;&#x7406;&#xFF0C;&#x90A3;&#x4FBF;&#x662F;&#x5982;&#x679C;&#x4F60;&#x8981;&#x900F;&#x904E;&#x6B64;&#x51FD;&#x6578;&#x5217;&#x8209;&#x6240;&#x6709;&#x5143;&#x7D20;&#x6392;&#x5217;&#x7684;&#x53EF;&#x80FD;&#xFF0C;&#x90A3;&#x9EBC;&#x4E00;&#x958B;&#x59CB;&#x5BB9;&#x5668;&#x5FC5;&#x9808;&#x8981;&#x8655;&#x65BC;<strong>&#x300C;&#x5DF2;&#x7D93;&#x6392;&#x5E8F;&#x300D;</strong>&#x7684;&#x72C0;&#x614B;&#x3002;&#x800C;<code>next_permutation</code>&#x56DE;&#x50B3; <code>false</code> &#x8868;&#x793A;&#x5DF2;&#x7121;&#x6B21;&#x7D44;&#x6392;&#x5217;&#x6B21;&#x5E8F;&#x53EF;&#x5217;&#x8209;&#x3002;&#x5BE6;&#x969B;&#x4E0A;&#xFF0C;&#x9019;&#x500B;<strong>&#x6700;&#x5F8C;&#x4E00;&#x500B;&#x6392;&#x5217;&#x6B21;&#x5E8F;</strong>&#x6B63;&#x662F;<strong>&#x300C;&#x5012;&#x5E8F;&#x300D;</strong>&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+                                <p><code>std::next_permutation</code>是 STL 中將容器排序為下一個排列次序的函數，不過究竟何謂下一個排列究竟是依什麼規則而產生，不理解其實作原理的人恐怕難以想像。<code>next_permutation</code>有一個隱晦的規則，恰好能說明其實作原理，那便是如果你要透過此函數列舉所有元素排列的可能，那麼一開始容器必須要處於<strong>「已經排序」</strong>的狀態。而<code>next_permutation</code>回傳 <code>false</code> 表示已無次組排列次序可列舉。實際上，這個<strong>最後一個排列次序</strong>正是<strong>「倒序」</strong>。例如：</p>
 <pre><code>1 2 3 4 5 6
-</code></pre><p>&#x662F;&#x96C6;&#x5408;<code>{1, 2, 3, 4, 5, 6}</code>&#x7684;&#x7B2C;&#x4E00;&#x500B;&#x6392;&#x5E8F;&#x6B21;&#x5E8F;&#xFF0C;&#x800C;</p>
+</code></pre><p>是集合<code>{1, 2, 3, 4, 5, 6}</code>的第一個排序次序，而</p>
 <pre><code>6 5 4 3 2 1
-</code></pre><p>&#x5247;&#x662F;&#x6700;&#x5F8C;&#x4E00;&#x500B;&#x6392;&#x5E8F;&#x3002;<code>next_permutation</code>&#x7684;&#x5BE6;&#x4F5C;&#x898F;&#x5247;&#xFF0C;&#x5176;&#x5BE6;&#x662F;&#x5C07;&#x5927;&#x554F;&#x984C;&#x905E;&#x8FF4;&#x5207;&#x5272;&#x70BA;&#x5C0F;&#x554F;&#x984C;&#xFF0C;&#x5927;&#x554F;&#x984C;&#x662F;<strong>&#x7D22;&#x5F15;<code>[a, c]</code>&#x4E14;<code>a &lt; c</code>&#x7684;&#x5143;&#x7D20;&#x662F;&#x5426;&#x5DF2;&#x70BA;&#x5012;&#x5E8F;</strong>&#xFF0C;&#x5C0F;&#x554F;&#x984C;&#x662F;<strong>&#x7D22;&#x5F15;<code>[b, c]</code>&#x4E14;<code>a &lt; b &lt; c</code>&#x7684;&#x5143;&#x7D20;&#x662F;&#x5426;&#x5DF2;&#x70BA;&#x5012;&#x5E8F;</strong>&#x3002;&#x7576;&#x5B50;&#x554F;&#x984C;&#x5DF2;&#x89E3;&#x4EE3;&#x8868;&#x5B50;&#x5E8F;&#x5217;&#x5DF2;&#x70BA;&#x5012;&#x5E8F;&#xFF0C;&#x82E5;&#x7D22;&#x5F15;<code>a</code>&#x7684;&#x5143;&#x7D20;&#x6B21;&#x5E8F;&#x4F4E;&#x65BC;&#x7D22;&#x5F15;<code>b</code>&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5247;&#x5C07;&#x7D22;&#x5F15;<code>a</code>&#x5143;&#x7D20;&#x8207;<code>[b, c]</code>&#x4E2D;&#x53F3;&#x8D77;&#x7B2C;&#x4E00;&#x500B;&#x6B21;&#x5E8F;&#x9AD8;&#x65BC;&#x5176;&#x7684;&#x5143;&#x7D20;&#x4EA4;&#x63DB;&#xFF0C;&#x4E26;&#x53CD;&#x8F49;&#x6392;&#x5217;<code>[b, c]</code>&#x7684;&#x5B50;&#x5E8F;&#x5217;&#x3002;&#x7C21;&#x800C;&#x8A00;&#x4E4B;<code>next_permutation</code>&#x4E0D;&#x505C;&#x5730;&#x5F9E;&#x672A;&#x81F3;&#x9996;&#x6AA2;&#x8996;&#x5E8F;&#x5217;&#x662F;&#x5426;&#x70BA;&#x5012;&#x5E8F;&#xFF0C;&#x82E5;&#x9047;&#x5230;&#x4E0D;&#x6EFF;&#x8DB3;&#x5012;&#x5E8F;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x5247;&#x5C07;&#x8A72;&#x5143;&#x7D20;&#x8207;&#x5B50;&#x5E8F;&#x5217;&#x4E2D;&#x7684;&#x4E0A;&#x9650;&#x5143;&#x7D20;&#x4EA4;&#x63DB;&#xFF0C;&#x518D;&#x5C07;&#x53F3;&#x5074;&#x5E8F;&#x5217;&#x53CD;&#x8F49;&#x6392;&#x5217;&#x3002;</p>
+</code></pre><p>則是最後一個排序。<code>next_permutation</code>的實作規則，其實是將大問題遞迴切割為小問題，大問題是<strong>索引<code>[a, c]</code>且<code>a &lt; c</code>的元素是否已為倒序</strong>，小問題是<strong>索引<code>[b, c]</code>且<code>a &lt; b &lt; c</code>的元素是否已為倒序</strong>。當子問題已解代表子序列已為倒序，若索引<code>a</code>的元素次序低於索引<code>b</code>的元素，則將索引<code>a</code>元素與<code>[b, c]</code>中右起第一個次序高於其的元素交換，並反轉排列<code>[b, c]</code>的子序列。簡而言之<code>next_permutation</code>不停地從未至首檢視序列是否為倒序，若遇到不滿足倒序的元素，則將該元素與子序列中的上限元素交換，再將右側序列反轉排列。</p>
 <pre><code>2 3 4 5 3
-</code></pre><p>&#x5247;&#x6703;&#x8B8A;&#x70BA;</p>
+</code></pre><p>則會變為</p>
 <pre><code>2 3 5 3 4
-</code></pre><p>&#x73FE;&#x5728;&#x6211;&#x5011;&#x4F86;&#x770B;&#x770B;&#x5FAE;&#x8EDF;&#x7684; STL &#x7684;&#x5BE6;&#x4F5C;&#x3002;</p>
+</code></pre><p>現在我們來看看微軟的 STL 的實作。</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">class</span> _BidIt, <span class="hljs-keyword">class</span> _Pr&gt;
 _<span class="hljs-function">CONSTEXPR20 <span class="hljs-keyword">bool</span> <span class="hljs-title">next_permutation</span><span class="hljs-params">(_BidIt _First, _BidIt _Last, _Pr _Pred)</span> </span>{
     _Adl_verify_range(_First, _Last);
@@ -581,12 +577,12 @@ _<span class="hljs-function">CONSTEXPR20 <span class="hljs-keyword">bool</span> 
     }
 }
 </code></pre>
-<p>&#x9996;&#x5148;&#x6703;&#x5148;&#x5C0D;&#x5BB9;&#x5668;&#x7684;&#x5927;&#x5C0F;&#x9032;&#x884C;&#x6AA2;&#x67E5;&#xFF0C;&#x5C0D;&#x65BC;&#x7A7A;&#x5E8F;&#x5217;&#x6216;&#x53EA;&#x6709;&#x55AE;&#x4E00;&#x5143;&#x7D20;&#x7684;&#x5E8F;&#x5217;&#x800C;&#x8A00;&#xFF0C;&#x81EA;&#x7136;&#x5C31;&#x6C92;&#x6709;&#x4E0B;&#x4E00;&#x500B;&#x6392;&#x5E8F;&#x53EF;&#x8A00;&#x3002;</p>
+<p>首先會先對容器的大小進行檢查，對於空序列或只有單一元素的序列而言，自然就沒有下一個排序可言。</p>
 <pre><code class="lang-cpp">    <span class="hljs-keyword">if</span> (_UFirst == _ULast || _UFirst == --_UNext) {
         <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     }
 </code></pre>
-<p>&#x78BA;&#x8A8D;&#x5BB9;&#x5668;&#x5927;&#x5C0F;&#x4EE5;&#x5F8C;&#xFF0C;&#x4FBF;&#x6703;&#x6B63;&#x5F0F;&#x9032;&#x5165;&#x6F14;&#x7B97;&#x6CD5;&#x7684;&#x4E3B;&#x6D41;&#x7A0B;&#x3002;</p>
+<p>確認容器大小以後，便會正式進入演算法的主流程。</p>
 <pre><code class="lang-cpp">    <span class="hljs-keyword">for</span> (;;) {
         <span class="hljs-keyword">auto</span> _UNext1 = _UNext;
         <span class="hljs-keyword">if</span> (_DEBUG_LT_PRED(_Pred, *--_UNext, *_UNext1)) {
@@ -598,7 +594,7 @@ _<span class="hljs-function">CONSTEXPR20 <span class="hljs-keyword">bool</span> 
         }
     }
 </code></pre>
-<p>&#x9019;&#x88E1;&#x53EF;&#x4EE5;&#x770B;&#x51FA; STL &#x5BE6;&#x4F5C;&#x7684;&#x53E6;&#x4E00;&#x500B;&#x7CBE;&#x5999;&#x4E4B;&#x8655;&#x3002;&#x76F4;&#x89BA;&#x5730;&#x5BEB;&#xFF0C;&#x4E00;&#x822C;&#x6211;&#x5011;&#x6703;&#x5148;&#x900F;&#x904E;&#x8FF4;&#x5708;&#x627E;&#x51FA;&#x5012;&#x5E8F;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x8D77;&#x9EDE;&#xFF0C;&#x4F46;STL&#x4E26;&#x4E0D;&#x9019;&#x9EBC;&#x505A;&#xFF0C;&#x800C;&#x662F;&#x900F;&#x904E;&#x4E00;&#x500B;&#x7121;&#x7AAE;&#x8FF4;&#x5708;&#x6BCF;&#x6B21;&#x6AA2;&#x67E5;&#x5DE6;&#x5143;&#x7D20;&#x6B21;&#x5E8F;&#x662F;&#x5426;&#x4F4E;&#x65BC;&#x53F3;&#x5143;&#x7D20;&#xFF0C;&#x4E26;&#x4E14;&#x5F80;&#x5DE6;&#x79FB;&#x52D5;&#xFF0C;&#x5982;&#x679C;&#x79FB;&#x52D5;&#x81F3;&#x5E8F;&#x5217;&#x6700;&#x5DE6;&#x7AEF;&#xFF0C;&#x5247;&#x8868;&#x793A;&#x6574;&#x500B;&#x5E8F;&#x5217;&#x7686;&#x5DF2;&#x70BA;&#x5012;&#x5E8F;&#xFF0C;&#x4E26;&#x5C07;&#x5E8F;&#x5217;&#x9084;&#x539F;&#x70BA;&#x5DF2;&#x6392;&#x5E8F;&#x72C0;&#x614B;&#x4E26;&#x56DE;&#x50B3;&#x5DF2;&#x7121;&#x6392;&#x5217;&#x53EF;&#x518D;&#x5217;&#x8209;&#x3002;</p>
+<p>這裡可以看出 STL 實作的另一個精妙之處。直覺地寫，一般我們會先透過迴圈找出倒序子序列的起點，但STL並不這麼做，而是透過一個無窮迴圈每次檢查左元素次序是否低於右元素，並且往左移動，如果移動至序列最左端，則表示整個序列皆已為倒序，並將序列還原為已排序狀態並回傳已無排列可再列舉。</p>
 <pre><code class="lang-cpp">        <span class="hljs-keyword">if</span> (_DEBUG_LT_PRED(_Pred, *--_UNext, *_UNext1)) {
             <span class="hljs-keyword">auto</span> _UMid = _ULast;
             <span class="hljs-keyword">do</span> {
@@ -610,8 +606,8 @@ _<span class="hljs-function">CONSTEXPR20 <span class="hljs-keyword">bool</span> 
             <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
         }
 </code></pre>
-<p>&#x7576;&#x5DE6;&#x5143;&#x7D20;&#x4E0D;&#x5C0F;&#x65BC;&#x53F3;&#x5143;&#x7D20;&#x6642;&#xFF0C;&#x518D;&#x5C0B;&#x627E;&#x5B50;&#x5E8F;&#x5217;&#x53F3;&#x8D77;&#x7684;&#x4E0A;&#x9650;&#x5143;&#x7D20;&#x5169;&#x8005;&#x4EA4;&#x63DB;&#xFF0C;&#x518D;&#x5C07;&#x5B50;&#x5E8F;&#x5217;&#x53CD;&#x8F49;&#x3002;</p>
-<p><a href="https://en.cppreference.com/w/cpp/algorithm/next_permutation" target="_blank">cppreference</a>&#x6709;&#x5217;&#x51FA;&#x4E00;&#x500B;&#x66F4;&#x7C21;&#x4FBF;&#x7684;&#x5BEB;&#x6CD5;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x5145;&#x5206;&#x5229;&#x7528; STL &#x7684;&#x51FD;&#x6578;&#x5B8C;&#x6210;&#x4E00;&#x9023;&#x4E32;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>當左元素不小於右元素時，再尋找子序列右起的上限元素兩者交換，再將子序列反轉。</p>
+<p><a href="https://en.cppreference.com/w/cpp/algorithm/next_permutation" target="_blank">cppreference</a>有列出一個更簡便的寫法，那就是充分利用 STL 的函數完成一連串的操作。</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> BidirIt&gt;
 <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">next_permutation</span><span class="hljs-params">(BidirIt first, BidirIt last)</span>
 </span>{
@@ -626,7 +622,7 @@ _<span class="hljs-function">CONSTEXPR20 <span class="hljs-keyword">bool</span> 
   <span class="hljs-keyword">return</span> left != r_last;
 }
 </code></pre>
-<p>&#x5148;&#x5C07;&#x5BB9;&#x5668;&#x7684; <code>iterator</code> &#x985B;&#x5012;&#x904E;&#x4F86;&#xFF0C;&#x4EE5;&#x985B;&#x5012;&#x65B9;&#x5411;&#x9032;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x4E26;&#x4E14;&#x627E;&#x51FA;&#x7B2C;&#x4E00;&#x500B;&#x4F7F;&#x5E8F;&#x5217;&#x4E0D;&#x6EFF;&#x8DB3;&#x5012;&#x5E8F;&#x7684;&#x5143;&#x7D20;&#x3002;&#x5927;&#x90E8;&#x5206;&#x6B63;&#x5F0F;&#x7684; STL <code>next_permutation</code> &#x7684;&#x5BE6;&#x4F5C;&#x5176;&#x5BE6;&#x90FD;&#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x4F46;&#x4E0D;&#x4F7F;&#x7528;&#x8207; cppreference &#x6240;&#x5BEB;&#x53EF;&#x8B80;&#x6027;&#x8F03;&#x9AD8;&#x7684;&#x5BEB;&#x6CD5;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x8003;&#x91CF;&#x5230;&#x6548;&#x80FD;&#x3002;&#x900F;&#x904E;&#x89E3;&#x8B80;&#x539F;&#x59CB;&#x78BC;&#xFF0C;&#x6211;&#x5011;&#x4E5F;&#x4E86;&#x89E3;&#x4E86; STL &#x662F;&#x5982;&#x4F55;&#x5B8C;&#x6210;&#x5168;&#x6392;&#x5E8F;&#x5217;&#x8209;&#x3002;</p>
+<p>先將容器的 <code>iterator</code> 顛倒過來，以顛倒方向進行操作，並且找出第一個使序列不滿足倒序的元素。大部分正式的 STL <code>next_permutation</code> 的實作其實都差不多，但不使用與 cppreference 所寫可讀性較高的寫法，一般是考量到效能。透過解讀原始碼，我們也了解了 STL 是如何完成全排序列舉。</p>
 
                                 
                                 </section>
@@ -654,7 +650,7 @@ _<span class="hljs-function">CONSTEXPR20 <span class="hljs-keyword">bool</span> 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"next_permutation","level":"1.4.1.1","depth":3,"next":{"title":"KMP algorithm","level":"1.4.1.2","depth":3,"path":"algo/basic/kmp.md","ref":"algo/basic/kmp.md","articles":[]},"previous":{"title":"basic","level":"1.4.1","depth":2,"path":"algo/basic/README.md","ref":"algo/basic/README.md","articles":[{"title":"next_permutation","level":"1.4.1.1","depth":3,"path":"algo/basic/next_permutation.md","ref":"algo/basic/next_permutation.md","articles":[]},{"title":"KMP algorithm","level":"1.4.1.2","depth":3,"path":"algo/basic/kmp.md","ref":"algo/basic/kmp.md","articles":[]},{"title":"逆序對","level":"1.4.1.3","depth":3,"path":"algo/basic/count_inversions.md","ref":"algo/basic/count_inversions.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","sitemap","katex"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://bachelorwang.github.io/"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algo/basic/next_permutation.md","mtime":"2022-05-21T10:58:46.237Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-22T13:05:53.024Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"next_permutation","level":"1.4.1.1","depth":3,"next":{"title":"KMP algorithm","level":"1.4.1.2","depth":3,"path":"algo/basic/kmp.md","ref":"algo/basic/kmp.md","articles":[]},"previous":{"title":"basic","level":"1.4.1","depth":2,"path":"algo/basic/README.md","ref":"algo/basic/README.md","articles":[{"title":"next_permutation","level":"1.4.1.1","depth":3,"path":"algo/basic/next_permutation.md","ref":"algo/basic/next_permutation.md","articles":[]},{"title":"KMP algorithm","level":"1.4.1.2","depth":3,"path":"algo/basic/kmp.md","ref":"algo/basic/kmp.md","articles":[]},{"title":"逆序對","level":"1.4.1.3","depth":3,"path":"algo/basic/count_inversions.md","ref":"algo/basic/count_inversions.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["honkit-plugin-sitemap","honkit-plugin-katex"],"pluginsConfig":{"sitemap":{"url":"https://bachelorwang.github.io/"},"honkit-plugin-sitemap":{},"honkit-plugin-katex":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"algo/basic/next_permutation.md","mtime":"2022-05-21T10:58:46.237Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-05T02:08:53.441Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -664,11 +660,7 @@ _<span class="hljs-function">CONSTEXPR20 <span class="hljs-keyword">bool</span> 
     <script src="../../gitbook/theme.js"></script>
     
         
-        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
         
     
         
@@ -684,11 +676,7 @@ _<span class="hljs-function">CONSTEXPR20 <span class="hljs-keyword">bool</span> 
         
     
         
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
 

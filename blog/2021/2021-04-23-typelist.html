@@ -7,7 +7,7 @@
         <title>Metaprogramming - TypeList · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="GitBook 4.0.4">
         
         
         
@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-katex/katex.min.css">
                 
             
                 
@@ -542,8 +538,8 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <p>Metaprogramming &#x662F; C++ &#x4E00;&#x500B;&#x5EE3;&#x70BA;&#x4EBA;&#x77E5;&#x7684;&#x6280;&#x5DE7;&#xFF0C;&#x5118;&#x7BA1; template programming &#x7684;&#x6280;&#x8853;&#x672C;&#x610F;&#x4E26;&#x4E0D;&#x662F;&#x70BA;&#x4E86;&#x6EFF;&#x8DB3; Metaprogramming&#xFF0C;&#x4F46;&#x5728;&#x958B;&#x767C;&#x793E;&#x7FA4;&#x4E2D;&#x7A0B;&#x5F0F;&#x8A2D;&#x8A08;&#x5E2B;&#x9010;&#x6F38;&#x610F;&#x8B58;&#x5230; Metaprogramming &#x5C0D;&#x7D42;&#x7AEF;&#x958B;&#x767C;&#x8005;&#x4F86;&#x8AAA;&#x80FD;&#x6E1B;&#x5C11;&#x7A0B;&#x5F0F;&#x78BC;&#x91CF;&#x3001;&#x589E;&#x52A0;&#x53EF;&#x8B80;&#x6027;&#x3001;&#x589E;&#x9032;&#x7A0B;&#x5F0F;&#x6548;&#x7387;&#x3002;&#x4F46; Metaprogramming &#x662F;&#x628A;&#x96D9;&#x9762;&#x5203;&#xFF0C;&#x5C0D;&#x65BC;&#x900F;&#x904E; template programming &#x4F86;&#x5BE6;&#x73FE; meta &#x7684;&#x8A2D;&#x8A08;&#x8005;&#x4F86;&#x8AAA;&#xFF0C;Metaprogramming &#x6709;&#x8A31;&#x591A;&#x8F03;&#x4E0D;&#x76F4;&#x89BA;&#x7684;&#x5BEB;&#x6CD5;&#xFF0C;&#x4E26;&#x4E14;&#x6709;&#x53EF;&#x80FD;&#x589E;&#x52A0;&#x7DE8;&#x8B6F;&#x6642;&#x9593;&#x3002;</p>
-<p>&#x4F86;&#x770B;&#x4E00;&#x4E0B; TypeList &#x9019;&#x500B;&#x4F8B;&#x5B50;&#xFF0C;TypeList &#x662F;&#x80FD;&#x5C07;&#x8907;&#x6578;&#x578B;&#x5225;&#x4EE5; list &#x5F62;&#x5F0F;&#x4F5C;&#x70BA;&#x578B;&#x5225;&#x8868;&#x793A;&#x7684;&#x6280;&#x8853;&#xFF0C;&#x4ED6;&#x7684;&#x8868;&#x793A;&#x5F62;&#x5F0F;&#x975E;&#x5E38;&#x7C21;&#x55AE;&#xFF1A;</p>
+                                <p>Metaprogramming 是 C++ 一個廣為人知的技巧，儘管 template programming 的技術本意並不是為了滿足 Metaprogramming，但在開發社群中程式設計師逐漸意識到 Metaprogramming 對終端開發者來說能減少程式碼量、增加可讀性、增進程式效率。但 Metaprogramming 是把雙面刃，對於透過 template programming 來實現 meta 的設計者來說，Metaprogramming 有許多較不直覺的寫法，並且有可能增加編譯時間。</p>
+<p>來看一下 TypeList 這個例子，TypeList 是能將複數型別以 list 形式作為型別表示的技術，他的表示形式非常簡單：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> TNull {};
 
 <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> TCurr, <span class="hljs-keyword">typename</span> TNext&gt; <span class="hljs-keyword">struct</span> TList {
@@ -551,7 +547,7 @@
   <span class="hljs-keyword">using</span> next = TNext;
 };
 </code></pre>
-<p>&#x5982;&#x679C;&#x6211;&#x5011;&#x5E0C;&#x671B;&#x4E00;&#x500B; <code>{int, double, char}</code> &#x7684; TypeList &#x53EA;&#x8981;&#x5BEB;&#x6210; <code>TList&lt;int, TList&lt;double, TList&lt;char, TNull&gt;&gt;&gt;</code>&#xFF0C;&#x5C0D;&#x7DE8;&#x8B6F;&#x5668;&#x4F86;&#x8AAA;&#x9019;&#x4E00;&#x578B;&#x5225;&#x5176;&#x5BE6;&#x662F;&#xFF1A;</p>
+<p>如果我們希望一個 <code>{int, double, char}</code> 的 TypeList 只要寫成 <code>TList&lt;int, TList&lt;double, TList&lt;char, TNull&gt;&gt;&gt;</code>，對編譯器來說這一型別其實是：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> TList_char_null {
   <span class="hljs-keyword">using</span> curr = <span class="hljs-keyword">char</span>;
   <span class="hljs-keyword">using</span> next = TNull;
@@ -567,21 +563,21 @@
   <span class="hljs-keyword">using</span> next = TList_double_next;
 };
 </code></pre>
-<p>&#x4E5F;&#x8A31;&#x6703;&#x6709;&#x4EBA;&#x7D0D;&#x60B6;&#xFF0C;&#x70BA;&#x4F55;&#x9700;&#x8981;&#x4E00;&#x500B; <code>TNull</code> &#x9019;&#x6A23;&#x4E00;&#x500B;&#x5B8C;&#x5168;&#x6C92;&#x6709;&#x4EFB;&#x4F55;&#x5C6C;&#x6027;&#x7684; struct&#x3002;&#x9019;&#x6A23;&#x7684; struct &#x5728; Metaprogramming &#x88AB;&#x7576;&#x4F5C; tag &#x4F86;&#x4F7F;&#x7528;&#xFF1B;&#x4EE5;&#x7A0B;&#x5F0F;&#x8A2D;&#x8A08;&#x7684;&#x89D2;&#x5EA6;&#x4F86;&#x8AAA;&#xFF0C;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x7576;&#x4F5C;&#x4E00;&#x7A2E; symbol&#x3002;&#x5373;&#x4FBF;&#x7A0B;&#x5F0F;&#x78BC;&#x4E2D;&#x5145;&#x65A5;&#x5404;&#x7A2E;&#x6C92;&#x6709;&#x5C6C;&#x6027;&#x7684; empty struct&#xFF0C;&#x53EA;&#x8981;&#x5B83;&#x5011;&#x540D;&#x5B57;&#x4E0D;&#x540C;&#xFF0C;&#x7DE8;&#x8B6F;&#x5668;&#x5C31;&#x4E0D;&#x6703;&#x6DF7;&#x70BA;&#x4E00;&#x8AC7;&#x3002;<code>TNull</code>&#x4F5C;&#x70BA; symbol&#xFF0C;&#x5C31;&#x50CF; CString &#x4EE5; <code>\0</code> &#x7D50;&#x5C3E;&#xFF0C;<code>TNull</code>&#x5FC5;&#x9808;&#x4F5C;&#x70BA; TypeList &#x7684;&#x7D50;&#x5C3E;&#x3002;&#x6211;&#x5011;&#x4F86;&#x770B;&#x770B;&#x600E;&#x9EBC;&#x6A23;&#x5C0D; TypeList &#x9032;&#x884C;&#x905E;&#x8FF4;&#x4EE5;&#x8A08;&#x7B97;&#x9577;&#x5EA6;&#x3002;</p>
+<p>也許會有人納悶，為何需要一個 <code>TNull</code> 這樣一個完全沒有任何屬性的 struct。這樣的 struct 在 Metaprogramming 被當作 tag 來使用；以程式設計的角度來說，我們可以把它當作一種 symbol。即便程式碼中充斥各種沒有屬性的 empty struct，只要它們名字不同，編譯器就不會混為一談。<code>TNull</code>作為 symbol，就像 CString 以 <code>\0</code> 結尾，<code>TNull</code>必須作為 TypeList 的結尾。我們來看看怎麼樣對 TypeList 進行遞迴以計算長度。</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> TList&gt; <span class="hljs-keyword">struct</span> TListLength {
   <span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> result = <span class="hljs-number">1</span> + TListLength&lt;<span class="hljs-keyword">typename</span> TList::next&gt;::result;
 };
 </code></pre>
-<p>&#x9019;&#x500B; template struct &#x6240;&#x8981;&#x8868;&#x9054;&#x7684;&#x610F;&#x6DB5;&#x5F88;&#x55AE;&#x7D14;&#x3002;&#x8209;&#x4F8B;&#x4F86;&#x8AAA;&#x5982;&#x679C;&#x4F60;&#x662F;&#x968A;&#x4F0D;&#x7684;&#x6700;&#x5F8C;&#x4E00;&#x500B;&#x4EBA;&#xFF0C;&#x800C;&#x4F60;&#x60F3;&#x8981;&#x77E5;&#x9053;&#x968A;&#x4F0D;&#x5230;&#x5E95;&#x6709;&#x591A;&#x5C11;&#x4EBA;&#x6642;&#xFF0C;&#x4F60;&#x5F88;&#x80AF;&#x5B9A;&#x7684;&#x662F;&#x9019;&#x500B;&#x968A;&#x4F0D;&#x53EA;&#x5C11;&#x6709;&#x4E00;&#x500B;&#x4EBA;&#x4E5F;&#x5C31;&#x662F;&#x4F60;&#x81EA;&#x5DF1;&#xFF0C;&#x65BC;&#x662F;&#x4F60;&#x554F;&#x6392;&#x5728;&#x4F60;&#x524D;&#x9762;&#x7684;&#x4EBA;&#xFF1A;&#x300C;&#x5F9E;&#x6392;&#x9996;&#x5230;&#x4F60;&#x4E00;&#x5171;&#x6709;&#x591A;&#x5C11;&#x4EBA;&#xFF1F;&#x300D;&#x53EA;&#x8981;&#x5C07;&#x5F97;&#x5230;&#x7684;&#x7B54;&#x6848;&#x52A0;&#x4E0A;&#x4E00;&#xFF0C;&#x5C31;&#x662F;&#x6574;&#x500B;&#x968A;&#x4F0D;&#x7684;&#x9577;&#x5EA6;&#x3002;&#x9019;&#x500B; template struct &#x6B63;&#x662F;&#x4EE5;&#x9019;&#x7A2E;&#x5F62;&#x5F0F;&#x4F86;&#x63A8;&#x5C0E;&#x51FA; TypeList &#x7684;&#x9577;&#x5EA6;&#x3002;&#x5982;&#x679C;&#x4F60;&#x524D;&#x9762;&#x7684;&#x4EBA;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;&#x7B54;&#x6848;&#xFF0C;&#x5C31;&#x518D;&#x554F;&#x66F4;&#x524D;&#x9762;&#x7684;&#x4EBA;&#x3002;</p>
-<p>&#x4F46;&#x662F;&#x9019;&#x500B; template struct &#x5B58;&#x5728;&#x4E00;&#x500B;&#x81F4;&#x547D;&#x7684;&#x554F;&#x984C;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x5B83;&#x7121;&#x6CD5;&#x63A8;&#x5C0E;&#x6210;&#x529F;&#x3002;&#x56E0;&#x70BA;&#x5225;&#x5FD8;&#x4E86;&#xFF0C;<code>TNull::next</code>&#x662F;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x3002;&#x76F8;&#x7576;&#x65BC;&#xFF0C;&#x6392;&#x9996;&#x7684;&#x4EBA;&#x8981;&#x5982;&#x4F55;&#x56DE;&#x7B54;&#x300C;&#x5F9E;&#x6392;&#x9996;&#x5230;&#x4F60;&#x4E00;&#x5171;&#x6709;&#x591A;&#x5C11;&#x4EBA;&#xFF1F;&#x300D;&#x9019;&#x500B;&#x554F;&#x984C;&#x5462;&#xFF1F;&#x5728;&#x6392;&#x9996;&#x7684;&#x4EBA;&#x610F;&#x8B58;&#x5230;&#xFF0C;&#x56E0;&#x70BA;&#x4ED6;&#x81EA;&#x5DF1;&#x5C31;&#x662F;&#x6392;&#x9996;&#x4E5F;&#x7121;&#x9808;&#x904E;&#x554F;&#xFF0C;&#x56E0;&#x6B64;&#x7B54;&#x6848;&#x662F; 1 + 0 &#x4EBA;&#x3002;</p>
+<p>這個 template struct 所要表達的意涵很單純。舉例來說如果你是隊伍的最後一個人，而你想要知道隊伍到底有多少人時，你很肯定的是這個隊伍只少有一個人也就是你自己，於是你問排在你前面的人：「從排首到你一共有多少人？」只要將得到的答案加上一，就是整個隊伍的長度。這個 template struct 正是以這種形式來推導出 TypeList 的長度。如果你前面的人也不知道答案，就再問更前面的人。</p>
+<p>但是這個 template struct 存在一個致命的問題，那就是它無法推導成功。因為別忘了，<code>TNull::next</code>是不存在的。相當於，排首的人要如何回答「從排首到你一共有多少人？」這個問題呢？在排首的人意識到，因為他自己就是排首也無須過問，因此答案是 1 + 0 人。</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;&gt; <span class="hljs-keyword">struct</span> TListLength&lt;TNull&gt; { <span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> result = <span class="hljs-number">0</span>; };
 </code></pre>
-<p>&#x9019;&#x4E5F;&#x5C31;&#x662F;&#x6240;&#x8B02;&#x7684;&#x7279;&#x5316;(specialization)&#xFF0C;&#x662F;&#x5B78;&#x7FD2; Metaprogramming &#x4E0D;&#x53EF;&#x6216;&#x7F3A;&#x7684; template &#x6280;&#x5DE7;&#x3002;&#x6211;&#x5011;&#x4F86;&#x770B;&#x770B;&#x4E0B;&#x4E00;&#x500B;&#x60C5;&#x5883;&#xFF1A;&#x8981;&#x5982;&#x4F55;&#x5B58;&#x53D6; TypeList &#x7279;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684;&#x985E;&#x578B;&#xFF1F;&#x6211;&#x5011;&#x4E00;&#x6A23;&#x4EE5;&#x968A;&#x4F0D;&#x8AAA;&#x660E;&#xFF0C;&#x4F60;&#x8981;&#x5982;&#x4F55;&#x627E;&#x5230;&#x968A;&#x4F0D;&#x4E2D;&#x7684;&#x7B2C; 3 &#x4F4D;&#x5462;&#xFF1F;&#x5F9E;&#x905E;&#x8FF4;&#x7684;&#x89D2;&#x5EA6;&#x4F86;&#x770B;&#xFF0C;&#x7B2C; 3 &#x4F4D;&#x5176;&#x5BE6;&#x5C31;&#x662F;&#x7B2C; 2 &#x4F4D;&#x7684;&#x4E0B;&#x4E00;&#x4F4D;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x5011;&#x53EA;&#x8981;&#x627E;&#x5230;&#x968A;&#x4F0D;&#x4E2D;&#x7684;&#x7B2C; 2 &#x4F4D;&#x5C31;&#x884C;&#x4E86;&#x3002;&#x540C;&#x7406;&#xFF0C;&#x65E2;&#x7136;&#x4E0D;&#x77E5;&#x9053;&#x8AB0;&#x662F;&#x968A;&#x4F0D;&#x4E2D;&#x7684; 2 &#x4F4D;&#xFF0C;&#x90A3;&#x6211;&#x53EA;&#x8981;&#x77E5;&#x9053;&#x968A;&#x4F0D;&#x4E2D;&#x7684;&#x7B2C; 1 &#x4F4D;&#x4E5F;&#x5C31;&#x662F;&#x6392;&#x9996;&#x5C31;&#x884C;&#x4E86;&#x5427;&#xFF1F;&#x6240;&#x4EE5;&#x627E;&#x5230;&#x7B2C; N &#x4F4D;&#x7684;&#x554F;&#x984C;&#xFF0C;&#x6211;&#x5011;&#x5176;&#x5BE6;&#x53EA;&#x9700;&#x8981;&#x5169;&#x500B;&#x5B9A;&#x7FA9;&#xFF1A;</p>
+<p>這也就是所謂的特化(specialization)，是學習 Metaprogramming 不可或缺的 template 技巧。我們來看看下一個情境：要如何存取 TypeList 特定位置的類型？我們一樣以隊伍說明，你要如何找到隊伍中的第 3 位呢？從遞迴的角度來看，第 3 位其實就是第 2 位的下一位，所以我們只要找到隊伍中的第 2 位就行了。同理，既然不知道誰是隊伍中的 2 位，那我只要知道隊伍中的第 1 位也就是排首就行了吧？所以找到第 N 位的問題，我們其實只需要兩個定義：</p>
 <ol>
-<li>&#x968A;&#x4F0D;&#x4E2D;&#x7684;&#x7B2C; 1 &#x4F4D;</li>
-<li>&#x968A;&#x4F0D;&#x4E2D;&#x7684;&#x7B2C; N &#x4F4D;&#xFF0C;&#x662F;&#x968A;&#x4F0D;&#x4E2D;&#x7684;&#x7B2C; N - 1 &#x4F4D;&#x7684;&#x4E0B;&#x4E00;&#x4F4D;</li>
+<li>隊伍中的第 1 位</li>
+<li>隊伍中的第 N 位，是隊伍中的第 N - 1 位的下一位</li>
 </ol>
-<p>&#x5BEB;&#x6210; C++ &#x6703;&#x50CF;&#x9019;&#x6A23;&#xFF1A;</p>
+<p>寫成 C++ 會像這樣：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">typename</span> TList, <span class="hljs-keyword">size_t</span> index&gt; <span class="hljs-keyword">struct</span> TListAt {
   <span class="hljs-keyword">using</span> result = <span class="hljs-keyword">typename</span> TListAt&lt;TList, index - <span class="hljs-number">1</span>&gt;::next::curr;
   <span class="hljs-keyword">using</span> next = <span class="hljs-keyword">typename</span> TListAt&lt;TList, index - <span class="hljs-number">1</span>&gt;::next::next;
@@ -592,7 +588,7 @@
   <span class="hljs-keyword">using</span> next = <span class="hljs-keyword">typename</span> TList::next;
 };
 </code></pre>
-<p>TypeList &#x7684;&#x5177;&#x9AD4;&#x7528;&#x9014;&#x662F;&#x4E58;&#x8F09;&#x8907;&#x6578;&#x7684;&#x578B;&#x5225;&#x8CC7;&#x8A0A;&#xFF0C;&#x807D;&#x8D77;&#x4F86;&#x597D;&#x50CF;&#x5F88;&#x65B9;&#x4FBF;&#xFF0C;&#x4F46;&#x6709;&#x4EC0;&#x9EBC;&#x5BE6;&#x8CEA;&#x7528;&#x8655;&#x5462;&#xFF1F;&#x8209;&#x500B;&#x4F8B;&#x5B50;&#xFF1A;&#x5728;&#x4EE5; binary &#x5F62;&#x5F0F;&#x5B58;&#x53D6;&#x7DE9;&#x885D;&#x6642;&#xFF0C;&#x6211;&#x5011;&#x6700;&#x5E38;&#x9700;&#x8981;&#x9032;&#x884C;&#x5BEB;&#x5165;&#x8207;&#x6AA2;&#x67E5;&#x7684;&#x5176;&#x5BE6;&#x662F;&#x4F7F;&#x7279;&#x5B9A;&#x4F4D;&#x7F6E;&#x7684; byte &#x7B26;&#x5408;&#x7279;&#x5B9A;&#x7684;&#x6578;&#x503C;&#x5167;&#x5BB9;&#x3002;&#x50B3;&#x7D71;&#x9762;&#x81E8;&#x7684;&#x6311;&#x6230;&#x662F;&#x9019;&#x6A23;&#x7684;&#x8CC7;&#x8A0A;&#x5F88;&#x96E3;&#x6709;&#x6548;&#x5730;&#x8868;&#x793A;&#xFF0C;&#x4E5F;&#x5F88;&#x96E3;&#x5FA9;&#x7528;&#x3002;&#x4F46;&#x662F;&#x6709; TypeList&#xFF0C;&#x6211;&#x5011;&#x5B8C;&#x5B8C;&#x5168;&#x5168;&#x53EF;&#x4EE5;&#x628A; byte &#x898F;&#x7BC4;&#x7576;&#x4F5C;&#x4E00;&#x500B;&#x6574;&#x9AD4;&#x578B;&#x5225;&#x3002;</p>
+<p>TypeList 的具體用途是乘載複數的型別資訊，聽起來好像很方便，但有什麼實質用處呢？舉個例子：在以 binary 形式存取緩衝時，我們最常需要進行寫入與檢查的其實是使特定位置的 byte 符合特定的數值內容。傳統面臨的挑戰是這樣的資訊很難有效地表示，也很難復用。但是有 TypeList，我們完完全全可以把 byte 規範當作一個整體型別。</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">size_t</span> _offset, <span class="hljs-keyword">uint8_t</span> _value&gt; <span class="hljs-keyword">struct</span> Code {
   <span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">size_t</span> offset = _offset;
   <span class="hljs-keyword">static</span> <span class="hljs-keyword">const</span> <span class="hljs-keyword">uint8_t</span> value = _value;
@@ -620,8 +616,8 @@ ASSERT_TRUE(b0::value == buffer[b0::offset]);
 ASSERT_TRUE(b1::value == buffer[b1::offset]);
 ASSERT_TRUE(b2::value == buffer[b2::offset]);
 </code></pre>
-<p>&#x719F;&#x7A14; C++ &#x7684;&#x8B80;&#x8005;&#x4E5F;&#x8A31;&#x6703;&#x597D;&#x5947;&#xFF0C;&#x4E0A;&#x9762;&#x9019;&#x500B;&#x7247;&#x6BB5;&#x5176;&#x5BE6;&#x4E26;&#x4E0D;&#x9700;&#x8981; TypeList&#xFF0C;&#x53EA;&#x8981;&#x7A0D;&#x5FAE;&#x8ABF;&#x6574; <code>fill</code> &#x5B8C;&#x5168;&#x80FD;&#x5920;&#x4EE5; parameter pack &#x4F86;&#x8655;&#x7406;&#x3002;&#x4F46;&#x8207; TypeList &#x4E0D;&#x540C;&#xFF0C;parameter pack &#x4E26;&#x4E0D;&#x662F;&#x4E00;&#x7A2E;&#x578B;&#x5225;&#x3002;&#x5F9E;&#x8A9E;&#x610F;&#x4E0A;&#xFF0C;&#x6211;&#x5011;&#x5F88;&#x96E3;&#x5C07;&#x4E00;&#x9023;&#x4E32;&#x7684;&#x578B;&#x5225;&#x7576;&#x4F5C;&#x4E00;&#x500B;&#x6574;&#x9AD4;&#x7684;&#x8CC7;&#x8A0A;&#x4F86;&#x770B;&#x5F85;&#xFF0C;&#x4F46;&#x662F; TypeList &#x6BEB;&#x7121;&#x7591;&#x554F;&#x5730;&#x662F;&#x4E00;&#x7A2E;&#x578B;&#x5225;&#x3002;parameter pack &#x5C55;&#x958B;&#x8981;&#x4E0D;&#x662F;&#x900F;&#x904E; fold-expression &#x4EE5;&#x4E00;&#x81F4;&#x7684;&#x908F;&#x8F2F;&#x4F86;&#x64CD;&#x4F5C;&#x88AB; unpack &#x7684;&#x8CC7;&#x8A0A;&#xFF0C;&#x8981;&#x4E0D;&#x7136;&#x5C31;&#x662F; forward &#x7D66;&#x771F;&#x6B63;&#x7684; function call&#x3002;</p>
-<p>&#x53E6;&#x5916;&#x7531;&#x65BC; TypeList &#x88AB;&#x767C;&#x660E;&#x51FA;&#x4F86;&#x7684;&#x6642;&#x5019;&#xFF0C;C++ &#x9084;&#x6C92;&#x6709; parameter pack &#x9019;&#x500B;&#x6280;&#x5DE7;&#x80FD;&#x4F7F;&#x7528;&#x3002;&#x56E0;&#x6B64;&#x7576;&#x6642;&#x7684; TypeList &#x901A;&#x5E38;&#x90FD;&#x662F;&#x4EE5;&#x5B9A;&#x7FA9;&#x597D;&#x7684; macro &#x5C55;&#x958B;<code>TList&lt;T0, TList&lt;T1, TList&lt;T2, ...&gt;&gt;&gt;</code>&#x9019;&#x7A2E;&#x76F8;&#x8F03;&#x4E0D;&#x76F4;&#x89BA;&#x7684;&#x905E;&#x8FF4;&#x5957;&#x5165;&#x5F62;&#x5F0F;&#xFF0C;&#x4F46;&#x662F;&#x73FE;&#x5728;&#x6709;&#x4E86; parameter pack &#x5176;&#x5BE6;&#x53EA;&#x8981;&#x518D;&#x4E0B;&#x9EDE;&#x529F;&#x592B;&#x5C31;&#x80FD;&#x5BEB;&#x6210; <code>MakeList&lt;T0, T1, T2, ...&gt;::result</code> &#x9019;&#x7A2E;&#x76F4;&#x89BA;&#x53C8;&#x6613;&#x8B80;&#x7684;&#x5F62;&#x5F0F;&#x3002;</p>
+<p>熟稔 C++ 的讀者也許會好奇，上面這個片段其實並不需要 TypeList，只要稍微調整 <code>fill</code> 完全能夠以 parameter pack 來處理。但與 TypeList 不同，parameter pack 並不是一種型別。從語意上，我們很難將一連串的型別當作一個整體的資訊來看待，但是 TypeList 毫無疑問地是一種型別。parameter pack 展開要不是透過 fold-expression 以一致的邏輯來操作被 unpack 的資訊，要不然就是 forward 給真正的 function call。</p>
+<p>另外由於 TypeList 被發明出來的時候，C++ 還沒有 parameter pack 這個技巧能使用。因此當時的 TypeList 通常都是以定義好的 macro 展開<code>TList&lt;T0, TList&lt;T1, TList&lt;T2, ...&gt;&gt;&gt;</code>這種相較不直覺的遞迴套入形式，但是現在有了 parameter pack 其實只要再下點功夫就能寫成 <code>MakeList&lt;T0, T1, T2, ...&gt;::result</code> 這種直覺又易讀的形式。</p>
 
                                 
                                 </section>
@@ -649,7 +645,7 @@ ASSERT_TRUE(b2::value == buffer[b2::offset]);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Metaprogramming - TypeList","level":"1.3.2.8","depth":3,"next":{"title":"perf counter","level":"1.3.2.9","depth":3,"path":"blog/2021/2021-04-24-perf.md","ref":"blog/2021/2021-04-24-perf.md","articles":[]},"previous":{"title":"Linux Kernel 開發環境設定","level":"1.3.2.7","depth":3,"path":"blog/2021/2021-02-21-build-linux-kernel.md","ref":"blog/2021/2021-02-21-build-linux-kernel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","sitemap","katex"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://bachelorwang.github.io/"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-04-23-typelist.md","mtime":"2022-05-12T14:09:18.596Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-22T13:05:53.024Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Metaprogramming - TypeList","level":"1.3.2.8","depth":3,"next":{"title":"perf counter","level":"1.3.2.9","depth":3,"path":"blog/2021/2021-04-24-perf.md","ref":"blog/2021/2021-04-24-perf.md","articles":[]},"previous":{"title":"Linux Kernel 開發環境設定","level":"1.3.2.7","depth":3,"path":"blog/2021/2021-02-21-build-linux-kernel.md","ref":"blog/2021/2021-02-21-build-linux-kernel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["honkit-plugin-sitemap","honkit-plugin-katex"],"pluginsConfig":{"sitemap":{"url":"https://bachelorwang.github.io/"},"honkit-plugin-sitemap":{},"honkit-plugin-katex":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-04-23-typelist.md","mtime":"2022-05-12T14:09:18.596Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-05T02:08:53.441Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -659,11 +655,7 @@ ASSERT_TRUE(b2::value == buffer[b2::offset]);
     <script src="../../gitbook/theme.js"></script>
     
         
-        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
         
     
         
@@ -679,11 +671,7 @@ ASSERT_TRUE(b2::value == buffer[b2::offset]);
         
     
         
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
 

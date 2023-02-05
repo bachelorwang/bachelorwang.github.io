@@ -7,7 +7,7 @@
         <title>論重構 02 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="GitBook 4.0.4">
         
         
         
@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-katex/katex.min.css">
                 
             
                 
@@ -542,33 +538,33 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x600E;&#x6A23;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x9700;&#x8981;&#x91CD;&#x69CB;">&#x600E;&#x6A23;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x9700;&#x8981;&#x91CD;&#x69CB;</h2>
-<p>&#x51FA;&#x5E2B;&#x6709;&#x540D;&#xFF0C;&#x91CD;&#x69CB;&#x901A;&#x5E38;&#x9700;&#x8981;&#x6709;&#x500B;&#x7406;&#x7531;&#xFF0C;&#x6709;&#x6642;&#x5019;&#x66F4;&#x9700;&#x8981;&#x6709;&#x4E00;&#x500B;&#x597D;&#x7406;&#x7531;&#x624D;&#x80FD;&#x8AAA;&#x670D;&#x516C;&#x53F8;&#x6295;&#x6CE8;&#x91D1;&#x9322;&#x8207;&#x6642;&#x9593;&#x3002;&#x6211;&#x5011;&#x4E0D;&#x70BA;&#x91CD;&#x69CB;&#x800C;&#x91CD;&#x69CB;&#xFF0C;&#x56E0;&#x70BA;&#x4EFB;&#x4F55;&#x4E00;&#x6BB5;&#x7A0B;&#x5F0F;&#x78BC;&#x7E3D;&#x662F;&#x6709;&#x8FA6;&#x6CD5;&#x5BEB;&#x6210;&#x53E6;&#x4E00;&#x7A2E;&#x5F62;&#x5F0F;&#xFF0C;&#x5C31;&#x50CF;&#x90A3;&#x53E5; Perl &#x7684;&#x4FD7;&#x8AFA;&#xFF1A;</p>
+                                <h2 id="怎樣的程式碼需要重構">怎樣的程式碼需要重構</h2>
+<p>出師有名，重構通常需要有個理由，有時候更需要有一個好理由才能說服公司投注金錢與時間。我們不為重構而重構，因為任何一段程式碼總是有辦法寫成另一種形式，就像那句 Perl 的俗諺：</p>
 <blockquote>
 <blockquote>
 <p>There&apos;s more than one way to do it.</p>
 </blockquote>
 </blockquote>
-<p>&#x5982;&#x679C;&#x4F60;&#x6B63;&#x5728;&#x5BEB; Python&#xFF0C;&#x800C;&#x525B;&#x597D;&#x90A3;&#x6BB5;&#x7A0B;&#x5F0F;&#x78BC;&#x53C8;&#x7B26;&#x5408; Python &#x7684;&#x4FD7;&#x8AFA;&#xFF0C;&#x90A3;&#x4F3C;&#x4E4E;&#x66F4;&#x6C92;&#x6709;&#x7406;&#x7531;&#x53BB;&#x91CD;&#x69CB;&#x3002;</p>
+<p>如果你正在寫 Python，而剛好那段程式碼又符合 Python 的俗諺，那似乎更沒有理由去重構。</p>
 <blockquote>
 <blockquote>
 <p>There should be one-- and preferably only one --obvious way to do it.</p>
 </blockquote>
 </blockquote>
-<p>&#x56E0;&#x6B64;&#x90A3;&#x4E9B;&#x9700;&#x8981;&#x88AB;&#x91CD;&#x69CB;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x7E3D;&#x662F;&#x5177;&#x5099;&#x67D0;&#x4E9B;&#x4EE4;&#x4EBA;&#x53AD;&#x60E1;&#x7684;&#x7279;&#x5FB5;&#x8B93;&#x4F60;&#x840C;&#x751F;&#x91CD;&#x69CB;&#x7684;&#x5FF5;&#x982D;&#x3002;</p>
-<h3 id="&#x91CD;&#x8907;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;">&#x91CD;&#x8907;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;</h3>
-<p>&#x91CD;&#x8907;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x5FC5;&#x9808;&#x88AB;&#x91CD;&#x69CB;&#x7684;&#x7406;&#x7531;&#x5728;&#x5148;&#x524D;&#x7684;&#x6587;&#x7AE0;&#x5DF2;&#x8AAA;&#x904E;&#xFF0C;&#x5927;&#x591A;&#x6578;&#x7684;&#x4EBA;&#x4EE5;&#x70BA;&#x8907;&#x88FD;&#x7A0B;&#x5F0F;&#x78BC;&#x80FD;&#x5920;&#x4FDD;&#x7559;&#x539F;&#x672C;&#x529F;&#x80FD;&#x7684;&#x6B63;&#x78BA;&#x6027;&#xFF0C;&#x6211;&#x8A8D;&#x70BA;&#x9019;&#x662F;&#x4E00;&#x7A2E;&#x4E0D;&#x8CA0;&#x8CAC;&#x4EFB;&#x7684;&#x8AAA;&#x6CD5;&#x3002;&#x91CD;&#x8907;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x4F7F;&#x8EDF;&#x9AD4;&#x884C;&#x70BA;&#x4E0D;&#x4E00;&#x81F4;&#x7684;&#x98A8;&#x96AA;&#x63D0;&#x9AD8;&#xFF0C;&#x66F4;&#x63D0;&#x9AD8;&#x4E86;&#x7DAD;&#x8B77;&#x7684;&#x6210;&#x672C;&#x3002;&#x88AB;&#x8907;&#x88FD;&#x7684;&#x526F;&#x672C;&#x8D8A;&#x591A;&#x4EFD;&#xFF0C;&#x5C31;&#x4F7F;&#x5F97;&#x65E5;&#x5F8C;&#x5B83;&#x5011;&#x88AB;&#x5408;&#x4F75;&#x7684;&#x6210;&#x672C;&#x8D8A;&#x9AD8;&#x3002;&#x671F;&#x671B;&#x6240;&#x6709;&#x7684;&#x932F;&#x8AA4;&#x90FD;&#x88AB;&#x540C;&#x6B65;&#x4FEE;&#x6B63;&#x3001;&#x6B63;&#x78BA;&#x5730;&#x4FEE;&#x6B63;&#xFF0C;&#x4E5F;&#x662F;&#x4E0D;&#x5207;&#x5BE6;&#x969B;&#x7684;&#x671F;&#x671B;&#x3002;&#x5982;&#x679C;&#x4F60;&#x767C;&#x73FE;&#x91CD;&#x8907;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x61C9;&#x8A72;&#x8981;&#x76E1;&#x65E9;&#x7684;&#x5408;&#x4F75;&#x5B83;&#x5011;&#x3002;</p>
-<h3 id="&#x745E;&#x58EB;&#x5200;">&#x745E;&#x58EB;&#x5200;</h3>
-<p>&#x6211;&#x5011;&#x7E3D;&#x662F;&#x559C;&#x6B61;&#x745E;&#x58EB;&#x5200;&#xFF0C;&#x4ED8;&#x4E00;&#x500B;&#x5DE5;&#x5177;&#x7684;&#x50F9;&#x683C;&#xFF0C;&#x5F97;&#x5230;&#x8907;&#x6578;&#x500B;&#x5DE5;&#x5177;&#x7684;&#x529F;&#x80FD;&#x3002;&#x9019;&#x6A23;&#x7684;&#x5DE5;&#x5177;&#x5728;&#x73FE;&#x5BE6;&#x4E16;&#x754C;&#x6216;&#x8A31;&#x662F;&#x4E3B;&#x6D41;&#xFF0C;&#x6211;&#x5011;&#x7E3D;&#x662F;&#x80FD;&#x770B;&#x5230;&#x4E0D;&#x5C11;&#x591A;&#x5408;&#x4E00;&#x3001;&#x591A;&#x7528;&#x9014;&#x7684;&#x5DE5;&#x5177;&#x653E;&#x5728;&#x8CA8;&#x67B6;&#x4E0A;&#x3002;&#x7136;&#x800C;&#x5C08;&#x696D;&#x9818;&#x57DF;&#x4E2D;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x554F;&#x984C;&#x9700;&#x8981;&#x4E0D;&#x540C;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x5927;&#x773E;&#x7684;&#x5BB6;&#x5EAD;&#x5EDA;&#x623F;&#x6050;&#x6015;&#x5C31;&#x4E0D;&#x53EA;&#x4E00;&#x7A2E;&#x5200;&#x5177;&#x4E86;&#xFF0C;&#x66F4;&#x4F55;&#x6CC1;&#x662F;&#x9910;&#x5EF3;&#x3002;&#x7136;&#x800C;&#x7A0B;&#x5F0F;&#x78BC;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x537B;&#x7D93;&#x5E38;&#x898B;&#x5230;&#x5982;&#x540C;&#x745E;&#x58EB;&#x5200;&#x822C;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x3002;&#x4E00;&#x500B; function &#x53EF;&#x80FD;&#x57F7;&#x884C;&#x4E86;&#x591A;&#x7A2E;&#x8A08;&#x7B97;&#x4EE5;&#x81F3;&#x65BC;&#x5B83;&#x9577;&#x9054;&#x767E;&#x884C;&#x7684;&#x7A7A;&#x9593;&#xFF0C;&#x53C8;&#x6216;&#x662F;&#x4E00;&#x500B; class &#x5177;&#x5099;&#x4E86;&#x6578;&#x5341;&#x7A2E; method&#x3002;</p>
-<p>clean code &#x5EFA;&#x8B70;&#x6211;&#x5011;&#x4E00;&#x500B; function &#x4E0D;&#x8D85;&#x904E; 9 &#x884C;&#xFF0C;&#x9019;&#x4E26;&#x4E0D;&#x662F;&#x4E00;&#x500B;&#x9435;&#x5247;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x7A2E;&#x6307;&#x5C0E;&#x539F;&#x5247;&#xFF0C;&#x8981;&#x6C42;&#x6211;&#x5011;&#x8B93;&#x4E00;&#x500B; function &#x76E1;&#x5176;&#x6240;&#x80FD;&#x7684;&#x300C;&#x53EA;&#x505A;&#x4E00;&#x4EF6;&#x4E8B;&#x300D;&#x3002;&#x6709;&#x4EBA;&#x6703;&#x554F;&#xFF1A;&#x300C;&#x745E;&#x58EB;&#x5200;&#x822C;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x70BA;&#x4F55;&#x9700;&#x8981;&#x6539;&#x9032;&#xFF1F;&#x300D;&#x8A66;&#x60F3;&#x5982;&#x679C;&#x4F60;&#x7684;&#x745E;&#x58EB;&#x5200;&#x5176;&#x4E2D;&#x4E00;&#x500B;&#x5C0F;&#x5DE5;&#x5177;&#x58DE;&#x4E86;&#xFF0C;&#x4F60;&#x6703;&#x600E;&#x9EBC;&#x505A;&#xFF1F;&#x6211;&#x76F8;&#x4FE1;&#x5F88;&#x5C11;&#x6709;&#x4EBA;&#x6703;&#x628A;&#x5176;&#x4E2D;&#x4E00;&#x500B;&#x5C0F;&#x5DE5;&#x5177;&#x63DB;&#x4E0B;&#x4F86;&#xFF0C;&#x5373;&#x4F7F;&#x4F60;&#x6709;&#x7684;&#x66F4;&#x63DB;&#x7684;&#x96F6;&#x4EF6;&#x3002;&#x5728;&#x8EDF;&#x9AD4;&#x5DE5;&#x7A0B;&#x4E2D;&#xFF0C;&#x9019;&#x500B;&#x554F;&#x984C;&#x66F4;&#x986F;&#x5F97;&#x8907;&#x96DC;&#xFF0C;&#x4E00;&#x500B;&#x5DE5;&#x7A0B;&#x5E2B;&#x5FC5;&#x9808;&#x8B58;&#x5225;&#x9019;&#x500B; function &#x6216; class &#x5230;&#x5E95;&#x54EA;&#x500B;&#x6BB5;&#x843D;&#x51FA;&#x4E86;&#x554F;&#x984C;&#xFF0C;&#x95B1;&#x8B80;&#x8207;&#x9664;&#x932F;&#x8017;&#x8CBB;&#x6211;&#x5011;&#x8077;&#x6DAF;&#x4E2D;&#x8A31;&#x591A;&#x6642;&#x9593;&#xFF0C;&#x6211;&#x5011;&#x4E0D;&#x6703;&#x5E0C;&#x671B;&#x518D;&#x628A;&#x9019;&#x4E9B;&#x6210;&#x672C;&#x52A0;&#x5287;&#x3002;&#x8B80;&#x5341;&#x884C;&#x7A0B;&#x5F0F;&#x78BC;&#x7E3D;&#x662F;&#x6BD4;&#x8B80;&#x4E00;&#x767E;&#x884C;&#x7A0B;&#x5F0F;&#x78BC;&#x5BB9;&#x6613;&#x3002;</p>
-<p>&#x9019;&#x500B;&#x6307;&#x5C0E;&#x539F;&#x5247;&#xFF0C;&#x5176;&#x5BE6;&#x5C31;&#x662F;&#x5927;&#x5BB6;&#x5E38;&#x8AAA;&#x7684; single-responsibility principle&#x3002;</p>
-<h3 id="&#x96B1;&#x6666;&#x7684;&#x898F;&#x5247;&#x8207;&#x884C;&#x70BA;">&#x96B1;&#x6666;&#x7684;&#x898F;&#x5247;&#x8207;&#x884C;&#x70BA;</h3>
-<p>&#x4F60;&#x53EF;&#x66FE;&#x807D;&#x5230;&#xFF1A;&#x300C;&#x9019;&#x500B; function &#x7684;&#x7B2C;&#x4E94;&#x500B;&#x5F15;&#x6578;&#x5728;&#x7B2C;&#x4E8C;&#x500B;&#x5F15;&#x6578;&#x4E0D;&#x70BA;&#x67D0;&#x67D0;&#x503C;&#x6642;&#x662F;&#x6C92;&#x7528;&#x7684;&#x300D;&#x6216;&#x300C;&#x50B3;&#x5165;&#x9019;&#x500B; function &#x7684;&#x7269;&#x4EF6;&#x5FC5;&#x9808;&#x8981;&#x4F9D;&#x5E8F;&#x7D93;&#x904E;&#x4E00;&#x4E9B;&#x984D;&#x5916;&#x6B65;&#x9A5F;&#x8A2D;&#x5B9A;&#xFF0C;&#x4ED6;&#x7684;&#x884C;&#x70BA;&#x624D;&#x6703;&#x5982;&#x4F60;&#x9810;&#x671F;&#x300D;&#x6216;&#x300C;&#x5728;&#x4F7F;&#x7528;&#x9019;&#x500B; class &#x524D;&#x8981;&#x5148;&#x5C07;&#x67D0;&#x67D0;&#x5168;&#x57DF;&#x8B8A;&#x6578;&#x8A2D;&#x5B9A;&#x70BA;&#x67D0;&#x67D0;&#x503C;&#xFF0C;&#x8A18;&#x5F97;&#x547C;&#x53EB;&#x7D50;&#x675F;&#x5F8C;&#x8981;&#x5C07;&#x5168;&#x57DF;&#x8B8A;&#x6578;&#x9084;&#x539F;&#x300D;&#x9019;&#x4E9B;&#x8AD6;&#x8FF0;&#x90FD;&#x6697;&#x793A;&#x4E86;&#x4E00;&#x4EF6;&#x4E8B;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#x7576;&#x524D;&#x9019;&#x500B;&#x6A21;&#x7D44;&#x96E3;&#x4EE5;&#x7DAD;&#x8B77;&#x8207;&#x4F7F;&#x7528;&#x3002;&#x96B1;&#x6666;&#x7684;&#x884C;&#x70BA;&#x8207;&#x898F;&#x5247;&#x901A;&#x5E38;&#x662F;&#x7531;&#x8026;&#x5408;&#x6027;&#x904E;&#x9AD8;&#x8207;&#x932F;&#x8AA4;&#x7684;&#x62BD;&#x8C61;&#x5C64;&#x7D1A;&#x3001;&#x4E0D;&#x9069;&#x7576;&#x7684;&#x4ECB;&#x9762;&#x8A2D;&#x8A08;&#x9020;&#x6210;&#x3002;&#x6211;&#x5011;&#x90FD;&#x807D;&#x904E; the least knowledge principle&#xFF0C;LKP &#x5F80;&#x5F80;&#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x90A3;&#x662F;&#x7531;&#x65BC;&#x6211;&#x5011;&#x7684;&#x5DE5;&#x4F5C;&#x6A21;&#x5F0F;&#x8207;&#x74B0;&#x5883;&#x3002;</p>
-<p>&#x4E00;&#x822C;&#x4F86;&#x8AAA;&#xFF0C;&#x6211;&#x5011;&#x6703;&#x8A8D;&#x70BA;&#x4E00;&#x500B;&#x54E1;&#x5DE5;&#x61C9;&#x8A72;&#x8A8D;&#x5F97;&#x4ED6;&#x8077;&#x8CAC;&#x7BC4;&#x570D;&#x5167;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x751A;&#x81F3;&#x662F;&#x6574;&#x500B;&#x5718;&#x968A;&#x3001;&#x6574;&#x500B;&#x7522;&#x54C1;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x3002;<br>&#x300C;&#x5982;&#x679C;&#x4F60;&#x4E0D;&#x77E5;&#x9053;&#xFF0C;&#x53EF;&#x4EE5;&#x554F;&#x4EBA;&#x3002;&#x300D;<br>&#x7136;&#x800C;&#x7576;&#x4F60; blame &#x6642;&#xFF0C;&#x4E26;&#x4E0D;&#x662F;&#x6240;&#x6709; commit &#x7684; author &#x90FD;&#x9084;&#x7559;&#x5728;&#x516C;&#x53F8;&#xFF0C;&#x751A;&#x81F3;&#x6709;&#x4E9B;&#x958B;&#x767C;&#x8005;&#x5DF2;&#x7D93;&#x5FD8;&#x8A18;&#x81EA;&#x5DF1;&#x7576;&#x6642;&#x70BA;&#x4F55;&#x8981;&#x9019;&#x6A23;&#x5BEB;&#x3002;&#x6211;&#x5011;&#x770B;&#x5F97;&#x5230;&#x6240;&#x6709;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x537B;&#x4E0D;&#x4EE3;&#x8868;&#x6211;&#x5011;&#x64C1;&#x6709;&#x8A72;&#x7A0B;&#x5F0F;&#x78BC;&#x6240;&#x6709;&#x7684;&#x77E5;&#x8B58;&#x3002;&#x5728;&#x9019;&#x7A2E;&#x72C0;&#x6CC1;&#x4E0B;&#xFF0C;LKP &#x5176;&#x5BE6;&#x8981;&#x6211;&#x5011;&#x8003;&#x616E;&#x7684;&#x662F;&#x4F7F;&#x7528;&#x7A0B;&#x5F0F;&#x78BC;&#x7684;&#x4EBA;&#x3002;&#x90A3;&#x4E9B;&#x904E;&#x65BC;&#x8907;&#x96DC;&#x3001;&#x8026;&#x5408;&#x6027;&#x904E;&#x9AD8;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x6703;&#x6709;&#x9019;&#x4E9B;&#x7279;&#x5FB5;&#xFF1A;</p>
+<p>因此那些需要被重構的程式碼，總是具備某些令人厭惡的特徵讓你萌生重構的念頭。</p>
+<h3 id="重複的程式碼">重複的程式碼</h3>
+<p>重複的程式碼必須被重構的理由在先前的文章已說過，大多數的人以為複製程式碼能夠保留原本功能的正確性，我認為這是一種不負責任的說法。重複的程式碼使軟體行為不一致的風險提高，更提高了維護的成本。被複製的副本越多份，就使得日後它們被合併的成本越高。期望所有的錯誤都被同步修正、正確地修正，也是不切實際的期望。如果你發現重複的程式碼，應該要盡早的合併它們。</p>
+<h3 id="瑞士刀">瑞士刀</h3>
+<p>我們總是喜歡瑞士刀，付一個工具的價格，得到複數個工具的功能。這樣的工具在現實世界或許是主流，我們總是能看到不少多合一、多用途的工具放在貨架上。然而專業領域中，不同的問題需要不同的工具，大眾的家庭廚房恐怕就不只一種刀具了，更何況是餐廳。然而程式碼中，我們卻經常見到如同瑞士刀般的程式碼。一個 function 可能執行了多種計算以至於它長達百行的空間，又或是一個 class 具備了數十種 method。</p>
+<p>clean code 建議我們一個 function 不超過 9 行，這並不是一個鐵則，而是一種指導原則，要求我們讓一個 function 盡其所能的「只做一件事」。有人會問：「瑞士刀般的程式碼為何需要改進？」試想如果你的瑞士刀其中一個小工具壞了，你會怎麼做？我相信很少有人會把其中一個小工具換下來，即使你有的更換的零件。在軟體工程中，這個問題更顯得複雜，一個工程師必須識別這個 function 或 class 到底哪個段落出了問題，閱讀與除錯耗費我們職涯中許多時間，我們不會希望再把這些成本加劇。讀十行程式碼總是比讀一百行程式碼容易。</p>
+<p>這個指導原則，其實就是大家常說的 single-responsibility principle。</p>
+<h3 id="隱晦的規則與行為">隱晦的規則與行為</h3>
+<p>你可曾聽到：「這個 function 的第五個引數在第二個引數不為某某值時是沒用的」或「傳入這個 function 的物件必須要依序經過一些額外步驟設定，他的行為才會如你預期」或「在使用這個 class 前要先將某某全域變數設定為某某值，記得呼叫結束後要將全域變數還原」這些論述都暗示了一件事，那就是當前這個模組難以維護與使用。隱晦的行為與規則通常是由耦合性過高與錯誤的抽象層級、不適當的介面設計造成。我們都聽過 the least knowledge principle，LKP 往往被忽略，那是由於我們的工作模式與環境。</p>
+<p>一般來說，我們會認為一個員工應該認得他職責範圍內的程式碼，甚至是整個團隊、整個產品的程式碼。<br>「如果你不知道，可以問人。」<br>然而當你 blame 時，並不是所有 commit 的 author 都還留在公司，甚至有些開發者已經忘記自己當時為何要這樣寫。我們看得到所有的程式碼，卻不代表我們擁有該程式碼所有的知識。在這種狀況下，LKP 其實要我們考慮的是使用程式碼的人。那些過於複雜、耦合性過高的程式碼會有這些特徵：</p>
 <ul>
-<li>&#x9700;&#x8981;&#x4F9D;&#x8CF4;&#x5927;&#x91CF;&#x7684;&#x6A21;&#x7D44;</li>
-<li>&#x9700;&#x8981;&#x8A31;&#x591A;&#x7684;&#x53C3;&#x6578;&#x6216;&#x6B65;&#x9A5F;&#x624D;&#x80FD;&#x4F7F;&#x7528;</li>
-<li>&#x7279;&#x5B9A;&#x7684;&#x72C0;&#x614B;&#x6216;&#x4F7F;&#x7528;&#x60C5;&#x5883;&#x5C0E;&#x81F4;&#x932F;&#x8AA4;&#x4F46;&#x4E0D;&#x6613;&#x5BDF;&#x89BA;</li>
+<li>需要依賴大量的模組</li>
+<li>需要許多的參數或步驟才能使用</li>
+<li>特定的狀態或使用情境導致錯誤但不易察覺</li>
 </ul>
 
                                 
@@ -597,7 +593,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"論重構 02","level":"1.3.1.2","depth":3,"next":{"title":"C++ detection idiom","level":"1.3.1.3","depth":3,"path":"blog/2022/2022-02-18-cpp-detection-idiom.md","ref":"blog/2022/2022-02-18-cpp-detection-idiom.md","articles":[]},"previous":{"title":"論重構 01","level":"1.3.1.1","depth":3,"path":"blog/2022/2022-01-23-refactoring_01.md","ref":"blog/2022/2022-01-23-refactoring_01.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","sitemap","katex"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://bachelorwang.github.io/"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2022/2022-02-04-refactoring_02.md","mtime":"2022-05-12T14:09:18.559Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-22T13:05:53.024Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"論重構 02","level":"1.3.1.2","depth":3,"next":{"title":"C++ detection idiom","level":"1.3.1.3","depth":3,"path":"blog/2022/2022-02-18-cpp-detection-idiom.md","ref":"blog/2022/2022-02-18-cpp-detection-idiom.md","articles":[]},"previous":{"title":"論重構 01","level":"1.3.1.1","depth":3,"path":"blog/2022/2022-01-23-refactoring_01.md","ref":"blog/2022/2022-01-23-refactoring_01.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["honkit-plugin-sitemap","honkit-plugin-katex"],"pluginsConfig":{"sitemap":{"url":"https://bachelorwang.github.io/"},"honkit-plugin-sitemap":{},"honkit-plugin-katex":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2022/2022-02-04-refactoring_02.md","mtime":"2022-05-12T14:09:18.559Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-05T02:08:53.441Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -607,11 +603,7 @@
     <script src="../../gitbook/theme.js"></script>
     
         
-        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
         
     
         
@@ -627,11 +619,7 @@
         
     
         
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
 

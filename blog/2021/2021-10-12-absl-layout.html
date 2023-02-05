@@ -7,7 +7,7 @@
         <title>abseil - layout · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="GitBook 4.0.4">
         
         
         
@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-katex/katex.min.css">
                 
             
                 
@@ -542,7 +538,7 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x6700;&#x8FD1;&#x958B;&#x59CB;&#x770B; Google &#x7684; <a href="https://github.com/abseil/abseil-cpp" target="_blank">abseil</a> &#x5EAB;&#xFF0C;&#x82E5;&#x5F9E;&#x5BB9;&#x5668;&#x770B;&#x8D77;&#x61C9;&#x8A72;&#x6703;&#x9047;&#x5230; <code>Layout</code>&#x3002;&#x9019;&#x662F; absl &#x5EAB;&#x5167;&#x90E8;&#x7528;&#x4F86;&#x8F14;&#x52A9;&#x8A18;&#x61B6;&#x9AD4;&#x8A08;&#x7B97;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x63A2;&#x8A0E; <code>Layout</code> &#x524D;&#x6211;&#x5011;&#x8981;&#x8A0E;&#x8AD6;&#x5728;&#x958B;&#x767C;&#x4E0A;&#x6211;&#x5011;&#x7D93;&#x5E38;&#x9047;&#x5230;&#x4EC0;&#x9EBC;&#x91CD;&#x8907;&#x6027;&#x4F5C;&#x696D;&#x3002;</p>
+                                <p>最近開始看 Google 的 <a href="https://github.com/abseil/abseil-cpp" target="_blank">abseil</a> 庫，若從容器看起應該會遇到 <code>Layout</code>。這是 absl 庫內部用來輔助記憶體計算的工具，探討 <code>Layout</code> 前我們要討論在開發上我們經常遇到什麼重複性作業。</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">struct</span> SomeStructure {
   <span class="hljs-keyword">int32_t</span> start;
   <span class="hljs-keyword">int32_t</span> end;
@@ -550,14 +546,14 @@
   <span class="hljs-keyword">double</span> distance;
 };
 </code></pre>
-<p>C++ &#x958B;&#x767C;&#x6642;&#xFF0C;&#x6211;&#x5011;&#x7D93;&#x5E38;&#x6703;&#x63A1;&#x7528;&#x9810;&#x5148;&#x914D;&#x7F6E;&#x5927;&#x91CF;&#x8A18;&#x61B6;&#x9AD4;&#x7684;&#x7B56;&#x7565;&#xFF0C;&#x5728;&#x65E5;&#x5F8C;&#x5982;&#x679C;&#x9700;&#x8981;&#x914D;&#x7F6E;&#x96F6;&#x788E;&#x7684;&#x5C0F;&#x7269;&#x4EF6;&#x6642;&#xFF0C;&#x6211;&#x5011;&#x53EA;&#x8981;&#x77E5;&#x9053;&#x5C0F;&#x7269;&#x4EF6;&#x7684;&#x8A18;&#x61B6;&#x9AD4;&#x7A7A;&#x9593;&#xFF0C;&#x5411;&#x8A18;&#x61B6;&#x9AD4;&#x7BA1;&#x7406;&#x5668;&#x7684;&#x8A3B;&#x8A18;&#x5C0D;&#x61C9;&#x5927;&#x5C0F;&#x7684;&#x8A18;&#x61B6;&#x9AD4;&#xFF0C;&#x5C31;&#x4E0D;&#x7528;&#x518D;&#x900F;&#x904E;&#x52D5;&#x614B;&#x914D;&#x7F6E;&#x7684;&#x884C;&#x70BA;&#x91CD;&#x65B0;&#x8981;&#x6C42;&#x52D5;&#x614B;&#x914D;&#x7F6E;&#x3002;&#x4E0D;&#x904E;&#x4E0D;&#x5C11;&#x5DE5;&#x7A0B;&#x5E2B;&#x6703;&#x7B97;&#x932F;&#x8A18;&#x61B6;&#x9AD4;&#xFF0C;&#x4F8B;&#x5982; <code>SomeStructure</code>&#xFF1A;</p>
+<p>C++ 開發時，我們經常會採用預先配置大量記憶體的策略，在日後如果需要配置零碎的小物件時，我們只要知道小物件的記憶體空間，向記憶體管理器的註記對應大小的記憶體，就不用再透過動態配置的行為重新要求動態配置。不過不少工程師會算錯記憶體，例如 <code>SomeStructure</code>：</p>
 <ol>
-<li><code>SomeStructure</code>&#x7684;&#x5927;&#x5C0F;&#x662F;&#x591A;&#x5C11;&#x5462;&#xFF1F;</li>
-<li><code>distance</code> &#x5728;&#x8A72;&#x7D50;&#x69CB;&#x4E2D;&#x7684; offset &#x70BA;&#x4F55;&#xFF1F;</li>
+<li><code>SomeStructure</code>的大小是多少呢？</li>
+<li><code>distance</code> 在該結構中的 offset 為何？</li>
 </ol>
-<p>&#x5FC3;&#x60F3; <code>int32_t</code> &#x70BA; 4 bytes&#xFF0C;<code>double</code> &#x70BA; 8 bytes&#xFF0C;&#x90A3;&#x9EBC; <code>SomeStructure</code> &#x7684;&#x5927;&#x5C0F;&#x61C9;&#x8A72;&#x662F; 4 * 3 + 8 &#x5427;&#xFF1F;&#x90A3;&#x9EBC;&#x5C31;&#x932F;&#x4E86;&#xFF0C;&#x56E0;&#x70BA;&#x7DE8;&#x8B6F;&#x5668;&#x5BE6;&#x4F5C;&#x70BA;&#x4E86;&#x512A;&#x5316;&#x5B58;&#x53D6;&#xFF0C;&#x6703;&#x5C0D;&#x7D50;&#x69CB;&#x9032;&#x884C; alignment&#x3002;&#x5728;&#x9019;&#x500B;&#x72C0;&#x6CC1;&#x4E0B;&#x6703;&#x53D6;&#x7D50;&#x69CB;&#x4E2D;&#x6B04;&#x4F4D; alignment &#x6700;&#x5927;&#x7684;&#x4F5C;&#x70BA; alignment &#x7684;&#x55AE;&#x4F4D;&#x3002;&#x5728;&#x4E00;&#x4E9B;&#x7DE8;&#x8B6F;&#x5668;&#x4E0A;&#xFF0C;&#x9019;&#x500B; alignment &#x53EF;&#x4EE5;&#x7531;&#x7A0B;&#x5F0F;&#x8A2D;&#x8A08;&#x5E2B;&#x6C7A;&#x5B9A;&#xFF0C;&#x4F8B;&#x5982; <code>#pragma pack(1)</code> &#x5C31;&#x662F;&#x4E00;&#x7A2E;&#x53D6;&#x6D88; padding &#x4F7F;&#x7D50;&#x69CB;&#x7DCA;&#x5BC6;&#x7684;&#x4F5C;&#x6CD5;&#x3002;</p>
-<p>&#x78BA;&#x5BE6;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x7684;&#x72C0;&#x6CC1;&#x4E0B;&#x6211;&#x5011;&#x90FD;&#x6703;&#x76F4;&#x63A5;&#x7528; <code>sizeof</code> &#x53D6;&#x5F97;&#x7D50;&#x69CB;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x4F46;&#x82E5;&#x6211;&#x5011;&#x4E0D;&#x60F3;&#x5B9A;&#x7FA9;&#x7D50;&#x69CB;&#x5462;&#xFF1F;&#x5982;&#x679C;&#x6211;&#x5011;&#x5E0C;&#x671B;&#x5C07;&#x8CC7;&#x6599;&#x7D50;&#x69CB;&#x7684;&#x63CF;&#x8FF0;&#x4F5C;&#x70BA;&#x8CC7;&#x6599;&#x7D50;&#x69CB;&#x8868;&#x793A;&#xFF0C;&#x610F;&#x5473;&#x8457;&#x5B83;&#x662F;&#x53EF;&#x900F;&#x904E;&#x6A21;&#x677F;&#x751F;&#x6210;&#x7684;&#x53EF;&#x8907;&#x7528;&#x7A0B;&#x5F0F;&#x78BC;&#xFF0C;&#x8A72;&#x600E;&#x9EBC;&#x505A;&#x5462;&#xFF1F; absl &#x7684; <code>Layout</code> &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7A2E;&#x89E3;&#x6C7A;&#x65B9;&#x6848;&#x3002;</p>
-<p>&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x770B;&#x770B; absl &#x7684; <a href="https://github.com/abseil/abseil-cpp/blob/master/absl/container/internal/btree.h" target="_blank">btree</a>&#xFF1A;</p>
+<p>心想 <code>int32_t</code> 為 4 bytes，<code>double</code> 為 8 bytes，那麼 <code>SomeStructure</code> 的大小應該是 4 * 3 + 8 吧？那麼就錯了，因為編譯器實作為了優化存取，會對結構進行 alignment。在這個狀況下會取結構中欄位 alignment 最大的作為 alignment 的單位。在一些編譯器上，這個 alignment 可以由程式設計師決定，例如 <code>#pragma pack(1)</code> 就是一種取消 padding 使結構緊密的作法。</p>
+<p>確實，大部分的狀況下我們都會直接用 <code>sizeof</code> 取得結構的大小。但若我們不想定義結構呢？如果我們希望將資料結構的描述作為資料結構表示，意味著它是可透過模板生成的可複用程式碼，該怎麼做呢？ absl 的 <code>Layout</code> 提供了一種解決方案。</p>
+<p>我們可以看看 absl 的 <a href="https://github.com/abseil/abseil-cpp/blob/master/absl/container/internal/btree.h" target="_blank">btree</a>：</p>
 <pre><code class="lang-cpp">  <span class="hljs-keyword">using</span> layout_type = absl::container_internal::Layout&lt;btree_node *, field_type,
                                                        slot_type, btree_node *&gt;;
   <span class="hljs-comment">// Leaves can have less than kNodeSlots values.</span>
@@ -574,9 +570,9 @@
                        <span class="hljs-comment">/*children*/</span> kNodeSlots + <span class="hljs-number">1</span>);
   }
 </code></pre>
-<p><code>layout_type(1, 2, 3, 4)</code> &#x4EE3;&#x8868;&#x9019;&#x500B;&#x8A18;&#x61B6;&#x9AD4;&#x4E2D;&#x7B2C;&#x4E00;&#x500B;&#x6B04;&#x4F4D;&#x578B;&#x5225;&#x662F;<code>btree_node *</code>&#x3001;&#x7B2C;&#x4E8C;&#x81F3;&#x4E09;&#x500B;&#x6B04;&#x4F4D;&#x578B;&#x5225;&#x662F; <code>field_type</code>&#xFF0C;&#x4EE5;&#x6B64;&#x985E;&#x63A8;&#x2026;&#x2026; constructor &#x50B3;&#x5165;&#x7684;&#x53C3;&#x6578;&#x4EE3;&#x8868; template parameter &#x5C0D;&#x61C9;&#x4F4D;&#x7F6E;&#x7684;&#x578B;&#x5225;&#x4F9D;&#x5E8F;&#x5171;&#x6709;&#x5E7E;&#x500B;&#x6B04;&#x4F4D;&#x3002;&#x56E0;&#x6B64;&#x9019;&#x500B;&#x7269;&#x4EF6;&#x5171;&#x6709; 10 &#x500B;&#x6B04;&#x4F4D;&#x3002;<code>Layout</code> &#x907F;&#x514D;&#x7A0B;&#x5F0F;&#x8A2D;&#x8A08;&#x5E2B;&#x70BA;&#x4E86;&#x6548;&#x80FD;&#x3001;&#x5BA2;&#x88FD;&#x5316;&#x64B0;&#x5BEB;&#x904E;&#x591A;&#x76F8;&#x4F3C;&#x53C8;&#x95DC;&#x4FC2;&#x8907;&#x96DC;&#x7684;&#x578B;&#x5225;&#xFF0C;&#x63D0;&#x4F9B;&#x4ECB;&#x9762;&#x4FBF;&#x65BC;&#x958B;&#x767C;&#x8005;&#x76F4;&#x63A5;&#x5C0D;&#x8A18;&#x61B6;&#x9AD4;&#x9032;&#x884C;&#x64CD;&#x4F5C;&#x3001;&#x4E26;&#x907F;&#x514D;&#x5DE5;&#x7A0B;&#x5E2B;&#x5728;&#x8655;&#x7406; alignment&#x3001;size &#x8A08;&#x7B97;&#x4E0A;&#x82B1;&#x8CBB;&#x592A;&#x591A;&#x5FC3;&#x601D;&#x3002;</p>
-<p>&#x5C31;&#x6A39;&#x4F86;&#x8AAA;&#xFF0C;&#x81F3;&#x5C11; leaf &#x4E0D;&#x9808;&#x7D00;&#x9304; <code>children</code> &#x800C;&#x7BC0;&#x9EDE;&#x7684;&#x6578;&#x91CF;&#x4E5F;&#x53EF;&#x4EE5;&#x518D;&#x4F5C;&#x8ABF;&#x6574;&#x3002;&#x5C0D;&#x65BC;&#x4E2D;&#x9593;&#x7684;&#x7BC0;&#x9EDE;&#x4F86;&#x8AAA;&#x5C31;&#x5FC5;&#x9808;&#x8A18;&#x9304;&#x5B50;&#x7BC0;&#x9EDE;&#x7684;&#x6578;&#x91CF;&#x3002;&#x6B64;&#x6642;&#x6C92;&#x6709;&#x5FC5;&#x8981;&#x9032;&#x884C;&#x518D;&#x8A2D;&#x8A08;<code>LeafLayout</code> &#x8207; <code>InternalLayout</code>&#x3002;&#x82E5;&#x8981;&#x518D;&#x8209;&#x4E00;&#x500B;&#x66F4;&#x7C21;&#x55AE;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x60F3;&#x60F3;&#x82E5;&#x8981;&#x8A2D;&#x8A08;&#x4E8C;&#x7DAD;&#x5411;&#x91CF;&#x3001;&#x4E09;&#x7DAD;&#x5411;&#x91CF;&#x7684;&#x7D50;&#x69CB;&#x6703;&#x600E;&#x9EBC;&#x505A;&#xFF1F;&#x4E5F;&#x8A31;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x900F;&#x904E; <code>std::tuple</code>&#xFF0C;&#x4F46;&#x82E5;&#x80FD;&#x5920; in-place &#x53EA;&#x662F;&#x5C07; <code>Layout</code> &#x5207;&#x63DB;&#x662F;&#x5426;&#x66F4;&#x7C21;&#x4FBF;&#xFF1F;</p>
-<p><code>Layout</code>&#x7684;&#x5BE6;&#x4F5C;&#x7528;&#x4E0A;&#x4E86;&#x4E0D;&#x5C11; template &#x7684;&#x6280;&#x5DE7;&#xFF0C;&#x6211;&#x9019;&#x908A;&#x5BEB;&#x4E86;&#x4E00;&#x500B;&#x8FF7;&#x4F60;&#x7248;&#x7684;&#xFF1A;</p>
+<p><code>layout_type(1, 2, 3, 4)</code> 代表這個記憶體中第一個欄位型別是<code>btree_node *</code>、第二至三個欄位型別是 <code>field_type</code>，以此類推…… constructor 傳入的參數代表 template parameter 對應位置的型別依序共有幾個欄位。因此這個物件共有 10 個欄位。<code>Layout</code> 避免程式設計師為了效能、客製化撰寫過多相似又關係複雜的型別，提供介面便於開發者直接對記憶體進行操作、並避免工程師在處理 alignment、size 計算上花費太多心思。</p>
+<p>就樹來說，至少 leaf 不須紀錄 <code>children</code> 而節點的數量也可以再作調整。對於中間的節點來說就必須記錄子節點的數量。此時沒有必要進行再設計<code>LeafLayout</code> 與 <code>InternalLayout</code>。若要再舉一個更簡單的例子，想想若要設計二維向量、三維向量的結構會怎麼做？也許我們可以透過 <code>std::tuple</code>，但若能夠 in-place 只是將 <code>Layout</code> 切換是否更簡便？</p>
+<p><code>Layout</code>的實作用上了不少 template 的技巧，我這邊寫了一個迷你版的：</p>
 <pre><code class="lang-cpp">template &lt;size_t Size&gt;
 using index_to_size = size_t;
 
@@ -633,7 +629,7 @@ struct layout_impl&lt;std::tuple&lt;TElements...&gt;,
   size_t sizes_[sizeof...(TElements)];
 };
 </code></pre>
-<p>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x6280;&#x5DE7;&#x6709;&#x5169;&#x500B;&#xFF0C;&#x9996;&#x5148;&#x504F;&#x79FB;&#x91CF;&#x3001;&#x5927;&#x5C0F;&#x7684;&#x8A08;&#x7B97;&#x82E5;&#x80FD;&#x5728;&#x7DE8;&#x8B6F;&#x6642;&#x671F;&#x5B8C;&#x6210;&#x90A3;&#x662F;&#x5728;&#x597D;&#x4E0D;&#x904E;&#x7684;&#xFF0C;&#x6211;&#x5011;&#x4E5F;&#x4E0D;&#x60F3;&#x9020;&#x6210; runtime &#x6642;&#x984D;&#x5916;&#x7684;&#x6210;&#x672C;&#x3002;&#x56E0;&#x6B64; <code>layout_impl</code> &#x7684; constructor &#x5FC5;&#x9808;&#x6709; <code>constexpr</code> &#x4FEE;&#x98FE;&#x3002;&#x7B2C;&#x4E8C;&#x662F;&#x81F3;&#x95DC;&#x91CD;&#x8981;&#x7684;&#x6B04;&#x4F4D;&#x504F;&#x79FB;&#x91CF;&#xFF0C;&#x76F8;&#x8F03; <code>std::tuple</code>&#xFF0C;<code>Layout</code> &#x5141;&#x8A31;&#x6BCF;&#x500B;&#x578B;&#x5225;&#x5177;&#x6709;&#x6578;&#x500B;&#x6B04;&#x4F4D;&#xFF0C;&#x6578;&#x91CF;&#x7684;&#x5DEE;&#x7570;&#x5916;&#x52A0; alignment &#x7684;&#x8003;&#x91CF;&#x8B93;&#x504F;&#x79FB;&#x91CF;&#x7684;&#x8A08;&#x7B97;&#x8907;&#x96DC;&#x8D77;&#x4F86;&#x3002;</p>
+<p>值得注意的技巧有兩個，首先偏移量、大小的計算若能在編譯時期完成那是在好不過的，我們也不想造成 runtime 時額外的成本。因此 <code>layout_impl</code> 的 constructor 必須有 <code>constexpr</code> 修飾。第二是至關重要的欄位偏移量，相較 <code>std::tuple</code>，<code>Layout</code> 允許每個型別具有數個欄位，數量的差異外加 alignment 的考量讓偏移量的計算複雜起來。</p>
 <pre><code class="lang-cpp">  <span class="hljs-keyword">template</span> &lt;<span class="hljs-keyword">size_t</span> TIndex, <span class="hljs-built_in">std</span>::<span class="hljs-keyword">enable_if_t</span>&lt;TIndex == <span class="hljs-number">0</span>, <span class="hljs-keyword">int</span>&gt; = <span class="hljs-number">0</span>&gt;
   <span class="hljs-function"><span class="hljs-keyword">constexpr</span> size_t <span class="hljs-title">offset</span><span class="hljs-params">()</span> <span class="hljs-keyword">const</span> </span>{
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
@@ -646,7 +642,7 @@ struct layout_impl&lt;std::tuple&lt;TElements...&gt;,
                  element_alignment&lt;TIndex&gt;::value);
   }
 </code></pre>
-<p><code>Layout</code>&#x70BA; <code>offset</code> &#x5B9A;&#x7FA9;&#x4E86;&#x5169;&#x500B;&#x7248;&#x672C;&#xFF0C;&#x7B2C;&#x4E00;&#x662F;&#x8D77;&#x9EDE;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x7B2C;&#x4E00;&#x7A2E;&#x8CC7;&#x6599;&#x578B;&#x5225;&#x7684;&#x6B04;&#x4F4D;&#x8D77;&#x59CB;&#x504F;&#x79FB;&#x91CF;&#x7406;&#x6240;&#x7576;&#x7136;&#x70BA; 0&#x3002;&#x5982;&#x679C;&#x662F;&#x7B2C; N &#x500B;&#x578B;&#x5225;&#xFF0C;&#x5FC5;&#x9808;&#x662F; N - 1 &#x578B;&#x5225;&#x7684;&#x8D77;&#x59CB;&#x504F;&#x79FB;&#x91CF;&#x52A0;&#x4E0A; N - 1 &#x578B;&#x5225;&#x7684;&#x5BB9;&#x91CF;&#x4E58;&#x4EE5;&#x6578;&#x91CF;&#xFF0C;&#x6700;&#x5F8C;&#x518D;&#x8207; N &#x578B;&#x5225;&#x9032;&#x884C; align&#x3002;&#x9019;&#x4FBF;&#x662F; meta-programming &#x57FA;&#x672C;&#x7684;&#x905E;&#x8FF4;&#x6280;&#x5DE7;&#x4E4B;&#x4E00;&#x3002;</p>
+<p><code>Layout</code>為 <code>offset</code> 定義了兩個版本，第一是起點，也就是第一種資料型別的欄位起始偏移量理所當然為 0。如果是第 N 個型別，必須是 N - 1 型別的起始偏移量加上 N - 1 型別的容量乘以數量，最後再與 N 型別進行 align。這便是 meta-programming 基本的遞迴技巧之一。</p>
 
                                 
                                 </section>
@@ -674,7 +670,7 @@ struct layout_impl&lt;std::tuple&lt;TElements...&gt;,
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"abseil - layout","level":"1.3.2.14","depth":3,"next":{"title":"Algorithm Notes","level":"1.4","depth":1,"path":"algo/README.md","ref":"algo/README.md","articles":[{"title":"basic","level":"1.4.1","depth":2,"path":"algo/basic/README.md","ref":"algo/basic/README.md","articles":[{"title":"next_permutation","level":"1.4.1.1","depth":3,"path":"algo/basic/next_permutation.md","ref":"algo/basic/next_permutation.md","articles":[]},{"title":"KMP algorithm","level":"1.4.1.2","depth":3,"path":"algo/basic/kmp.md","ref":"algo/basic/kmp.md","articles":[]},{"title":"逆序對","level":"1.4.1.3","depth":3,"path":"algo/basic/count_inversions.md","ref":"algo/basic/count_inversions.md","articles":[]}]},{"title":"problems","level":"1.4.2","depth":2,"path":"algo/problems/README.md","ref":"algo/problems/README.md","articles":[{"title":"CF1684D Traps","level":"1.4.2.1","depth":3,"path":"algo/problems/cf1684d.md","ref":"algo/problems/cf1684d.md","articles":[]}]}]},"previous":{"title":"Lua with C++17","level":"1.3.2.13","depth":3,"path":"blog/2021/2021-09-19-lua-and-cpp17.md","ref":"blog/2021/2021-09-19-lua-and-cpp17.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","sitemap","katex"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://bachelorwang.github.io/"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-10-12-absl-layout.md","mtime":"2022-05-12T14:09:18.559Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-22T13:05:53.024Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"abseil - layout","level":"1.3.2.14","depth":3,"next":{"title":"Algorithm Notes","level":"1.4","depth":1,"path":"algo/README.md","ref":"algo/README.md","articles":[{"title":"basic","level":"1.4.1","depth":2,"path":"algo/basic/README.md","ref":"algo/basic/README.md","articles":[{"title":"next_permutation","level":"1.4.1.1","depth":3,"path":"algo/basic/next_permutation.md","ref":"algo/basic/next_permutation.md","articles":[]},{"title":"KMP algorithm","level":"1.4.1.2","depth":3,"path":"algo/basic/kmp.md","ref":"algo/basic/kmp.md","articles":[]},{"title":"逆序對","level":"1.4.1.3","depth":3,"path":"algo/basic/count_inversions.md","ref":"algo/basic/count_inversions.md","articles":[]}]},{"title":"problems","level":"1.4.2","depth":2,"path":"algo/problems/README.md","ref":"algo/problems/README.md","articles":[{"title":"CF1684D Traps","level":"1.4.2.1","depth":3,"path":"algo/problems/cf1684d.md","ref":"algo/problems/cf1684d.md","articles":[]}]}]},"previous":{"title":"Lua with C++17","level":"1.3.2.13","depth":3,"path":"blog/2021/2021-09-19-lua-and-cpp17.md","ref":"blog/2021/2021-09-19-lua-and-cpp17.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["honkit-plugin-sitemap","honkit-plugin-katex"],"pluginsConfig":{"sitemap":{"url":"https://bachelorwang.github.io/"},"honkit-plugin-sitemap":{},"honkit-plugin-katex":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-10-12-absl-layout.md","mtime":"2022-05-12T14:09:18.559Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-05T02:08:53.441Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -684,11 +680,7 @@ struct layout_impl&lt;std::tuple&lt;TElements...&gt;,
     <script src="../../gitbook/theme.js"></script>
     
         
-        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
         
     
         
@@ -704,11 +696,7 @@ struct layout_impl&lt;std::tuple&lt;TElements...&gt;,
         
     
         
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
 

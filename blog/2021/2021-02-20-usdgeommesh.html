@@ -7,7 +7,7 @@
         <title>建立 USD Mesh · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="generator" content="GitBook 4.0.4">
         
         
         
@@ -17,11 +17,7 @@
     
             
                 
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
-                
-            
-                
-                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-katex/katex.min.css">
+                <link rel="stylesheet" href="../../gitbook/honkit-plugin-katex/katex.min.css">
                 
             
                 
@@ -542,7 +538,7 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x5728;&#x6211;&#x958B;&#x59CB;&#x64B0;&#x5BEB;USD&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x6559;&#x5B78;&#x6587;&#x7AE0;&#x6642;&#x5176;&#x5BE6;&#x5C31;&#x5DF2;&#x7D93;&#x8457;&#x624B;&#x958B;&#x767C;<a href="https://github.com/bachelorwang/xpsusd" target="_blank">bachelorwang/xpsusd</a>&#xFF0C;XPS&#x5C0D;&#x6709;&#x5728;&#x63A5;&#x89F8;&#x7C89;&#x7D72;&#x85DD;&#x8853;&#x5275;&#x4F5C;&#x7684;&#x4EBA;&#x61C9;&#x8A72;&#x4E0D;&#x964C;&#x751F;&#xFF0C;&#x5168;&#x540D;&#x662F; Xna Posing Studio &#x524D;&#x8EAB;&#x662F; XNALara&#x3002;&#x7531;&#x65BC;&#x9019;&#x662F;&#x4E0B;&#x73ED;&#x9592;&#x6687;&#x6642;&#x9593;&#x5BEB;&#x7684;&#xFF0C;&#x6211;&#x4E26;&#x6C92;&#x6709;&#x6253;&#x7B97;&#x5B8C;&#x5168;&#x652F;&#x63F4;&#x6240;&#x6709;XPS&#x683C;&#x5F0F;&#x7684;&#x7248;&#x672C;(&#x7279;&#x5225;&#x662F;&#x5728;XPS&#x6C92;&#x6709;&#x516C;&#x958B;&#x539F;&#x59CB;&#x78BC;&#x7684;&#x72C0;&#x6CC1;&#x4E0B;)&#x3002;&#x9019;&#x6B21;&#x7684;&#x6559;&#x5B78;&#x662F;&#x4EE5;&#x8B80;&#x8005;&#x5DF2;&#x7D93;&#x660E;&#x767D;<a href="2021-02-04-first-usd.html">&#x5982;&#x4F55;&#x5EFA;&#x7ACB; USD Stage</a>&#x70BA;&#x524D;&#x63D0;&#x64B0;&#x5BEB;&#x7684;&#x3002;</p>
+                                <p>在我開始撰寫USD一系列的教學文章時其實就已經著手開發<a href="https://github.com/bachelorwang/xpsusd" target="_blank">bachelorwang/xpsusd</a>，XPS對有在接觸粉絲藝術創作的人應該不陌生，全名是 Xna Posing Studio 前身是 XNALara。由於這是下班閒暇時間寫的，我並沒有打算完全支援所有XPS格式的版本(特別是在XPS沒有公開原始碼的狀況下)。這次的教學是以讀者已經明白<a href="2021-02-04-first-usd.html">如何建立 USD Stage</a>為前提撰寫的。</p>
 <pre><code class="lang-cpp">XpsReader reader;
 <span class="hljs-keyword">auto</span> model = reader.readBinaryXps(input_file_path.c_str());
 <span class="hljs-keyword">auto</span> root = UsdSkelRoot::Define(
@@ -550,8 +546,8 @@
   SdfPath::AbsoluteRootPath().AppendChild(XPS_TOKEN-&gt;root)
 );
 </code></pre>
-<p>&#x9996;&#x5148;&#x5C07; XPS &#x6A94;&#x6848;&#x8B80;&#x5165;&#xFF0C;&#x9019;&#x88E1;&#x7684;&#x5BE6;&#x4F5C;&#x7D30;&#x7BC0;&#x5C31;&#x4E0D;&#x8D05;&#x8FF0;&#x3002;<code>UsdSkelRoot::Define</code> &#x50B3;&#x5165;&#x7684;&#x5F15;&#x6578; <code>SdfPath::AbsoluteRootPath().AppendChild(XPS_TOKEN-&gt;root)</code> &#x662F;&#x4E00;&#x500B;&#x8F03;&#x70BA;&#x5F48;&#x6027;&#x7684;&#x5BEB;&#x6CD5;&#xFF0C;<code>SdfPath::AbsoluteRootPath</code> &#x70BA;&#x6211;&#x5011;&#x5B9A;&#x7FA9;&#x4E86;&#x6839;&#x8DEF;&#x5F91;&#x7684;&#x5B57;&#x4E32; <code>&quot;/&quot;</code>&#xFF0C;<code>XPS_TOKEN</code> &#x5247;&#x662F;&#x6211;&#x900F;&#x904E; <code>TF_DEFINE_PRIVATE_TOKENS(&lt;TokenSetName&gt;, [&lt;token&gt;])</code> &#x6240;&#x9810;&#x5148;&#x5B9A;&#x7FA9;&#x7684;&#x5BEB;&#x6CD5;&#xFF0C;&#x5982;&#x6B64;&#x5927;&#x8CBB;&#x5468;&#x7AE0;&#x9664;&#x4E86;&#x6E1B;&#x5C11;&#x5B57;&#x4E32;&#x6210;&#x672C;&#x5916;&#xFF0C;&#x66F4;&#x91CD;&#x8981;&#x7684;&#x662F;&#x5C0D;&#x65BC;&#x8DEF;&#x5F91;&#x7D44;&#x6210;&#x7684;&#x7A0B;&#x5F0F;&#x78BC;&#x53EF;&#x8B80;&#x6027;&#x8207;&#x53EF;&#x7DAD;&#x8B77;&#x6027;&#x6709;&#x6240;&#x63D0;&#x5347;&#x3002;&#x7576;&#x7136;&#x6700;&#x91CD;&#x8981;&#x7684;&#x554F;&#x984C;&#x662F;&#xFF1A;&#x70BA;&#x4F55;&#x8981;&#x5B9A;&#x7FA9; <code>UsdSkelRoot</code>&#xFF1F;&#x9019;&#x500B; schema &#x5C0D;&#x4EFB;&#x4F55;&#x5177;&#x6709; skinning &#x884C;&#x70BA;&#x7684; prim &#x90FD;&#x662F;&#x4E0D;&#x53EF;&#x6216;&#x7F3A;&#x7684;&#xFF0C;&#x8003;&#x616E;&#x5230;&#x672A;&#x4F86;&#x6211;&#x5011;&#x7684;&#x7D42;&#x6975;&#x76EE;&#x6A19;&#x662F;&#x8B93;&#x89D2;&#x8272;&#x52D5;&#x8D77;&#x4F86;&#xFF0C;&#x5728;&#x9019;&#x908A;&#x5C31;&#x5148;&#x5B9A;&#x7FA9; <code>UsdSkelRoot</code>&#x3002;</p>
-<p>&#x4E0B;&#x4E00;&#x6B65;&#x63A5;&#x8457;&#x5C31;&#x662F;&#x5C07; XPS &#x5167;&#x6240;&#x6709;&#x7684; mesh &#x90FD;&#x5EFA;&#x7ACB;&#x5728; stage&#x4E4B;&#x4E2D;&#xFF0C;&#x6211;&#x5011;&#x9032;&#x884C;&#x4E00;&#x500B;&#x904D;&#x6B77;&#x4E26;&#x5B9A;&#x7FA9; <code>UsdGeomMesh</code> &#x7269;&#x4EF6;&#xFF1A;</p>
+<p>首先將 XPS 檔案讀入，這裡的實作細節就不贅述。<code>UsdSkelRoot::Define</code> 傳入的引數 <code>SdfPath::AbsoluteRootPath().AppendChild(XPS_TOKEN-&gt;root)</code> 是一個較為彈性的寫法，<code>SdfPath::AbsoluteRootPath</code> 為我們定義了根路徑的字串 <code>&quot;/&quot;</code>，<code>XPS_TOKEN</code> 則是我透過 <code>TF_DEFINE_PRIVATE_TOKENS(&lt;TokenSetName&gt;, [&lt;token&gt;])</code> 所預先定義的寫法，如此大費周章除了減少字串成本外，更重要的是對於路徑組成的程式碼可讀性與可維護性有所提升。當然最重要的問題是：為何要定義 <code>UsdSkelRoot</code>？這個 schema 對任何具有 skinning 行為的 prim 都是不可或缺的，考慮到未來我們的終極目標是讓角色動起來，在這邊就先定義 <code>UsdSkelRoot</code>。</p>
+<p>下一步接著就是將 XPS 內所有的 mesh 都建立在 stage之中，我們進行一個遍歷並定義 <code>UsdGeomMesh</code> 物件：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span>&amp; xps_mesh : model-&gt;meshes) {
     <span class="hljs-keyword">auto</span> name = xps_mesh.name.empty() ? <span class="hljs-built_in">std</span>::to_string((<span class="hljs-keyword">size_t</span>)&amp;xps_mesh)
                                       : xps_mesh.name;
@@ -559,11 +555,11 @@
     <span class="hljs-keyword">auto</span> mesh = UsdGeomMesh::Define(stage, mesh_path);
 }
 </code></pre>
-<p>&#x9019;&#x88E1;&#x4F86;&#x5230;&#x53E6;&#x4E00;&#x500B;&#x5BB9;&#x6613;&#x5931;&#x6557;&#x7684;&#x74B0;&#x7BC0;&#xFF0C;&#x53EF;&#x80FD;&#x4E0D;&#x5C11;&#x4EBA;&#x95B1;&#x89BD;&#x8F38;&#x51FA;&#x7684; <code>usda</code> &#x6703;&#x767C;&#x73FE;&#x4E00;&#x500B; <code>Mesh</code> &#x4E5F;&#x4E0D;&#x5B58;&#x5728;&#x6216;&#x7E3D;&#x6578;&#x5C0D;&#x4E0D;&#x4E0A;&#x3002;&#x9019;&#x4E26;&#x4E0D;&#x662F;&#x7A0B;&#x5F0F;&#x6709;&#x932F;&#x8AA4;&#xFF0C;&#x800C;&#x662F;&#x5FFD;&#x7565;&#x4E86; USD &#x7684;&#x898F;&#x5247;&#x3002; USD &#x7684;&#x8DEF;&#x5F91;&#x7BC0;&#x9EDE;&#x4E0D;&#x5F97;&#x4EE5;&#x6578;&#x5B57;&#x958B;&#x982D;&#x4E5F;&#x4E0D;&#x5141;&#x8A31;&#x4E0D;&#x5408;&#x6CD5;&#x7684;&#x5B57;&#x5143;&#xFF0C;&#x96D6;&#x7136;&#x8AAA;&#x6211;&#x5011;&#x53EF;&#x4EE5;&#x900F;&#x904E;&#x700F;&#x89BD;&#x5B98;&#x65B9;&#x6587;&#x4EF6;&#x5F97;&#x77E5;&#x5B8C;&#x6574;&#x7684;&#x8DEF;&#x5F91;&#x898F;&#x5247;&#xFF0C;&#x4F46;&#x81EA;&#x5DF1;&#x8F49;&#x63DB;&#x4ECD;&#x662F;&#x4E00;&#x9805;&#x82E6;&#x6D3B;&#x3002;&#x6240;&#x5E78; USD &#x5DF2;&#x7D93;&#x63D0;&#x4F9B;&#x4E86;&#x9019;&#x6A23;&#x7684;&#x5DE5;&#x5177;&#xFF1A;</p>
+<p>這裡來到另一個容易失敗的環節，可能不少人閱覽輸出的 <code>usda</code> 會發現一個 <code>Mesh</code> 也不存在或總數對不上。這並不是程式有錯誤，而是忽略了 USD 的規則。 USD 的路徑節點不得以數字開頭也不允許不合法的字元，雖然說我們可以透過瀏覽官方文件得知完整的路徑規則，但自己轉換仍是一項苦活。所幸 USD 已經提供了這樣的工具：</p>
 <pre><code class="lang-cpp"><span class="hljs-keyword">if</span> (!TfIsValidIdentifier(name))
       name = TfMakeValidIdentifier(name);
 </code></pre>
-<p>&#x89E3;&#x6C7A;&#x8DEF;&#x5F91;&#x554F;&#x984C;&#x5F8C;&#x6211;&#x5011;&#x9084;&#x5F97;&#x70BA; mesh &#x586B;&#x5145;&#x5167;&#x5BB9;&#x624D;&#x884C;&#xFF0C;<code>UsdGeomMesh</code> schema &#x5DF2;&#x7D93;&#x5B9A;&#x7FA9;&#x4E86;&#x5FC5;&#x8981;&#x7684; attribute&#xFF0C;&#x6700;&#x4F4E;&#x9650;&#x5EA6;&#x53EA;&#x8981;&#x5B8C;&#x6210;&#x9802;&#x9EDE;&#x5EA7;&#x6A19;&#x8207;&#x9762;&#x5C31;&#x80FD;&#x770B;&#x5230; mesh&#xFF0C;&#x9996;&#x5148;&#x662F;&#x9802;&#x9EDE;&#x3002;</p>
+<p>解決路徑問題後我們還得為 mesh 填充內容才行，<code>UsdGeomMesh</code> schema 已經定義了必要的 attribute，最低限度只要完成頂點座標與面就能看到 mesh，首先是頂點。</p>
 <pre><code class="lang-cpp">VtVec3fArray positions(xps_mesh.vertices.size());
 GfRange3f extent;
 for (size_t i = 0; i &lt; positions.size(); ++i) {
@@ -574,7 +570,7 @@ VtVec3fArray extent_arr({extent.GetMin(), extent.GetMax()});
 mesh.CreateExtentAttr().Set(extent_arr);
 mesh.CreatePointsAttr().Set(positions);
 </code></pre>
-<p>attribute &#x901A;&#x5E38;&#x5177;&#x6709;&#x5169;&#x7A2E;&#x4ECB;&#x9762;&#xFF0C;&#x4EE5; <code>points</code> &#x70BA;&#x4F8B; <code>CreatePointsAttr</code> &#x8207; <code>GetPointsAttr</code> &#x90FD;&#x80FD;&#x9054;&#x6210;&#x6211;&#x5011;&#x8A2D;&#x7F6E; attribute &#x7684;&#x624B;&#x6BB5;&#xFF0C;&#x4F46;&#x5404;&#x81EA;&#x7528;&#x9014;&#x53C8;&#x6709;&#x6240;&#x4E0D;&#x540C;&#x3002;<code>Create</code> &#x5728; USD &#x5B9A;&#x7FA9;&#x4E2D;&#x662F;&#x7DE8;&#x8F2F;&#x884C;&#x70BA;&#xFF0C;&#x82E5; attribute &#x672A;&#x5B9A;&#x7FA9;&#x5247;&#x6703;&#x5B9A;&#x7FA9;&#x4E00;&#x500B;&#xFF0C;&#x4F46;&#x5728;&#x591A;&#x7DDA;&#x7A0B;&#x4F5C;&#x696D;&#x4E2D;&#x53EF;&#x80FD;&#x6703;&#x5C0E;&#x81F4;&#x885D;&#x7A81;&#xFF1B;<code>Get</code> &#x5247;&#x662F;&#x552F;&#x7368;&#x7684;&#x624B;&#x6BB5;&#xFF0C;&#x4E26;&#x4E0D;&#x4FDD;&#x8B49; attribute &#x4E00;&#x5B9A;&#x5B58;&#x5728;&#x4F46;&#x4FDD;&#x8B49; thread-safe&#x3002;<code>Create</code> &#x901A;&#x5E38;&#x7528;&#x65BC;&#x6539;&#x5BEB;&#x3001;&#x7522;&#x751F;&#x5834;&#x666F;&#x8CC7;&#x6599;&#xFF0C;&#x800C; <code>Get</code> &#x7528;&#x65BC;&#x8B80;&#x53D6;&#x6216;&#x532F;&#x5165;&#x3002;</p>
+<p>attribute 通常具有兩種介面，以 <code>points</code> 為例 <code>CreatePointsAttr</code> 與 <code>GetPointsAttr</code> 都能達成我們設置 attribute 的手段，但各自用途又有所不同。<code>Create</code> 在 USD 定義中是編輯行為，若 attribute 未定義則會定義一個，但在多線程作業中可能會導致衝突；<code>Get</code> 則是唯獨的手段，並不保證 attribute 一定存在但保證 thread-safe。<code>Create</code> 通常用於改寫、產生場景資料，而 <code>Get</code> 用於讀取或匯入。</p>
 <pre><code class="lang-cpp">assert(xps_mesh.indices.size() % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>);
 <span class="hljs-keyword">const</span> <span class="hljs-keyword">auto</span> face_count = xps_mesh.indices.size() / <span class="hljs-number">3</span>;
 <span class="hljs-function">VtIntArray <span class="hljs-title">indices</span><span class="hljs-params">(face_count * <span class="hljs-number">3</span>)</span></span>;
@@ -589,7 +585,7 @@ mesh.CreatePointsAttr().Set(positions);
 mesh.CreateFaceVertexIndicesAttr().Set(indices);
 mesh.CreateFaceVertexCountsAttr().Set(face_counts);
 </code></pre>
-<p>USD &#x5141;&#x8A31; polygon mesh&#xFF0C;&#x4F46; XPS &#x53EA;&#x6709; triangle mesh &#x72C0;&#x6CC1;&#x8981;&#x55AE;&#x7D14;&#x8A31;&#x591A;&#xFF1B;<code>faceVertexCounts</code> &#x5C6C;&#x6027;&#x662F;&#x5FC5;&#x9808;&#x7684;&#x3002;&#x4E00;&#x65E6;&#x6211;&#x5011;&#x5C07; mesh &#x7684; attribute &#x8A2D;&#x5B9A;&#x5B8C;&#x6210;&#x518D;&#x5132;&#x5B58; stage &#x5C31;&#x80FD;&#x5F97;&#x5230;&#x7D50;&#x679C;&#xFF1A;</p>
+<p>USD 允許 polygon mesh，但 XPS 只有 triangle mesh 狀況要單純許多；<code>faceVertexCounts</code> 屬性是必須的。一旦我們將 mesh 的 attribute 設定完成再儲存 stage 就能得到結果：</p>
 <p><img src="../../assets/2021-02-04-first-usd-kokoro.PNG" alt="result"></p>
 
                                 
@@ -618,7 +614,7 @@ mesh.CreateFaceVertexCountsAttr().Set(face_counts);
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"建立 USD Mesh","level":"1.3.2.6","depth":3,"next":{"title":"Linux Kernel 開發環境設定","level":"1.3.2.7","depth":3,"path":"blog/2021/2021-02-21-build-linux-kernel.md","ref":"blog/2021/2021-02-21-build-linux-kernel.md","articles":[]},"previous":{"title":"建立第一個 USD 場景","level":"1.3.2.5","depth":3,"path":"blog/2021/2021-02-04-first-usd.md","ref":"blog/2021/2021-02-04-first-usd.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["expandable-chapters","sitemap","katex"],"pluginsConfig":{"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sitemap":{"hostname":"https://bachelorwang.github.io/"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-02-20-usdgeommesh.md","mtime":"2022-05-12T14:14:08.258Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-09-22T13:05:53.024Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"建立 USD Mesh","level":"1.3.2.6","depth":3,"next":{"title":"Linux Kernel 開發環境設定","level":"1.3.2.7","depth":3,"path":"blog/2021/2021-02-21-build-linux-kernel.md","ref":"blog/2021/2021-02-21-build-linux-kernel.md","articles":[]},"previous":{"title":"建立第一個 USD 場景","level":"1.3.2.5","depth":3,"path":"blog/2021/2021-02-04-first-usd.md","ref":"blog/2021/2021-02-04-first-usd.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["honkit-plugin-sitemap","honkit-plugin-katex"],"pluginsConfig":{"sitemap":{"url":"https://bachelorwang.github.io/"},"honkit-plugin-sitemap":{},"honkit-plugin-katex":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"blog/2021/2021-02-20-usdgeommesh.md","mtime":"2022-05-12T14:14:08.258Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-05T02:08:53.441Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -628,11 +624,7 @@ mesh.CreateFaceVertexCountsAttr().Set(face_counts);
     <script src="../../gitbook/theme.js"></script>
     
         
-        <script src="../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
         
     
         
@@ -648,11 +640,7 @@ mesh.CreateFaceVertexCountsAttr().Set(face_counts);
         
     
         
-        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        <script src="../../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
         
     
 
